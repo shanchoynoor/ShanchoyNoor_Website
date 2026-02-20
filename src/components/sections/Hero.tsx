@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, type Variants } from 'framer-motion';
+import { MapPin } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import GridOverlay from '@/components/effects/GridOverlay';
 import { HERO } from '@/lib/constants';
@@ -28,15 +29,15 @@ export default function Hero() {
         <section id="hero" className="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
             <GridOverlay />
 
-            {/* Hero Content Container - HUD Style */}
-            <div className="relative z-10 max-w-5xl w-full px-6 grid md:grid-cols-2 gap-12 items-center">
+            {/* Hero Content Container - Aligned with About section width and grid */}
+            <div className="relative z-10 max-w-6xl w-full px-6 grid md:grid-cols-12 gap-12 items-center">
 
-                {/* Left Column: Text Data */}
+                {/* Left Column: Identity Packet and Prose (7/12 cols to match About) */}
                 <motion.div
                     initial="hidden"
                     animate="show"
                     transition={{ staggerChildren: 0.1 }}
-                    className="space-y-6"
+                    className="md:col-span-7 space-y-6"
                 >
                     {/* Status Badge */}
                     <motion.div variants={textReveal} className="inline-flex items-center gap-2 px-3 py-1 border border-accent-dim bg-bg-panel/50 backdrop-blur-sm rounded-none">
@@ -108,8 +109,16 @@ export default function Hero() {
                                 <p className="font-tech text-[10px] md:text-xs text-accent-primary tracking-[0.2em] font-medium uppercase">
                                     {HERO.eyebrow}
                                 </p>
-                                <div className="mt-1 font-tech text-[7px] text-text-dim opacity-40">
-                             // BIOMETRIC_ID: SPH.0892.ALPHA
+                                <div className="mt-2 flex flex-col gap-1.5 items-center md:items-start">
+                                    <div className="flex items-center gap-1.5 font-tech text-[10px] text-accent-primary/70 uppercase tracking-widest">
+                                        <MapPin size={10} className="text-accent-primary animate-pulse" />
+                                        Dhaka, Bangladesh
+                                    </div>
+                                    <div className="font-tech text-[7px] text-text-dim opacity-40 tracking-tight leading-relaxed">
+                                // MIRPUR_DOHS_DHAKA.ZONE_4
+                                        <br />
+                                // LAT: 23.8340 // LONG: 90.3620
+                                    </div>
                                 </div>
                             </motion.div>
                         </div>
@@ -132,8 +141,8 @@ export default function Hero() {
                     </motion.div>
                 </motion.div>
 
-                {/* Right Column: Visual Data Representation (Working Projects) */}
-                <div className="hidden md:flex flex-col items-end relative h-[420px] w-full pr-4 lg:pr-12">
+                {/* Right Column: Visual Data Representation (Working Projects) (5/12 cols to match About) */}
+                <div className="hidden md:flex flex-col items-end relative h-[420px] md:col-span-5 pr-4 lg:pr-12">
                     {/* Decorative HUD Elements - Fixed to right side */}
                     <div className="absolute top-0 right-0 w-[1px] h-20 bg-accent-primary/40" />
                     <div className="absolute top-20 right-0 w-4 h-[1px] bg-accent-primary/40" />

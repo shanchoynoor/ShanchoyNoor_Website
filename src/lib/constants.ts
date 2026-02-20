@@ -22,7 +22,7 @@ export const NAV_LINKS: NavLink[] = [
 // ─── Hero ───
 export const HERO = {
     statusBadge: 'Available for select global opportunities',
-    eyebrow: 'FRONTEND ENGINEER  ·  AI SYSTEMS  ·  PRODUCT THINKING',
+    eyebrow: 'FRONTEND & AI DEVELOPER · ENTREPRENEUR',
     firstName: 'Shanchoy',
     lastName: 'Noor',
     tagline:
