@@ -133,20 +133,20 @@ export default function Hero() {
                 </motion.div>
 
                 {/* Right Column: Visual Data Representation (Working Projects) */}
-                <div className="hidden md:block relative h-[420px] w-full border-l border-border-dim pl-12">
-                    {/* Decorative HUD Elements */}
-                    <div className="absolute top-0 left-0 w-2 h-24 bg-accent-primary" />
-                    <div className="absolute top-24 -left-[1px] w-6 h-px bg-accent-primary" />
-                    <div className="absolute bottom-0 -left-[5px] w-[12px] h-[12px] border border-accent-secondary" />
+                <div className="hidden md:flex flex-col items-end relative h-[420px] w-full pr-4 lg:pr-12">
+                    {/* Decorative HUD Elements - Fixed to right side */}
+                    <div className="absolute top-0 right-0 w-[1px] h-20 bg-accent-primary/40" />
+                    <div className="absolute top-20 right-0 w-4 h-[1px] bg-accent-primary/40" />
+                    <div className="absolute bottom-0 right-0 w-[10px] h-[10px] border border-accent-secondary/50" />
 
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
+                        initial={{ opacity: 0, x: 30 }}
+                        animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.5 }}
-                        className="font-tech text-xs text-text-dim space-y-6 opacity-80"
+                        className="font-tech text-xs text-text-dim space-y-6 opacity-80 w-full max-w-sm"
                     >
                         <div className="border-b border-border-dim pb-2 mb-4 flex justify-between items-center">
-                            <span>WORKING_ON</span>
+                            <span className="text-accent-primary">WORKING_ON</span>
                             <span className="text-[10px] opacity-40">ACTIVE_SPRINT: 2025.02</span>
                         </div>
 
