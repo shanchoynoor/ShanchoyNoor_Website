@@ -1,26 +1,231 @@
 @import "tailwindcss";
 
+/* ─── Protocol: STARK Design Tokens ─── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Space / Engineering Environment */
+  --bg-base: #050A10;
+  /* Deeper black */
+  --bg-surface: #0A0F16;
+  --bg-panel: rgba(10, 15, 22, 0.95);
+  --bg-grid: #0F1620;
+
+  /* HUD Colors */
+  --accent-primary: #00F0FF;
+  /* Arc Reactor Cyan */
+  --accent-secondary: #FF2E2E;
+  /* Critical Red */
+  --accent-warning: #FFD700;
+  /* System Warning Gold */
+  --accent-dim: rgba(0, 240, 255, 0.1);
+
+  /* Structures */
+  --border-primary: rgba(0, 240, 255, 0.3);
+  --border-dim: rgba(255, 255, 255, 0.08);
+
+  /* Typography */
+  --text-bright: #E0F7FF;
+  --text-dim: #566D80;
+  --text-code: #00F0FF;
+
+  /* Glows */
+  --glow-primary: 0 0 10px rgba(0, 240, 255, 0.5), 0 0 20px rgba(0, 240, 255, 0.2);
+  --glow-text: 0 0 5px rgba(0, 240, 255, 0.4);
+  --glow-border: 0 0 8px rgba(0, 240, 255, 0.25);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg-base: var(--bg-base);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-panel: var(--bg-panel);
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-warning: var(--accent-warning);
+  --color-border-primary: var(--border-primary);
+  --color-border-dim: var(--border-dim);
+  --color-text-bright: var(--text-bright);
+  --color-text-dim: var(--text-dim);
+
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── Global Reset & Base ─── */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-base);
+  color: var(--text-bright);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  /* Scanline Overlay */
+  background-image:
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 2px, 3px 100%;
+}
+
+/* ─── Typography Utils ─── */
+.font-tech {
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ─── Component: Tech Panel ─── */
+/* The core structural unit. Angled corners, glowing borders. */
+.tech-panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-dim);
+  position: relative;
+  /* Chamfered corners via clip-path */
+  clip-path: polygon(10px 0, 100% 0,
+      100% calc(100% - 10px), calc(100% - 10px) 100%,
+      0 100%, 0 10px);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+  transition: all 0.3s ease;
+}
+
+.tech-panel:hover {
+  border-color: var(--border-primary);
+  box-shadow: inset 0 0 30px rgba(0, 240, 255, 0.05);
+}
+
+/* Corner accents (pseudo-elements) */
+.tech-panel::before,
+.tech-panel::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+/* Top-Left Corner Accent */
+.tech-panel::before {
+  top: 0;
+  left: 0;
+  border-top: 2px solid var(--accent-primary);
+  border-left: 2px solid var(--accent-primary);
+  opacity: 0.5;
+}
+
+/* Bottom-Right Corner Accent */
+.tech-panel::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid var(--accent-primary);
+  border-right: 2px solid var(--accent-primary);
+  opacity: 0.5;
+}
+
+.tech-panel:hover::before,
+.tech-panel:hover::after {
+  opacity: 1;
+  width: 30px;
+  height: 30px;
+  box-shadow: var(--glow-border);
+}
+
+/* ─── Utility: Glitch Text Effect (Hover) ─── */
+@keyframes glitch-skew {
+  0% {
+    transform: skew(0deg);
+  }
+
+  20% {
+    transform: skew(-2deg);
+  }
+
+  40% {
+    transform: skew(2deg);
+  }
+
+  60% {
+    transform: skew(-1deg);
+  }
+
+  80% {
+    transform: skew(1deg);
+  }
+
+  100% {
+    transform: skew(0deg);
+  }
+}
+
+.glitch-hover:hover {
+  animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  color: var(--accent-primary);
+  text-shadow: 2px 0 var(--accent-secondary), -2px 0 var(--accent-warning);
+}
+
+/* ─── Utility: Typing Cursor ─── */
+.typing-cursor::after {
+  content: '_';
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ─── Utility: Marquee Animation ─── */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: inline-flex;
+  gap: 3rem;
+  animation: marquee 20s linear infinite;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-dim);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* ─── Grid Perspective Animation ─── */
+@keyframes grid-move {
+  0% {
+    transform: perspective(1000px) rotateX(60deg) translateY(0) translateZ(-200px);
+  }
+
+  100% {
+    transform: perspective(1000px) rotateX(60deg) translateY(40px) translateZ(-200px);
+  }
+}
+
+@utility animate-grid-move {
+  animation: grid-move 20s linear infinite;
 }
