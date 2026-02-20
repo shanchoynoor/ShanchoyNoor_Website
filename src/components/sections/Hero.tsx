@@ -45,22 +45,22 @@ export default function Hero() {
                     </motion.div>
 
                     {/* Identity Block: Biometric Photo + Name + Title */}
-                    <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+                    <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10 pb-6">
                         {/* Biometric Photo Placeholder */}
                         <motion.div
                             variants={textReveal}
-                            className="relative group w-32 h-40 md:w-36 md:h-44 shrink-0"
+                            className="relative group w-28 h-36 md:w-32 md:h-40 shrink-0"
                         >
                             {/* High-tech frame */}
-                            <div className="absolute inset-0 border border-accent-primary/30 group-hover:border-accent-primary/60 transition-colors" />
-                            <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-accent-primary" />
-                            <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-accent-primary" />
+                            <div className="absolute inset-0 border border-accent-primary/20 group-hover:border-accent-primary/40 transition-colors" />
+                            <div className="absolute -top-1 -left-1 w-2 h-2 border-t-2 border-l-2 border-accent-primary" />
+                            <div className="absolute -bottom-1 -right-1 w-2 h-2 border-b-2 border-r-2 border-accent-primary" />
 
                             {/* Placeholder Content */}
                             <div className="absolute inset-2 bg-accent-primary/5 flex items-center justify-center overflow-hidden">
                                 {/* Central Icon Placeholder */}
-                                <div className="text-accent-primary/20 group-hover:text-accent-primary/40 transition-colors">
-                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5">
+                                <div className="text-accent-primary/10 group-hover:text-accent-primary/25 transition-colors">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5">
                                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                                         <circle cx="12" cy="7" r="4" />
                                     </svg>
@@ -70,29 +70,29 @@ export default function Hero() {
                                 <motion.div
                                     animate={{ top: ['0%', '100%', '0%'] }}
                                     transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
-                                    className="absolute left-0 right-0 h-0.5 bg-accent-primary/40 shadow-[0_0_8px_var(--accent-primary)] z-10"
+                                    className="absolute left-0 right-0 h-px bg-accent-primary/40 shadow-[0_0_8px_var(--accent-primary)] z-10"
                                 />
                             </div>
 
-                            {/* Metadata labels */}
-                            <div className="absolute -right-4 top-2 translate-x-full font-tech text-[8px] text-accent-primary/40 uppercase vertical-text hidden md:block">
+                            {/* Metadata labels - MOVED to left and made more subtle */}
+                            <div className="absolute -left-3 top-2 -translate-x-full font-tech text-[7px] text-accent-primary/30 uppercase vertical-text hidden md:block">
                                 FACIAL_RECOGNITION: READY
                             </div>
                         </motion.div>
 
                         {/* Name and Title Cluster */}
-                        <div className="flex flex-col items-center md:items-start text-center md:text-left">
+                        <div className="flex flex-col items-center md:items-start text-center md:text-left pt-1">
                             <div className="relative">
                                 <motion.h1
                                     variants={textReveal}
-                                    className="font-display text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-text-bright to-text-dim leading-none"
+                                    className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-text-bright to-text-dim leading-none"
                                 >
                                     SHANCHOY
                                     <br />
                                     NOOR
                                 </motion.h1>
                                 {/* Glitch Overlay Text (Decorative) */}
-                                <h1 className="absolute top-0 left-0 font-display text-5xl md:text-7xl font-bold text-accent-primary opacity-10 blur-sm pointer-events-none glitch-hover leading-none" aria-hidden="true">
+                                <h1 className="absolute top-0 left-0 font-display text-4xl md:text-6xl lg:text-7xl font-bold text-accent-primary opacity-10 blur-sm pointer-events-none glitch-hover leading-none" aria-hidden="true">
                                     SHANCHOY
                                     <br />
                                     NOOR
@@ -105,23 +105,23 @@ export default function Hero() {
                                 className="mt-4 flex flex-col items-center md:items-start"
                             >
                                 <div className="h-0.5 w-12 bg-accent-primary/40 mb-3" />
-                                <p className="font-tech text-xs md:text-sm text-accent-primary tracking-[0.2em] font-medium uppercase">
+                                <p className="font-tech text-[10px] md:text-xs text-accent-primary tracking-[0.2em] font-medium uppercase">
                                     {HERO.eyebrow}
                                 </p>
-                                <div className="mt-1 font-tech text-[8px] text-text-dim opacity-40">
+                                <div className="mt-1 font-tech text-[7px] text-text-dim opacity-40">
                              // BIOMETRIC_ID: SPH.0892.ALPHA
                                 </div>
                             </motion.div>
                         </div>
                     </div>
 
-                    <motion.div variants={barExpand} className="h-px w-32 bg-accent-primary origin-left" />
+                    <motion.div variants={barExpand} className="h-px w-24 bg-accent-primary/60 origin-left" />
 
-                    <motion.h2 variants={textReveal} className="font-tech text-lg md:text-xl text-accent-primary max-w-lg leading-tight">
+                    <motion.h2 variants={textReveal} className="font-tech text-base md:text-lg lg:text-xl text-accent-primary max-w-lg leading-tight uppercase tracking-wider">
                         &gt; {HERO.tagline}
                     </motion.h2>
 
-                    <motion.p variants={textReveal} className="text-text-dim text-sm md:text-base max-w-md leading-relaxed opacity-80">
+                    <motion.p variants={textReveal} className="text-text-dim text-xs md:text-sm max-w-md leading-relaxed opacity-70">
                         Architecting high-performance systems. Integrating AI pipelines.
                         Building the next generation of web infrastructure.
                     </motion.p>
