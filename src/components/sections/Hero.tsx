@@ -114,10 +114,8 @@ export default function Hero() {
                                         <MapPin size={10} className="text-accent-primary animate-pulse" />
                                         Dhaka, Bangladesh
                                     </div>
-                                    <div className="font-tech text-[7px] text-text-dim opacity-40 tracking-tight leading-relaxed">
-                                // MIRPUR_DOHS_DHAKA.ZONE_4
-                                        <br />
-                                // LAT: 23.8340 // LONG: 90.3620
+                                    <div className="font-tech text-[8.5px] md:text-[9.5px] text-text-dim opacity-50 tracking-widest leading-relaxed">
+                                        // LAT: 23.8340 // LONG: 90.3620
                                     </div>
                                 </div>
                             </motion.div>
