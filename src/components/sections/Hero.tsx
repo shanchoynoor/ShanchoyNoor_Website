@@ -44,22 +44,75 @@ export default function Hero() {
                         <span className="font-tech text-xs text-text-dim tracking-widest">SYSTEM: ONLINE // AVAILABLE FOR HIRE</span>
                     </motion.div>
 
-                    {/* Main Title */}
-                    <div className="relative">
-                        <motion.h1
+                    {/* Identity Block: Biometric Photo + Name + Title */}
+                    <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+                        {/* Biometric Photo Placeholder */}
+                        <motion.div
                             variants={textReveal}
-                            className="font-display text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-text-bright to-text-dim leading-none"
+                            className="relative group w-32 h-40 md:w-36 md:h-44 shrink-0"
                         >
-                            SHANCHOY
-                            <br />
-                            NOOR
-                        </motion.h1>
-                        {/* Glitch Overlay Text (Decorative) */}
-                        <h1 className="absolute top-0 left-0 font-display text-5xl md:text-7xl font-bold text-accent-primary opacity-10 blur-sm pointer-events-none glitch-hover leading-none" aria-hidden="true">
-                            SHANCHOY
-                            <br />
-                            NOOR
-                        </h1>
+                            {/* High-tech frame */}
+                            <div className="absolute inset-0 border border-accent-primary/30 group-hover:border-accent-primary/60 transition-colors" />
+                            <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-accent-primary" />
+                            <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-accent-primary" />
+
+                            {/* Placeholder Content */}
+                            <div className="absolute inset-2 bg-accent-primary/5 flex items-center justify-center overflow-hidden">
+                                {/* Central Icon Placeholder */}
+                                <div className="text-accent-primary/20 group-hover:text-accent-primary/40 transition-colors">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                        <circle cx="12" cy="7" r="4" />
+                                    </svg>
+                                </div>
+
+                                {/* Animated Scanning Line */}
+                                <motion.div
+                                    animate={{ top: ['0%', '100%', '0%'] }}
+                                    transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+                                    className="absolute left-0 right-0 h-0.5 bg-accent-primary/40 shadow-[0_0_8px_var(--accent-primary)] z-10"
+                                />
+                            </div>
+
+                            {/* Metadata labels */}
+                            <div className="absolute -right-4 top-2 translate-x-full font-tech text-[8px] text-accent-primary/40 uppercase vertical-text hidden md:block">
+                                FACIAL_RECOGNITION: READY
+                            </div>
+                        </motion.div>
+
+                        {/* Name and Title Cluster */}
+                        <div className="flex flex-col items-center md:items-start text-center md:text-left">
+                            <div className="relative">
+                                <motion.h1
+                                    variants={textReveal}
+                                    className="font-display text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-text-bright to-text-dim leading-none"
+                                >
+                                    SHANCHOY
+                                    <br />
+                                    NOOR
+                                </motion.h1>
+                                {/* Glitch Overlay Text (Decorative) */}
+                                <h1 className="absolute top-0 left-0 font-display text-5xl md:text-7xl font-bold text-accent-primary opacity-10 blur-sm pointer-events-none glitch-hover leading-none" aria-hidden="true">
+                                    SHANCHOY
+                                    <br />
+                                    NOOR
+                                </h1>
+                            </div>
+
+                            {/* Repositioned Professional Title */}
+                            <motion.div
+                                variants={textReveal}
+                                className="mt-4 flex flex-col items-center md:items-start"
+                            >
+                                <div className="h-0.5 w-12 bg-accent-primary/40 mb-3" />
+                                <p className="font-tech text-xs md:text-sm text-accent-primary tracking-[0.2em] font-medium uppercase">
+                                    {HERO.eyebrow}
+                                </p>
+                                <div className="mt-1 font-tech text-[8px] text-text-dim opacity-40">
+                             // BIOMETRIC_ID: SPH.0892.ALPHA
+                                </div>
+                            </motion.div>
+                        </div>
                     </div>
 
                     <motion.div variants={barExpand} className="h-px w-32 bg-accent-primary origin-left" />

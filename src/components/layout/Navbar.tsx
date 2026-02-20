@@ -41,7 +41,7 @@ export default function Navbar() {
                 <div className="flex items-center gap-4">
                     <div className="flex items-center gap-2 text-accent-primary">
                         <Power size={18} className="animate-pulse" />
-                        <span className="font-tech text-sm tracking-widest font-bold">SY.NOOR</span>
+                        <span className="font-tech text-sm tracking-widest font-bold">S.NOOR</span>
                     </div>
                     <div className="hidden md:flex flex-col text-[10px] font-tech text-text-dim leading-none">
                         <span>SYS.ONLINE</span>
