@@ -48,14 +48,14 @@ export default function Hero() {
                     <div className="relative">
                         <motion.h1
                             variants={textReveal}
-                            className="font-display text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-text-bright to-text-dim leading-none"
+                            className="font-display text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-text-bright to-text-dim leading-none"
                         >
                             SHANCHOY
                             <br />
                             NOOR
                         </motion.h1>
                         {/* Glitch Overlay Text (Decorative) */}
-                        <h1 className="absolute top-0 left-0 font-display text-6xl md:text-8xl font-bold text-accent-primary opacity-10 blur-sm pointer-events-none glitch-hover leading-none" aria-hidden="true">
+                        <h1 className="absolute top-0 left-0 font-display text-5xl md:text-7xl font-bold text-accent-primary opacity-10 blur-sm pointer-events-none glitch-hover leading-none" aria-hidden="true">
                             SHANCHOY
                             <br />
                             NOOR
@@ -64,11 +64,11 @@ export default function Hero() {
 
                     <motion.div variants={barExpand} className="h-px w-32 bg-accent-primary origin-left" />
 
-                    <motion.h2 variants={textReveal} className="font-tech text-xl md:text-2xl text-accent-primary">
+                    <motion.h2 variants={textReveal} className="font-tech text-lg md:text-xl text-accent-primary max-w-lg leading-tight">
                         &gt; {HERO.tagline}
                     </motion.h2>
 
-                    <motion.p variants={textReveal} className="text-text-dim max-w-md leading-relaxed">
+                    <motion.p variants={textReveal} className="text-text-dim text-sm md:text-base max-w-md leading-relaxed opacity-80">
                         Architecting high-performance systems. Integrating AI pipelines.
                         Building the next generation of web infrastructure.
                     </motion.p>
@@ -79,42 +79,58 @@ export default function Hero() {
                     </motion.div>
                 </motion.div>
 
-                {/* Right Column: Visual Data Representation (Abstract Code/Stats) */}
-                <div className="hidden md:block relative h-[400px] w-full border-l border-border-dim pl-12">
+                {/* Right Column: Visual Data Representation (Working Projects) */}
+                <div className="hidden md:block relative h-[420px] w-full border-l border-border-dim pl-12">
                     {/* Decorative HUD Elements */}
-                    <div className="absolute top-0 left-0 w-2 h-20 bg-accent-primary" />
-                    <div className="absolute top-20 -left-[1px] w-4 h-px bg-accent-primary" />
-                    <div className="absolute bottom-0 -left-[5px] w-[10px] h-[10px] border border-accent-secondary" />
+                    <div className="absolute top-0 left-0 w-2 h-24 bg-accent-primary" />
+                    <div className="absolute top-24 -left-[1px] w-6 h-px bg-accent-primary" />
+                    <div className="absolute bottom-0 -left-[5px] w-[12px] h-[12px] border border-accent-secondary" />
 
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.5 }}
-                        className="font-tech text-xs text-text-dim space-y-2 opacity-70"
+                        className="font-tech text-xs text-text-dim space-y-6 opacity-80"
                     >
-                        <p className="border-b border-border-dim pb-2 mb-4">SYSTEM_DIAGNOSTICS</p>
-                        <div className="flex justify-between">
-                            <span>CORE.CPU</span>
-                            <span className="text-accent-primary">32 THREADS [ACTIVE]</span>
+                        <div className="border-b border-border-dim pb-2 mb-4 flex justify-between items-center">
+                            <span>WORKING_ON</span>
+                            <span className="text-[10px] opacity-40">ACTIVE_SPRINT: 2025.02</span>
                         </div>
-                        <div className="flex justify-between">
-                            <span>MEM.ALLOC</span>
-                            <span className="text-accent-warning">64 GB // OPTIMAL</span>
+
+                        <div className="space-y-4">
+                            <div className="group">
+                                <div className="flex justify-between mb-1">
+                                    <span className="text-accent-primary">[PROJECT.01]</span>
+                                    <span className="text-accent-primary/50 text-[10px]">IN_PROGRESS</span>
+                                </div>
+                                <p className="text-text-bright font-medium text-sm">Choy AI Platform</p>
+                                <p className="text-[10px] tracking-widest text-text-dim/60">NEXT.JS // OPENAI // SUPABASE // DOCKER</p>
+                            </div>
+
+                            <div className="group">
+                                <div className="flex justify-between mb-1">
+                                    <span className="text-accent-secondary">[PROJECT.02]</span>
+                                    <span className="text-accent-secondary/50 text-[10px]">MAINTENANCE</span>
+                                </div>
+                                <p className="text-text-bright font-medium text-sm">AI News Telegram Bot</p>
+                                <p className="text-[10px] tracking-widest text-text-dim/60">PYTHON // TELEGRAM_API // CRON</p>
+                            </div>
                         </div>
-                        <div className="flex justify-between">
-                            <span>NET.UPLINK</span>
-                            <span>10.0 GBIT/S</span>
+
+                        <div className="pt-4 space-y-2 opacity-60">
+                            <p className="text-accent-secondary flex items-center gap-2">
+                                <span className="w-1 h-1 bg-accent-secondary rounded-full animate-pulse" />
+                                AI_ORCHESTRATION: NOMINAL
+                            </p>
+                            <p>[*] REACT_SERVER_COMPONENTS: ENABLED</p>
+                            <p>[*] SYSTEM_LATENCY: 24MS</p>
                         </div>
-                        <br />
-                        <p className="text-accent-secondary">[!] AI_PIPELINE: INITIALIZED</p>
-                        <p>[*] NEXT.JS: V14.2 (TURBO)</p>
-                        <p>[*] REACT: SERVER_COMPONENTS</p>
-                        <p>[*] STACK: TYPESCRIPT_STRICT</p>
 
                         {/* Animated Code Block */}
-                        <div className="mt-8 p-4 bg-bg-surface border border-border-dim font-mono text-[10px] text-text-code overflow-hidden">
-                            <span className="typing-cursor">
-                                warn(user): 'Passive observation detected. Recommend immediate engagement.'
+                        <div className="mt-8 p-4 bg-bg-surface border border-border-dim font-mono text-[9px] text-text-code overflow-hidden relative">
+                            <div className="absolute top-0 right-0 w-12 h-[1px] bg-accent-primary/20" />
+                            <span className="typing-cursor block leading-normal">
+                                warn(user): 'Efficiency critical. Executing optimized sequence.'_
                             </span>
                         </div>
                     </motion.div>
