@@ -39,78 +39,81 @@ export default function LoadingScreen() {
                     </div>
 
                     {/* CENTRAL TECH SINGULARITY */}
-                    <div className="relative w-40 h-40 flex items-center justify-center">
-                        {/* Outer Geometric Ring */}
+                    <div className="relative w-24 h-24 flex items-center justify-center">
+                        {/* Outer Telemetry Ring */}
                         <motion.div
                             animate={{ rotate: 360 }}
-                            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                            className="absolute inset-0 border-[1px] border-dashed border-accent-primary/30 rounded-full"
-                        />
+                            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                            className="absolute inset-0 border-[0.5px] border-accent-primary/20 rounded-full"
+                        >
+                            {/* Static Markers */}
+                            {[0, 90, 180, 270].map((angle) => (
+                                <div
+                                    key={angle}
+                                    style={{ transform: `rotate(${angle}deg)` }}
+                                    className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-1 bg-accent-primary/40"
+                                />
+                            ))}
+                        </motion.div>
 
-                        {/* Middle Tech Ring */}
+                        {/* Rotating Data Ring */}
                         <motion.div
                             animate={{ rotate: -360 }}
-                            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                            className="absolute inset-4 border-[2px] border-t-accent-primary border-r-transparent border-b-accent-primary/10 border-l-transparent rounded-full"
+                            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                            className="absolute inset-2 border-[1px] border-t-accent-primary/60 border-r-transparent border-b-transparent border-l-transparent rounded-full"
                         />
 
-                        {/* Inner Pulse Ring */}
+                        {/* Middle Tech Ring - Fragmented */}
+                        <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+                            className="absolute inset-5 border-[1px] border-t-accent-secondary/30 border-r-transparent border-b-accent-secondary/30 border-l-transparent rounded-full opacity-40"
+                        />
+
+                        {/* Core Singularity - Small & Sharp */}
                         <motion.div
                             animate={{
                                 scale: [1, 1.2, 1],
-                                opacity: [0.3, 0.6, 0.3]
+                                opacity: [0.7, 1, 0.7]
+                            }}
+                            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                            className="w-1.5 h-1.5 bg-accent-primary rounded-full z-20 shadow-[0_0_10px_#00F0FF]"
+                        />
+
+                        {/* Scanning HUD Line */}
+                        <motion.div
+                            animate={{
+                                top: ["10%", "90%", "10%"]
                             }}
                             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute inset-10 border-[1px] border-accent-secondary/40 rounded-full bg-accent-secondary/5 shadow-[0_0_15px_rgba(255,46,46,0.2)]"
-                        />
-
-                        {/* Core Singularity */}
-                        <motion.div
-                            animate={{
-                                scale: [1, 1.5, 1],
-                                boxShadow: [
-                                    "0 0 10px #00F0FF",
-                                    "0 0 30px #00F0FF",
-                                    "0 0 10px #00F0FF"
-                                ]
-                            }}
-                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                            className="w-2 h-2 bg-accent-primary rounded-full z-20"
-                        />
-
-                        {/* Scanning Line Effect */}
-                        <motion.div
-                            animate={{
-                                top: ["0%", "100%", "0%"]
-                            }}
-                            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                            className="absolute left-0 right-0 h-px bg-accent-primary/10 shadow-[0_0_5px_#00F0FF] z-10"
+                            className="absolute left-[-10%] right-[-10%] h-[0.5px] bg-accent-primary/20 shadow-[0_0_8px_rgba(0,240,255,0.4)] z-10"
                         />
                     </div>
 
-                    {/* STATUS MESSAGE */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: [0.4, 1, 0.4] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                        className="mt-12 flex flex-col items-center gap-2"
-                    >
-                        <span className="font-tech text-[10px] tracking-[0.4em] text-accent-primary uppercase">
-                            INITIALIZING_STARK_INTERFACE
-                        </span>
-                        <div className="flex gap-1 h-[2px]">
-                            {[0, 1, 2].map((i) => (
-                                <motion.div
-                                    key={i}
-                                    animate={{
-                                        backgroundColor: ["#00F0FF", "rgba(0,240,255,0.1)", "#00F0FF"]
-                                    }}
-                                    transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.2 }}
-                                    className="w-8"
-                                />
-                            ))}
+                    {/* STATUS MESSAGE - Professional & Minimal */}
+                    <div className="mt-10 flex flex-col items-center gap-3">
+                        <motion.div
+                            animate={{ opacity: [0.4, 1, 0.4] }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                            className="flex items-center gap-3"
+                        >
+                            <span className="w-1 h-1 bg-accent-secondary rounded-full animate-pulse" />
+                            <span className="font-tech text-[8px] tracking-[0.5em] text-text-bright/60 uppercase">
+                                SYNCING_NEURAL_INTERFACE
+                            </span>
+                        </motion.div>
+
+                        {/* Cinematic Minimal Progress */}
+                        <div className="w-32 h-[1px] bg-white/5 relative overflow-hidden">
+                            <motion.div
+                                animate={{
+                                    left: ["-100%", "100%"]
+                                }}
+                                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                                className="absolute top-0 bottom-0 w-1/2 bg-gradient-to-r from-transparent via-accent-primary/40 to-transparent"
+                            />
                         </div>
-                    </motion.div>
+                    </div>
                 </motion.div>
             )}
         </AnimatePresence>
