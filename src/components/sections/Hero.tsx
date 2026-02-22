@@ -26,45 +26,59 @@ export default function Hero() {
 
             {/* LAYER 1: BACKGROUND (Deep Space + Earth) */}
             <div className="absolute inset-0 z-0 pointer-events-none py-8 md:py-12">
-                {/* Starfield */}
-                <div className="stars-container">
-                    {stars.map((star) => (
-                        <div
-                            key={star.id}
-                            className="star"
-                            style={{
-                                left: `${star.x}%`,
-                                top: `${star.y}%`,
-                                width: `${star.size}px`,
-                                height: `${star.size}px`,
-                                animationDuration: `${star.duration}s`,
-                                animationDelay: `${Math.random() * 5}s`
-                            }}
-                        />
-                    ))}
-                </div>
+                <div className="relative w-full h-full cockpit-window overflow-hidden rounded-[2rem]">
+                    {/* Starfield */}
+                    <div className="stars-container space-bg">
+                        {stars.map((star) => (
+                            <div
+                                key={star.id}
+                                className="star bg-white rounded-full absolute"
+                                style={{
+                                    left: `${star.x}%`,
+                                    top: `${star.y}%`,
+                                    width: `${star.size}px`,
+                                    height: `${star.size}px`,
+                                    animationDuration: `${star.duration}s`,
+                                    animationDelay: `${Math.random() * 5}s`
+                                }}
+                            />
+                        ))}
+                    </div>
 
-                {/* Orbital Earth */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 1.1, rotate: -5, x: 100, y: 100 }}
-                    animate={{
-                        opacity: 1,
-                        scale: 1,
-                        rotate: 0,
-                        x: [100, 0],
-                        y: [100, 0]
-                    }}
-                    transition={{ duration: 4, ease: 'easeOut' }}
-                    className="absolute -bottom-[15%] -right-[5%] w-[75vw] h-[75vw] max-w-[1100px] max-h-[1100px] rounded-full earth-atmosphere overflow-hidden"
-                >
+                    {/* Sun Flare */}
                     <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 300, repeat: Infinity, ease: "linear" }}
-                        className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-70 mix-blend-screen scale-125"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
-                    <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-black to-transparent opacity-90" />
-                </motion.div>
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 3, delay: 1 }}
+                        className="absolute top-[20%] left-[10%] w-64 h-64 sun-flare rounded-full"
+                    >
+                        {/* Lens Flare Lines */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-px bg-white/40 rotate-45" />
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-px bg-white/20 -rotate-45" />
+                    </motion.div>
+
+                    {/* Horizontal Earth Horizon */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 100 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 4, ease: 'easeOut' }}
+                        className="absolute top-[50%] left-1/2 -translate-x-1/2 w-[200vw] h-[200vw] rounded-full earth-atmosphere overflow-hidden"
+                    >
+                        <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 600, repeat: Infinity, ease: "linear" }}
+                            className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-70 mix-blend-screen"
+                        />
+                        {/* Shadow Gradients for Horizon Depth */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90" />
+                        <div className="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-black to-transparent opacity-80" />
+                        <div className="absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-black to-transparent opacity-80" />
+
+                        {/* Atmospheric Rim Light glow */}
+                        <div className="absolute inset-0 border-[8px] border-accent-primary/20 blur-md rounded-full" />
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[10vh] bg-gradient-to-b from-accent-primary/20 to-transparent blur-2xl" />
+                    </motion.div>
+                </div>
             </div>
 
             {/* LAYER 2 & 3: SPACESHIP WINDOW FRAME & INTERIOR */}
