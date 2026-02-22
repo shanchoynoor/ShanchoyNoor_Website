@@ -304,12 +304,8 @@ export default function Hero() {
                                     </div>
                                 </div>
 
-                                {/* Console Box */}
-                                <div className="mt-8 p-4 bg-black/40 border-r border-b border-accent-primary/30 font-mono text-[9px] text-accent-primary/80 relative overflow-hidden w-fit max-w-full">
-                                    <p className="typing-cursor leading-relaxed">
-                                        warn(user): 'Efficiency critical. Executing optimized sequence.'_
-                                    </p>
-                                </div>
+                                {/* Decorative L-Bracket */}
+                                <div className="mt-auto ml-auto w-16 h-16 border-r-2 border-b-2 border-accent-primary/20" />
                             </div>
                         </motion.div>
                     </div>
