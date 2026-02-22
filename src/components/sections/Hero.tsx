@@ -34,7 +34,7 @@ export default function Hero() {
                     className="hologram-monitor w-full min-h-[85vh] rounded-[3rem] p-6 md:p-14 relative flex items-center overflow-hidden"
                 >
                     {/* BACKGROUND INSIDE MONITOR */}
-                    <div className="absolute inset-0 z-0 pointer-events-none rounded-[3rem] overflow-hidden">
+                    <div className="absolute inset-0 z-0 pointer-events-none rounded-[3rem] overflow-hidden opacity-60">
                         {/* Starfield */}
                         <div className="stars-container relative w-full h-full">
                             {stars.map((star) => (
@@ -64,14 +64,19 @@ export default function Hero() {
                                 y: [100, 0]
                             }}
                             transition={{ duration: 4, ease: 'easeOut' }}
-                            className="absolute -bottom-[5%] -right-[5%] w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] mix-blend-screen"
+                            className="absolute -bottom-[5%] -right-[5%] w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] rounded-full earth-atmosphere overflow-hidden"
                         >
                             <motion.div
                                 animate={{ rotate: 360 }}
                                 transition={{ duration: 300, repeat: Infinity, ease: "linear" }}
-                                style={{ filter: 'contrast(1.2) brightness(0.8)' }}
-                                className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-70 scale-125"
+                                className="absolute inset-0 bg-[url('https://pngimg.com/uploads/earth/earth_PNG39.png')] bg-cover bg-center scale-125"
                             />
+                            {/* Dramatic Atmospheric Rim Glow */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
+                            <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-black to-transparent opacity-70" />
+
+                            {/* Blue atmospheric rim glow instead of solid border */}
+                            <div className="absolute inset-0 border-[8px] border-accent-primary/20 blur-md rounded-full" />
                         </motion.div>
                     </div>
 
