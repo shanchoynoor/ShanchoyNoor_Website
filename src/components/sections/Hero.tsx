@@ -56,12 +56,12 @@ export default function Hero() {
                             y: [100, 0]
                         }}
                         transition={{ duration: 4, ease: 'easeOut' }}
-                        className="absolute -bottom-[5%] -right-[5%] w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] rounded-full earth-atmosphere overflow-hidden"
+                        className="absolute -bottom-[5%] -right-[5%] w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] rounded-full earth-atmosphere overflow-hidden mix-blend-screen"
                     >
                         <motion.div
                             animate={{ rotate: 360 }}
                             transition={{ duration: 300, repeat: Infinity, ease: "linear" }}
-                            className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-70 mix-blend-screen scale-125"
+                            className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-70 scale-125"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
                         <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-black to-transparent opacity-90" />
@@ -72,7 +72,7 @@ export default function Hero() {
             {/* LAYER 2 & 3: SPACESHIP WINDOW FRAME & INTERIOR */}
             <div className="absolute inset-0 z-10 pointer-events-none py-8 md:py-12">
                 {/* Curved Metallic Window Frame */}
-                <div className="absolute inset-0 border-[40px] md:border-[60px] lg:border-[80px] border-bg-base/95 shadow-[inset_0_0_100px_rgba(0,0,0,1),0_0_50px_rgba(0,0,0,0.8)] cockpit-window pointer-events-auto">
+                <div className="absolute inset-0 border-[40px] md:border-[60px] lg:border-[80px] border-[#050A10] shadow-[inset_0_0_100px_rgba(0,0,0,1),0_0_50px_rgba(0,0,0,0.8)] cockpit-window pointer-events-auto">
                     {/* Inner Rim Light Bounce */}
                     <div className="absolute inset-0 border-2 border-accent-primary/10 cockpit-window pointer-events-none" />
 
