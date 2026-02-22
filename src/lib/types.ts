@@ -38,6 +38,15 @@ export interface ExperienceEntry {
     isCurrent?: boolean;
 }
 
+export interface EducationEntry {
+    title: string;
+    institution: string;
+    location: string;
+    period: string;
+    body: string;
+    isCurrent?: boolean;
+}
+
 export interface PhilosophyCard {
     title: string;
     description: string;

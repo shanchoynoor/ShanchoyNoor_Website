@@ -59,7 +59,7 @@ export default function RootLayout({
       lang="en"
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
     >
-      <body>
+      <body suppressHydrationWarning>
         <Navbar />
         <main className="min-h-screen relative z-10 selection:bg-accent-primary selection:text-bg-base">
           <StarkHUD />

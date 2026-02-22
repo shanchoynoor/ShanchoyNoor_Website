@@ -32,9 +32,9 @@ function getNodeCenter(id: string): { x: number; y: number } {
 export default function Architecture() {
     return (
         <section id="architecture" className="py-24 px-6 relative">
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-6xl mx-auto relative z-10">
                 <SectionLabel
-                    label="04"
+                    label="05"
                     title="System Architecture"
                     description={ARCHITECTURE_INTRO}
                 />

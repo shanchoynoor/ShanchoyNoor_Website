@@ -35,7 +35,7 @@ export default function Button({
         clipPath: "polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)"
     };
 
-    const combinedClasses = `${BASE_STYLES} ${VARIANT_STYLES[variant]} px-8 py-4 ${className}`;
+    const combinedClasses = `${BASE_STYLES} ${VARIANT_STYLES[variant]} px-5 py-2.5 ${className}`;
 
     const buttonContent = (
         <>

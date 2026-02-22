@@ -7,7 +7,7 @@ import SectionLabel from '@/components/ui/SectionLabel';
 import TechPanel from '@/components/ui/TechPanel';
 import TechTag from '@/components/ui/TechTag';
 import Button from '@/components/ui/Button';
-import { PROJECTS, PERFORMANCE_METRICS } from '@/lib/constants';
+import { PROJECTS } from '@/lib/constants';
 import { fadeUp, staggerContainer } from '@/lib/animations';
 import type { Project } from '@/lib/types';
 
@@ -15,86 +15,83 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     const [archExpanded, setArchExpanded] = useState(false);
 
     return (
-        <TechPanel sysId={`PROJ.0${index + 1}`} className="group relative overflow-hidden">
-            <div className="grid md:grid-cols-[2fr_1fr] gap-8">
-
-                {/* Left Column: Project Info */}
-                <div>
-                    <div className="flex items-center gap-3 mb-4">
-                        <span className="font-tech text-xs text-accent-primary tracking-widest bg-accent-primary/10 px-2 py-0.5 rounded-sm">
+        <TechPanel sysId={`PROJ.0${index + 1}`} className="group relative overflow-hidden h-full flex flex-col">
+            <div className="flex flex-col h-full">
+                <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-3">
+                        <span className="font-tech text-[10px] text-accent-primary tracking-widest bg-accent-primary/10 px-2 py-0.5 rounded-sm">
                             {project.tag}
                         </span>
                         {project.featuredLabel && (
-                            <span className="font-tech text-xs text-accent-warning tracking-widest border border-accent-warning/30 px-2 py-0.5 rounded-sm">
+                            <span className="font-tech text-[10px] text-accent-warning tracking-widest border border-accent-warning/30 px-2 py-0.5 rounded-sm">
                                 {project.featuredLabel}
                             </span>
                         )}
                     </div>
-
-                    <h3 className="font-display text-2xl md:text-3xl font-bold text-text-bright mb-3 group-hover:text-accent-primary transition-colors">
-                        {project.title}
-                    </h3>
-
-                    {/* Problem Statement - Terminal Block */}
-                    <div className="bg-bg-base border-l-2 border-accent-secondary p-4 mb-6 my-4 font-mono text-xs text-text-dim">
-                        <span className="text-accent-secondary">$ cat problem.log</span>
-                        <br />
-                        <span className="opacity-80">&gt; {project.problemStatement}</span>
-                    </div>
-
-                    <p className="text-text-dim text-sm leading-relaxed mb-6">
-                        {project.description}
-                    </p>
-
-                    {/* Architecture Pipeline Toggle */}
-                    {project.architectureNote && (
-                        <div className="mb-6">
-                            <button
-                                onClick={() => setArchExpanded(!archExpanded)}
-                                className="flex items-center gap-2 text-xs font-tech text-text-dim hover:text-accent-primary transition-colors"
-                            >
-                                <Terminal size={12} />
-                                <span>{archExpanded ? 'HIDE_PIPELINE' : 'VIEW_PIPELINE'}</span>
-                                <ChevronDown size={12} className={`transition-transform duration-300 ${archExpanded ? 'rotate-180' : ''}`} />
-                            </button>
-
-                            <AnimatePresence>
-                                {archExpanded && (
-                                    <motion.div
-                                        initial={{ height: 0, opacity: 0 }}
-                                        animate={{ height: 'auto', opacity: 1 }}
-                                        exit={{ height: 0, opacity: 0 }}
-                                        className="overflow-hidden"
-                                    >
-                                        <div className="mt-3 p-4 bg-bg-surface border border-border-dim rounded-sm font-mono text-[10px] text-text-code">
-                                            <span className="text-accent-dim"># Architecture Flow</span>
-                                            <br />
-                                            {project.architectureNote}
-                                        </div>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </div>
-                    )}
-
-                    <div className="flex flex-wrap gap-2 mb-8">
-                        {project.tech.map((t) => (
-                            <TechTag key={t} label={t} variant={project.isFeatured ? 'featured' : 'default'} />
-                        ))}
-                    </div>
-
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-2">
                         {project.liveUrl && (
-                            <Button variant="primary" href={project.liveUrl} className="px-6 py-2 text-xs">
+                            <Button variant="primary" href={project.liveUrl} className="px-3 py-1 text-[9px]">
                                 LIVE_DEMO
                             </Button>
                         )}
                         {project.githubUrl && (
-                            <Button variant="ghost" href={project.githubUrl} className="px-6 py-2 text-xs">
+                            <Button variant="ghost" href={project.githubUrl} className="px-3 py-1 text-[9px]">
                                 SOURCE_CODE
                             </Button>
                         )}
                     </div>
+                </div>
+
+                <h3 className="font-display text-xl font-bold text-text-bright mb-2 group-hover:text-accent-primary transition-colors">
+                    {project.title}
+                </h3>
+
+                {/* Problem Statement - Terminal Block */}
+                <div className="bg-bg-base border-l-2 border-accent-secondary p-3 mb-4 my-2 font-mono text-[10px] text-text-dim">
+                    <span className="text-accent-secondary">$ cat problem.log</span>
+                    <br />
+                    <span className="opacity-80">&gt; {project.problemStatement}</span>
+                </div>
+
+                <p className="text-text-dim text-xs leading-relaxed mb-4 flex-grow">
+                    {project.description}
+                </p>
+
+                {/* Architecture Pipeline Toggle */}
+                {project.architectureNote && (
+                    <div className="mb-4">
+                        <button
+                            onClick={() => setArchExpanded(!archExpanded)}
+                            className="flex items-center gap-2 text-[10px] font-tech text-text-dim hover:text-accent-primary transition-colors"
+                        >
+                            <Terminal size={10} />
+                            <span>{archExpanded ? 'HIDE_PIPELINE' : 'VIEW_PIPELINE'}</span>
+                            <ChevronDown size={10} className={`transition-transform duration-300 ${archExpanded ? 'rotate-180' : ''}`} />
+                        </button>
+
+                        <AnimatePresence>
+                            {archExpanded && (
+                                <motion.div
+                                    initial={{ height: 0, opacity: 0 }}
+                                    animate={{ height: 'auto', opacity: 1 }}
+                                    exit={{ height: 0, opacity: 0 }}
+                                    className="overflow-hidden"
+                                >
+                                    <div className="mt-2 p-3 bg-bg-surface border border-border-dim rounded-sm font-mono text-[9px] text-text-code">
+                                        <span className="text-accent-dim"># Architecture Flow</span>
+                                        <br />
+                                        {project.architectureNote}
+                                    </div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
+                )}
+
+                <div className="flex flex-wrap gap-2 mb-2 mt-auto">
+                    {project.tech.map((t) => (
+                        <TechTag key={t} label={t} variant={project.isFeatured ? 'featured' : 'default'} />
+                    ))}
                 </div>
             </div>
         </TechPanel>
@@ -104,11 +101,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 export default function Projects() {
     return (
         <section id="projects" className="py-24 px-6">
-            <div className="max-w-5xl mx-auto">
-                <SectionLabel label="03" title="Selected Projects" />
+            <div className="max-w-6xl mx-auto relative z-10">
+                <SectionLabel label="03" title="Recent Projects" />
 
                 <motion.div
-                    className="space-y-12 mb-16"
+                    className="grid md:grid-cols-2 gap-8 mb-16"
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: true }}
@@ -121,27 +118,7 @@ export default function Projects() {
                     ))}
                 </motion.div>
 
-                {/* Metrics Strip */}
-                <motion.div
-                    variants={fadeUp}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true }}
-                >
-                    <TechPanel className="flex flex-wrap items-center justify-between gap-6 opacity-80">
-                        <span className="font-tech text-xs text-accent-primary uppercase tracking-widest">
-                            {PERFORMANCE_METRICS.title}
-                        </span>
-                        <div className="flex flex-wrap gap-8">
-                            {PERFORMANCE_METRICS.items.map((item) => (
-                                <span key={item} className="font-mono text-xs text-text-dim flex items-center gap-2">
-                                    <span className="w-1.5 h-1.5 bg-accent-primary" />
-                                    {item}
-                                </span>
-                            ))}
-                        </div>
-                    </TechPanel>
-                </motion.div>
+
             </div>
         </section>
     );

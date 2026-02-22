@@ -4,17 +4,36 @@ import type {
     SkillPanel,
     Project,
     ExperienceEntry,
+    EducationEntry,
     PhilosophyCard,
     ArchitectureNode,
     ContactLink,
     RoleOption,
 } from './types';
 
+// ─── Metadata ───
+export const SITE_METADATA = {
+    title: 'Shanchoy Noor — Frontend Engineer & AI Systems Builder',
+    description:
+        'Frontend engineer specializing in React, Next.js, and TypeScript. Building AI-powered systems and production-grade web applications from Dhaka, Bangladesh.',
+    keywords:
+        'frontend engineer, next.js developer, react developer, AI systems, Dhaka, Bangladesh, available for hire',
+    url: 'https://shanchoynoor.com',
+    social: {
+        github: 'https://github.com/shanchoynoor',
+        linkedin: 'https://linkedin.com/in/shanchoynoor',
+        twitter: 'https://twitter.com/shanchoynoor',
+        facebook: '#',
+        youtube: '#',
+    }
+} as const;
+
 // ─── Navigation ───
 export const NAV_LINKS: NavLink[] = [
     { label: 'About', href: '#about' },
     { label: 'Skills', href: '#skills' },
     { label: 'Projects', href: '#projects' },
+    { label: 'Experiences', href: '#experience' },
     { label: 'Architecture', href: '#architecture' },
     { label: 'Contact', href: '#contact' },
 ];
@@ -41,9 +60,9 @@ export const ABOUT_PARAGRAPHS: string[] = [
 ];
 
 export const ABOUT_STATS: Stat[] = [
-    { value: '8+', label: 'Years of Experience' },
-    { value: '15+', label: 'Projects Shipped' },
-    { value: '95+', label: 'Lighthouse Score Achieved' },
+    { value: '6+', label: 'Years of Experience' },
+    { value: '32+', label: 'Projects Shipped' },
+    { value: '7+', label: 'Countries Served' },
     { value: '3', label: 'AI Systems in Production' },
 ];
 
@@ -141,6 +160,7 @@ export const PROJECTS: Project[] = [
             'Docker',
             'Vercel',
         ],
+        liveUrl: '#',
         isFeatured: true,
     },
     {
@@ -152,6 +172,7 @@ export const PROJECTS: Project[] = [
         description:
             'Automated pipeline that fetches global and Bangladesh news, crypto market movers, and finance headlines on a 6-hour cron schedule. Built with rate-limit-safe architecture and clean formatted output.',
         tech: ['Python', 'GNews API', 'Telegram Bot API', 'Cron Scheduling'],
+        liveUrl: '#',
     },
 ];
 
@@ -201,20 +222,87 @@ export const PHILOSOPHY_CARDS: PhilosophyCard[] = [
 // ─── Experience ───
 export const EXPERIENCE_ENTRIES: ExperienceEntry[] = [
     {
-        title: 'Software Engineer & Frontend Developer',
-        company: 'Software Company — Dhaka, Bangladesh (Confidential)',
-        location: 'Dhaka, Bangladesh',
-        period: '2016 – Present',
-        body: 'Designing and developing web interfaces, frontend systems, and product-facing features in a professional software environment. Collaborated with backend engineers, optimized UI systems for scalability, and delivered client-facing software with measurable performance improvements.',
+        title: 'UI/UX and Frontend Developer',
+        company: 'Iqrasys Solutions Limited',
+        location: '',
+        period: 'September 1, 2019 - Present',
+        body: 'Designed and improved user interfaces and user experiences for various digital products, ensuring high-quality interactive designs.',
         isCurrent: true,
     },
     {
-        title: 'Independent AI Systems Builder',
-        company: 'ChoyGroup · Dhaka, Bangladesh',
+        title: 'Post Production Manager',
+        company: 'Youtube Village',
         location: 'Dhaka, Bangladesh',
-        period: '2022 – Present',
-        body: 'Alongside full-time engineering, independently architected and shipped: Choy AI — modular AI assistant platform built for extensibility and scale. Choy AI Studio — generative AI tooling for text, image, and automation. Automated intelligence systems for news aggregation and crypto market tracking.',
+        period: '2020 - Present',
+        body: 'Managed social media presence and executed video editing tasks to create engaging content and grow online audience.',
         isCurrent: true,
+    },
+    {
+        title: 'Co-Founder and CEO',
+        company: 'Choyzenic',
+        location: 'Dhaka, Bangladesh',
+        period: 'October 2025 - Present',
+        body: 'Led overall strategic vision, operations, and business growth as the Co-Founder and Chief Executive Officer.',
+        isCurrent: true,
+    },
+    {
+        title: 'Artist',
+        company: 'Film & Television Industry, Bangladesh.',
+        location: '',
+        period: 'November 1, 2021 - November 2022',
+        body: 'Worked as an artist in the local film and television industry, contributing to various creative media productions.',
+        isCurrent: false,
+    },
+    {
+        title: 'Assistant Engineer',
+        company: 'Link Line',
+        location: '',
+        period: 'December 2016 - August 2019',
+        body: 'Assisted in engineering tasks, project execution, and oversaw technical operations alongside senior engineers.',
+        isCurrent: false,
+    },
+    {
+        title: 'Founder and CEO',
+        company: 'Techponno.com',
+        location: 'Dhaka, Bangladesh',
+        period: '2016 - 2017',
+        body: 'Founded and managed Techponno.com, taking responsibility for the overall business direction and technical platform.',
+        isCurrent: false,
+    },
+    {
+        title: 'Sub Assistant Engineer',
+        company: 'Optimal Technology Private Limited',
+        location: '',
+        period: 'January 2016 - April 2016',
+        body: 'Provided dedicated engineering support and effectively contributed to technical projects and operations.',
+        isCurrent: false,
+    },
+    {
+        title: 'Web Designer & Graphics Designer',
+        company: 'Upwork & Freelancer',
+        location: 'Dhaka, Bangladesh',
+        period: 'June 2015 - December 2020',
+        body: 'Delivered freelance web design and graphic design services to international clients, managing projects independently.',
+        isCurrent: false,
+    },
+];
+
+// ─── Education & Courses ───
+export const EDUCATION_ENTRIES: EducationEntry[] = [
+    {
+        title: 'B.Sc. in Computer Science',
+        institution: 'University Name — Location',
+        location: 'City, Country',
+        period: '2018 – 2022',
+        body: 'Focused on software engineering, distributed systems, and artificial intelligence. Graduated with honors. Key projects included a machine learning-based recommendation engine.',
+    },
+    {
+        title: 'Advanced AI Systems Certification',
+        institution: 'Tech Institute / Platform',
+        location: 'Online',
+        period: '2023',
+        body: 'Intensive coursework covering LLM orchestration, retrieval-augmented generation (RAG) pipelines, and deployment of containerized AI services.',
+        isCurrent: false,
     },
 ];
 
@@ -230,31 +318,37 @@ export const ROLE_OPTIONS: RoleOption[] = [
     { value: 'other', label: 'Other' },
 ];
 
+
 export const CONTACT_LINKS: ContactLink[] = [
-    { label: 'your@email.com', href: 'mailto:your@email.com', iconName: 'Mail' },
+    { label: 'shanchoy.noor@gmail.com', href: 'mailto:shanchoy.noor@gmail.com', iconName: 'Mail' },
     {
-        label: 'github.com/yourprofile',
-        href: 'https://github.com/yourprofile',
+        label: '/shanchoynoor',
+        href: SITE_METADATA.social.github,
         iconName: 'Github',
     },
     {
-        label: 'linkedin.com/in/yourprofile',
-        href: 'https://linkedin.com/in/yourprofile',
+        label: '/in/shanchoynoor',
+        href: SITE_METADATA.social.linkedin,
         iconName: 'Linkedin',
+    },
+    {
+        label: '/imshanchoynoor',
+        href: SITE_METADATA.social.facebook,
+        iconName: 'Facebook',
+    },
+    {
+        label: '/shanchoynoor',
+        href: SITE_METADATA.social.twitter,
+        iconName: 'Twitter',
+    },
+    {
+        label: '/@shanchoynoor',
+        href: SITE_METADATA.social.youtube,
+        iconName: 'Youtube',
     },
 ];
 
 // ─── Footer ───
 export const FOOTER = {
-    copyright: '© 2025 Shanchoy Noor',
-} as const;
-
-// ─── Metadata ───
-export const SITE_METADATA = {
-    title: 'Shanchoy Noor — Frontend Engineer & AI Systems Builder',
-    description:
-        'Frontend engineer specializing in React, Next.js, and TypeScript. Building AI-powered systems and production-grade web applications from Dhaka, Bangladesh.',
-    keywords:
-        'frontend engineer, next.js developer, react developer, AI systems, Dhaka, Bangladesh, available for hire',
-    url: 'https://shanchoynoor.com',
+    copyright: '© 2026 Shanchoy Noor',
 } as const;

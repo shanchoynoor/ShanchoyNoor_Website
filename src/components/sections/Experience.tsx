@@ -3,62 +3,128 @@
 import { motion } from 'framer-motion';
 import SectionLabel from '@/components/ui/SectionLabel';
 import TechPanel from '@/components/ui/TechPanel';
-import { EXPERIENCE_ENTRIES } from '@/lib/constants';
+import { EXPERIENCE_ENTRIES, EDUCATION_ENTRIES } from '@/lib/constants';
 import { fadeUp, staggerContainer } from '@/lib/animations';
 
 export default function Experience() {
     return (
         <section id="experience" className="py-24 px-6 relative">
-            <div className="max-w-5xl mx-auto">
-                <SectionLabel label="05" title="Mission Logs" />
+            <div className="max-w-6xl mx-auto relative z-10">
+                <SectionLabel label="04" title="Mission Logs" />
 
-                {/* Timeline */}
-                <motion.div
-                    className="relative max-w-4xl ml-auto"
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true }}
-                    variants={staggerContainer}
-                >
-                    {/* Vertical Track */}
-                    <div className="absolute left-0 top-0 bottom-0 w-px bg-border-dim" />
+                <div className="grid md:grid-cols-2 gap-16 mt-8">
+                    {/* Left Column: Work Experience */}
+                    <div>
+                        <div className="flex items-center gap-2 mb-10 pl-6">
+                            <span className="w-1.5 h-1.5 bg-accent-primary" />
+                            <h3 className="font-tech text-sm text-accent-primary tracking-widest uppercase">
+                                // WORK_EXPERIENCE
+                            </h3>
+                        </div>
 
-                    <div className="space-y-12 pl-8">
-                        {EXPERIENCE_ENTRIES.map((entry, i) => (
-                            <motion.div
-                                key={entry.title}
-                                variants={fadeUp}
-                                className="relative"
-                            >
-                                {/* Timeline Node */}
-                                <div className="absolute -left-[39px] top-6 flex items-center justify-center">
-                                    <div className={`w-3 h-3 rounded-none rotate-45 border ${entry.isCurrent ? 'bg-accent-primary border-accent-primary shadow-[0_0_10px_rgba(0,240,255,0.5)]' : 'bg-bg-base border-text-dim'}`} />
-                                    {entry.isCurrent && <div className="absolute w-8 h-8 border border-accent-primary/20 rotate-45 animate-pulse" />}
-                                </div>
+                        <motion.div
+                            className="relative max-w-2xl ml-auto"
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: true }}
+                            variants={staggerContainer}
+                        >
+                            {/* Vertical Track */}
+                            <div className="absolute left-0 top-0 bottom-0 w-px bg-border-dim" />
 
-                                <TechPanel sysId={`LOG.0${i + 1}`} className="group hover:border-accent-primary/50 transition-colors">
-                                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                                        <div>
-                                            <h3 className="font-display text-lg font-bold text-text-bright">
-                                                {entry.title}
-                                            </h3>
-                                            <p className="font-tech text-xs text-text-dim uppercase tracking-wider">
-                                                {entry.company}
+                            <div className="space-y-12 pl-8">
+                                {EXPERIENCE_ENTRIES.map((entry, i) => (
+                                    <motion.div
+                                        key={entry.title}
+                                        variants={fadeUp}
+                                        className="relative"
+                                    >
+                                        {/* Timeline Node */}
+                                        <div className="absolute -left-[39px] top-6 flex items-center justify-center">
+                                            <div className={`w-3 h-3 rounded-none rotate-45 border ${entry.isCurrent ? 'bg-accent-primary border-accent-primary shadow-[0_0_10px_rgba(0,240,255,0.5)]' : 'bg-bg-base border-text-dim'}`} />
+                                        </div>
+
+                                        <TechPanel sysId={`LOG.0${i + 1}`} className="group hover:border-accent-primary/50 transition-colors">
+                                            <div className="flex flex-col xl:flex-row xl:items-center justify-between mb-4 gap-2">
+                                                <div>
+                                                    <h3 className="font-display text-lg font-bold text-text-bright">
+                                                        {entry.title}
+                                                    </h3>
+                                                    <p className="font-tech text-[14px] font-bold text-text-dim uppercase tracking-wider">
+                                                        {entry.company}
+                                                    </p>
+                                                </div>
+                                                <div className="px-2 py-1 bg-bg-surface border border-border-dim font-mono text-[10px] text-text-code whitespace-nowrap self-start xl:self-auto">
+                                                    {entry.period}
+                                                </div>
+                                            </div>
+
+                                            <p className="text-text-dim text-xs leading-relaxed border-l-2 border-border-dim pl-4 group-hover:border-accent-primary/50 transition-colors">
+                                                {entry.body}
                                             </p>
-                                        </div>
-                                        <div className="px-2 py-1 bg-bg-surface border border-border-dim font-mono text-[10px] text-text-code">
-                                            {entry.period}
-                                        </div>
-                                    </div>
-
-                                    <p className="text-text-dim text-sm leading-relaxed border-l-2 border-border-dim pl-4 group-hover:border-accent-primary/50 transition-colors">
-                                        {entry.body}
-                                    </p>
-                                </TechPanel>
-                            </motion.div>
-                        ))}
+                                        </TechPanel>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </motion.div>
                     </div>
-                </motion.div>
+
+                    {/* Right Column: Education & Courses */}
+                    <div>
+                        <div className="flex items-center gap-2 mb-10 pl-6">
+                            <span className="w-1.5 h-1.5 bg-accent-secondary" />
+                            <h3 className="font-tech text-sm text-accent-secondary tracking-widest uppercase">
+                                // ACADEMICS_&_TRAINING
+                            </h3>
+                        </div>
+
+                        <motion.div
+                            className="relative max-w-2xl ml-auto"
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: true }}
+                            variants={staggerContainer}
+                        >
+                            {/* Vertical Track */}
+                            <div className="absolute left-0 top-0 bottom-0 w-px bg-border-dim" />
+
+                            <div className="space-y-12 pl-8">
+                                {EDUCATION_ENTRIES.map((entry, i) => (
+                                    <motion.div
+                                        key={entry.title}
+                                        variants={fadeUp}
+                                        className="relative"
+                                    >
+                                        {/* Timeline Node */}
+                                        <div className="absolute -left-[39px] top-6 flex items-center justify-center">
+                                            <div className={`w-3 h-3 rounded-none rotate-45 border ${entry.isCurrent ? 'bg-accent-secondary border-accent-secondary shadow-[0_0_10px_rgba(255,0,255,0.5)]' : 'bg-bg-base border-text-dim'}`} />
+                                        </div>
+
+                                        <TechPanel sysId={`ACAD.0${i + 1}`} className="group hover:border-accent-secondary/50 transition-colors">
+                                            <div className="flex flex-col xl:flex-row xl:items-center justify-between mb-4 gap-2">
+                                                <div>
+                                                    <h3 className="font-display text-lg font-bold text-text-bright">
+                                                        {entry.title}
+                                                    </h3>
+                                                    <p className="font-tech text-[14px] font-bold text-text-dim uppercase tracking-wider">
+                                                        {entry.institution}
+                                                    </p>
+                                                </div>
+                                                <div className="px-2 py-1 bg-bg-surface border border-border-dim font-mono text-[10px] text-text-code whitespace-nowrap self-start xl:self-auto">
+                                                    {entry.period}
+                                                </div>
+                                            </div>
+
+                                            <p className="text-text-dim text-xs leading-relaxed border-l-2 border-border-dim pl-4 group-hover:border-accent-secondary/50 transition-colors">
+                                                {entry.body}
+                                            </p>
+                                        </TechPanel>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    </div>
+                </div>
             </div>
         </section>
     );

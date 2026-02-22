@@ -2,14 +2,14 @@
 
 import { useState, type FormEvent } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, Send } from 'lucide-react';
+import { Mail, Github, Linkedin, Send, Facebook, Twitter, Youtube } from 'lucide-react';
 import SectionLabel from '@/components/ui/SectionLabel';
 import Button from '@/components/ui/Button';
 import TechPanel from '@/components/ui/TechPanel';
 import { CONTACT_INTRO, ROLE_OPTIONS, CONTACT_LINKS } from '@/lib/constants';
 import { fadeUp, staggerContainer } from '@/lib/animations';
 
-const ICON_MAP: Record<string, React.ElementType> = { Mail, Github, Linkedin };
+const ICON_MAP: Record<string, React.ElementType> = { Mail, Github, Linkedin, Facebook, Twitter, Youtube };
 
 interface FormState {
     name: string;
@@ -78,7 +78,7 @@ export default function Contact() {
 
     return (
         <section id="contact" className="py-24 px-6 pb-32">
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-6xl mx-auto relative z-10">
                 <SectionLabel label="06" title="Initiate Contact" />
 
                 <div className="grid md:grid-cols-[1fr_250px] gap-12">

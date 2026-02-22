@@ -6,6 +6,7 @@ import SectionLabel from '@/components/ui/SectionLabel';
 import TechPanel from '@/components/ui/TechPanel';
 import { SKILL_PANELS } from '@/lib/constants';
 import { fadeUp, staggerContainer } from '@/lib/animations';
+import { ToolIcons } from '@/components/ui/ToolIcons';
 
 const ICON_MAP: Record<string, React.ElementType> = {
     Monitor,
@@ -17,7 +18,7 @@ const ICON_MAP: Record<string, React.ElementType> = {
 export default function Skills() {
     return (
         <section id="skills" className="py-24 px-6">
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-6xl mx-auto relative z-10">
                 <SectionLabel label="02" title="Technical Skills" />
 
                 <motion.div
@@ -59,6 +60,35 @@ export default function Skills() {
                             </motion.div>
                         );
                     })}
+                </motion.div>
+
+                {/* Tool Stack */}
+                <motion.div
+                    className="mt-16"
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                >
+                    <TechPanel className="flex flex-col md:flex-row md:items-center justify-between gap-8 md:gap-6">
+                        <div className="flex items-center gap-3 relative -left-12">
+                            <span className="font-tech text-xs text-accent-primary uppercase tracking-widest whitespace-nowrap">
+                                // DEV_&_DESIGN_TOOLS
+                            </span>
+                        </div>
+                        <div className="flex flex-wrap gap-8 md:gap-10">
+                            {Object.entries(ToolIcons).map(([name, Icon]) => (
+                                <div key={name} className="flex flex-col items-center gap-2 group cursor-default">
+                                    <div className="text-3xl text-text-dim group-hover:scale-110 group-hover:text-text-bright transition-all duration-300 drop-shadow-lg">
+                                        <Icon />
+                                    </div>
+                                    <span className="font-tech text-[9px] text-text-dim/60 uppercase tracking-widest group-hover:text-accent-primary transition-colors duration-300">
+                                        {name}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
+                    </TechPanel>
                 </motion.div>
             </div>
         </section>

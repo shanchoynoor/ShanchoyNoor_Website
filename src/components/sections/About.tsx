@@ -63,7 +63,7 @@ export default function About() {
                         variants={staggerContainer}
                     >
                         <motion.div variants={fadeUp}>
-                            <TechPanel title="System_Telemetry" sysId="STARK_BIO_SCAN.01" className="h-full">
+                            <TechPanel title="Profile_Telemetry" sysId="STARK_BIO_SCAN.01" className="h-full">
                                 <div className="grid grid-cols-2 gap-px bg-border-dim/20 mt-2">
                                     {ABOUT_STATS.map((stat, i) => (
                                         <div

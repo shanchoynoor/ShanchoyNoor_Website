@@ -1,10 +1,10 @@
 'use client';
 
 import { motion, type Variants } from 'framer-motion';
-import { MapPin } from 'lucide-react';
+import { MapPin, Github, Linkedin, Facebook, Twitter, Youtube } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import GridOverlay from '@/components/effects/GridOverlay';
-import { HERO } from '@/lib/constants';
+import { HERO, SITE_METADATA } from '@/lib/constants';
 
 /* Animation Variants - Typed */
 const textReveal: Variants = {
@@ -30,14 +30,14 @@ export default function Hero() {
             <GridOverlay />
 
             {/* Hero Content Container - Aligned with About section width and grid */}
-            <div className="relative z-10 max-w-6xl w-full px-6 grid md:grid-cols-12 gap-12 items-center">
+            <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-8 md:pl-20 !lg:pl-28 pt-24 md:pt-32 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 xl:gap-12 items-center -mt-16 md:-mt-24">
 
                 {/* Left Column: Identity Packet and Prose (7/12 cols to match About) */}
                 <motion.div
                     initial="hidden"
                     animate="show"
                     transition={{ staggerChildren: 0.1 }}
-                    className="md:col-span-7 space-y-6"
+                    className="col-span-1 lg:col-span-7 space-y-4 md:space-y-5"
                 >
                     {/* Status Badge */}
                     <motion.div variants={textReveal} className="inline-flex items-center gap-2 px-3 py-1 border border-accent-dim bg-bg-panel/50 backdrop-blur-sm rounded-none">
@@ -46,7 +46,7 @@ export default function Hero() {
                     </motion.div>
 
                     {/* Identity Block: Biometric Photo + Name + Title */}
-                    <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10 pb-6">
+                    <div className="flex flex-col md:flex-row items-center md:items-start gap-5 md:gap-8 pb-3">
                         {/* Biometric Photo Placeholder */}
                         <motion.div
                             variants={textReveal}
@@ -75,28 +75,21 @@ export default function Hero() {
                                 />
                             </div>
 
-                            {/* Metadata labels - MOVED to left and made more subtle */}
-                            <div className="absolute -left-3 top-2 -translate-x-full font-tech text-[7px] text-accent-primary/30 uppercase vertical-text hidden md:block">
-                                FACIAL_RECOGNITION: READY
-                            </div>
+                            {/* Metadata labels - REMOVED */}
                         </motion.div>
 
                         {/* Name and Title Cluster */}
-                        <div className="flex flex-col items-center md:items-start text-center md:text-left pt-1">
+                        <div className="flex flex-col items-center md:items-start text-center md:text-left pt-0 ml-0 md:ml-4">
                             <div className="relative">
                                 <motion.h1
                                     variants={textReveal}
-                                    className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-text-bright to-text-dim leading-none"
+                                    className="font-display text-2xl md:text-4xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-text-bright to-text-dim leading-none whitespace-nowrap"
                                 >
-                                    SHANCHOY
-                                    <br />
-                                    NOOR
+                                    SHANCHOY NOOR
                                 </motion.h1>
                                 {/* Glitch Overlay Text (Decorative) */}
-                                <h1 className="absolute top-0 left-0 font-display text-4xl md:text-6xl lg:text-7xl font-bold text-accent-primary opacity-10 blur-sm pointer-events-none glitch-hover leading-none" aria-hidden="true">
-                                    SHANCHOY
-                                    <br />
-                                    NOOR
+                                <h1 className="absolute top-0 left-0 font-display text-2xl md:text-4xl lg:text-4xl font-bold text-accent-primary opacity-10 blur-sm pointer-events-none glitch-hover leading-none whitespace-nowrap" aria-hidden="true">
+                                    SHANCHOY NOOR
                                 </h1>
                             </div>
 
@@ -105,10 +98,11 @@ export default function Hero() {
                                 variants={textReveal}
                                 className="mt-4 flex flex-col items-center md:items-start"
                             >
-                                <div className="h-0.5 w-12 bg-accent-primary/40 mb-3" />
+                                <div className="h-0.5 w-12 bg-accent-primary/40 mb-2" />
                                 <p className="font-tech text-[10px] md:text-xs text-accent-primary tracking-[0.2em] font-medium uppercase">
                                     {HERO.eyebrow}
                                 </p>
+                                {/* Location Block */}
                                 <div className="mt-2 flex flex-col gap-1.5 items-center md:items-start">
                                     <div className="flex items-center gap-1.5 font-tech text-[10px] text-accent-primary/70 uppercase tracking-widest">
                                         <MapPin size={10} className="text-accent-primary animate-pulse" />
@@ -117,6 +111,21 @@ export default function Hero() {
                                     <div className="font-tech text-[8.5px] md:text-[9.5px] text-text-dim opacity-50 tracking-widest leading-relaxed">
                                         // LAT: 23.8340 // LONG: 90.3620
                                     </div>
+
+                                    {/* Social Links */}
+                                    <motion.div variants={textReveal} className="flex gap-5 mt-3">
+                                        {[
+                                            { icon: Github, href: SITE_METADATA.social.github },
+                                            { icon: Linkedin, href: SITE_METADATA.social.linkedin },
+                                            { icon: Facebook, href: "#" },
+                                            { icon: Twitter, href: SITE_METADATA.social.twitter },
+                                            { icon: Youtube, href: "#" }
+                                        ].map((soc, i) => (
+                                            <a key={i} href={soc.href} target="_blank" rel="noopener noreferrer" className="text-text-dim hover:text-accent-primary transition-colors hover:scale-110 duration-200">
+                                                <soc.icon size={16} />
+                                            </a>
+                                        ))}
+                                    </motion.div>
                                 </div>
                             </motion.div>
                         </div>
@@ -124,23 +133,23 @@ export default function Hero() {
 
                     <motion.div variants={barExpand} className="h-px w-24 bg-accent-primary/60 origin-left" />
 
-                    <motion.h2 variants={textReveal} className="font-tech text-base md:text-lg lg:text-xl text-accent-primary max-w-lg leading-tight uppercase tracking-wider">
+                    <motion.h2 variants={textReveal} className="font-tech text-base md:text-lg lg:text-xl text-accent-primary max-w-lg leading-snug uppercase tracking-wider">
                         &gt; {HERO.tagline}
                     </motion.h2>
 
-                    <motion.p variants={textReveal} className="text-text-dim text-xs md:text-sm max-w-md leading-relaxed opacity-70">
+                    <motion.p variants={textReveal} className="text-text-dim text-xs md:text-sm max-w-md leading-snug opacity-70">
                         Architecting high-performance systems. Integrating AI pipelines.
                         Building the next generation of web infrastructure.
                     </motion.p>
 
-                    <motion.div variants={textReveal} className="flex gap-4 pt-4">
+                    <motion.div variants={textReveal} className="flex gap-4 pt-2">
                         <Button variant="primary" href="#projects">INITIATE_PROTOCOL</Button>
                         <Button variant="ghost" href="#architecture">VIEW_SYSTEMS</Button>
                     </motion.div>
                 </motion.div>
 
                 {/* Right Column: Visual Data Representation (Working Projects) (5/12 cols to match About) */}
-                <div className="hidden md:flex flex-col items-end relative h-[420px] md:col-span-5 pr-4 lg:pr-12">
+                <div className="hidden lg:flex flex-col items-end relative lg:h-[420px] col-span-1 lg:col-span-5 pr-4 lg:pr-0 xl:pr-12 mt-12 lg:mt-0">
                     {/* Decorative HUD Elements - Fixed to right side */}
                     <div className="absolute top-0 right-0 w-[1px] h-20 bg-accent-primary/40" />
                     <div className="absolute top-20 right-0 w-4 h-[1px] bg-accent-primary/40" />
@@ -204,7 +213,8 @@ export default function Hero() {
                     <span>// SECTOR 01: ABOUT</span>
                     <span>// SECTOR 02: SKILLS</span>
                     <span>// SECTOR 03: PROJECTS</span>
-                    <span>// SECTOR 04: ARCHITECTURE</span>
+                    <span>// SECTOR 04: MISSION LOGS</span>
+                    <span>// SECTOR 05: ARCHITECTURE</span>
                 </div>
             </div>
         </section>

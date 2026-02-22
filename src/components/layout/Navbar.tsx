@@ -1,22 +1,48 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Power, Menu, X, Crosshair } from 'lucide-react';
+import { Power, Menu, X, Terminal } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { NAV_LINKS } from '@/lib/constants';
 
 // Top "Mission Control" bar
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
-    const [time, setTime] = useState('00:00:00');
     const [scrolled, setScrolled] = useState(false);
+    const [typedText, setTypedText] = useState('');
 
-    // System Time Clock
+    // Typing Effect
     useEffect(() => {
-        const interval = setInterval(() => {
-            setTime(new Date().toLocaleTimeString('en-US', { hour12: false }));
-        }, 1000);
-        return () => clearInterval(interval);
+        const textToType = "Hey, visitor! Welcome to my site.";
+        let currentText = "";
+        let isDeleting = false;
+        let loopNum = 0;
+        let typingTimer: NodeJS.Timeout;
+
+        const handleType = () => {
+            currentText = isDeleting
+                ? textToType.substring(0, currentText.length - 1)
+                : textToType.substring(0, currentText.length + 1);
+
+            setTypedText(currentText);
+
+            let typingSpeed = isDeleting ? 30 : 80;
+
+            if (!isDeleting && currentText === textToType) {
+                typingSpeed = 2000; // Pause at the end before deleting
+                isDeleting = true;
+            } else if (isDeleting && currentText === '') {
+                isDeleting = false;
+                loopNum++;
+                typingSpeed = 500; // Pause before typing again
+            }
+
+            typingTimer = setTimeout(handleType, typingSpeed);
+        };
+
+        typingTimer = setTimeout(handleType, 1000); // Initial start delay
+
+        return () => clearTimeout(typingTimer);
     }, []);
 
     // Scroll Detection for glass effect
@@ -49,14 +75,14 @@ export default function Navbar() {
                     </div>
                 </div>
 
-                {/* Center: Coordinates/Time (Hidden on small mobile) */}
-                <div className="hidden md:flex items-center gap-8 font-tech text-xs text-text-dim">
+                {/* Center: Typing Message (Hidden on small mobile) */}
+                <div className="hidden md:flex items-center gap-6 font-tech text-xs text-text-dim">
                     <span className="flex items-center gap-2">
-                        <Crosshair size={12} className="text-accent-secondary" />
-                        LAT: 23.8103 N
+                        <Terminal size={12} className="text-accent-secondary" />
+                        <span className="tracking-wider text-[11px] whitespace-nowrap inline-block w-[280px]">
+                            {typedText}<span className="animate-pulse">_</span>
+                        </span>
                     </span>
-                    <span className="w-px h-3 bg-border-dim" />
-                    <span>{time} UTC+6</span>
                 </div>
 
                 {/* Right: Navigation */}
@@ -73,8 +99,8 @@ export default function Navbar() {
                             <span className="absolute -right-2 opacity-0 group-hover:opacity-100 transition-opacity">]</span>
                         </a>
                     ))}
-                    <a href="#contact" className="px-4 py-1 border border-accent-primary text-accent-primary hover:bg-accent-primary hover:text-bg-base transition-colors text-xs tracking-widest">
-                        INITIATE_CONTACT
+                    <a href="#" className="px-4 py-1 border border-accent-primary text-accent-primary hover:bg-accent-primary hover:text-bg-base transition-colors text-xs tracking-widest">
+                        DOWNLOAD_RESUME
                     </a>
                 </nav>
 
