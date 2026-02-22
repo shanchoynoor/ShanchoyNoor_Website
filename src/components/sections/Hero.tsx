@@ -89,13 +89,13 @@ export default function Hero() {
             </div>
 
             {/* LAYER 4 & 5: HOLOGRAPHIC MONITOR & CONTENT */}
-            <div className="relative z-20 w-full max-w-7xl px-4 md:px-12 flex items-center justify-center pt-28 pb-12">
+            <div className="relative z-20 w-full max-w-7xl px-4 md:px-12 flex items-center justify-center pt-16 pb-8">
                 <motion.div
                     initial={{ opacity: 0, y: 40, rotateX: 5 }}
                     animate={{ opacity: 1, y: 0, rotateX: 0 }}
                     transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
                     style={{ perspective: '1000px' }}
-                    className="hologram-monitor w-full min-h-[75vh] rounded-[3rem] p-6 md:p-14 relative flex items-center"
+                    className="hologram-monitor w-full min-h-[85vh] rounded-[3rem] p-6 md:p-14 relative flex items-center"
                 >
                     {/* Monitor UI Elements (Metadata) */}
                     <div className="absolute top-8 left-14 font-tech text-[8px] text-accent-primary/40 tracking-[0.4em]">
