@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Activity, Power, Zap, Cpu, Shield, ArrowRight, Github, Linkedin, Facebook, Twitter, Youtube, X, Play } from 'lucide-react';
 import Button from '@/components/ui/Button';
@@ -20,6 +20,15 @@ export default function Hero() {
         }));
         setStars(newStars);
     }, []);
+
+    const [isScrolling, setIsScrolling] = useState(false);
+    const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+    const handleScroll = () => {
+        setIsScrolling(true);
+        if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+        scrollTimeoutRef.current = setTimeout(() => setIsScrolling(false), 1000);
+    };
 
     return (
         <section id="hero" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden space-bg select-none">
@@ -229,7 +238,10 @@ export default function Hero() {
                                 <span className="font-tech text-[9px] text-text-bright/40">ACTIVE_SPRINT: 2025.02</span>
                             </div>
 
-                            <div className="space-y-6 flex-1 overflow-y-auto pr-2 custom-scrollbar max-h-[450px]">
+                            <div
+                                className={`space-y-6 flex-1 overflow-y-auto pr-2 custom-scrollbar max-h-[450px] ${isScrolling ? 'is-scrolling' : ''}`}
+                                onScroll={handleScroll}
+                            >
                                 {/* Project Metadata */}
                                 <div className="space-y-6">
                                     <div className="space-y-1">
