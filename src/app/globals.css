@@ -309,6 +309,25 @@ body {
   background: var(--accent-primary);
 }
 
+/* ─── HUD Custom Scrollbar ─── */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 10px;
+}
+
+.custom-scrollbar:hover::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  box-shadow: 0 0 10px var(--accent-primary);
+}
+
 /* ─── Grid Perspective Animation ─── */
 @keyframes grid-move {
   0% {
