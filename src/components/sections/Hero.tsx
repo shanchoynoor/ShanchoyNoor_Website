@@ -174,10 +174,10 @@ export default function Hero() {
                                         initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ delay: 1.7 }}
-                                        className="flex gap-5 pt-1"
+                                        className="flex gap-6 pt-2"
                                     >
                                         {[Github, Linkedin, Facebook, Twitter, Youtube].map((Icon, idx) => (
-                                            <Icon key={idx} size={15} className="text-text-dim hover:text-accent-primary cursor-pointer transition-colors" />
+                                            <Icon key={idx} size={20} className="text-text-dim hover:text-accent-primary cursor-pointer transition-colors" />
                                         ))}
                                     </motion.div>
                                 </div>
