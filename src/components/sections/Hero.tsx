@@ -70,15 +70,18 @@ export default function Hero() {
             </div>
 
             {/* LAYER 2 & 3: SPACESHIP WINDOW FRAME & INTERIOR */}
-            <div className="absolute inset-0 z-10 pointer-events-none py-8 md:py-12">
-                {/* Curved Metallic Window Frame */}
-                <div className="absolute inset-0 border-[40px] md:border-[60px] lg:border-[80px] border-[#050A10] shadow-[inset_0_0_100px_rgba(0,0,0,1),0_0_50px_rgba(0,0,0,0.8)] cockpit-window pointer-events-auto">
+            <div className="absolute inset-0 z-10 pointer-events-none flex items-center justify-center pt-16 pb-8 px-4 md:px-12 bg-[#050A10]/[0.98]">
+                {/* Curved Metallic Window Frame matching monitor dimensions */}
+                <div className="relative w-full max-w-7xl min-h-[85vh] rounded-[3rem] shadow-[inset_0_0_100px_rgba(0,0,0,1),0_0_50px_rgba(0,0,0,0.8)] cockpit-window pointer-events-auto border-4 border-white/5">
                     {/* Inner Rim Light Bounce */}
-                    <div className="absolute inset-0 border-2 border-accent-primary/10 cockpit-window pointer-events-none" />
+                    <div className="absolute inset-0 border-2 border-accent-primary/20 cockpit-window pointer-events-none rounded-[3rem]" />
 
                     {/* Decorative Panel Seams & Rivets */}
                     <div className="absolute top-1/2 left-0 w-full h-px bg-white/5" />
                     <div className="absolute left-1/2 top-0 h-full w-px bg-white/5" />
+
+                    {/* Starfield & Earth Mask Container - So Earth doesn't bleed out of the new smaller rounded frame */}
+                    <div className="absolute inset-0 overflow-hidden rounded-[3rem] cockpit-window pointer-events-none [mask-image:linear-gradient(to_bottom,black,transparent)] opacity-0"></div>
                 </div>
 
                 {/* Dashboard / Desk Surface */}
