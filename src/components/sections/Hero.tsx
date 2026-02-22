@@ -299,15 +299,7 @@ export default function Hero() {
                 </motion.div>
             </div>
 
-            {/* Bottom Decorative Navigation */}
-            <div className="absolute bottom-0 w-full flex justify-center py-6 z-30 pointer-events-none">
-                <div className="px-6 py-2 border border-white/5 bg-black/40 backdrop-blur-md rounded-full flex gap-8 font-tech text-[9px] text-text-dim">
-                    <span className="hover:text-accent-primary transition-colors cursor-pointer pointer-events-auto">01_ABOUT</span>
-                    <span className="hover:text-accent-primary transition-colors cursor-pointer pointer-events-auto">02_SKILLS</span>
-                    <span className="hover:text-accent-primary transition-colors cursor-pointer pointer-events-auto">03_PROJECTS</span>
-                    <span className="hover:text-accent-primary transition-colors cursor-pointer pointer-events-auto">05_ARCH</span>
-                </div>
-            </div>
+
 
             {/* HOLOGRAPHIC IMAGE MODAL */}
             <AnimatePresence>
