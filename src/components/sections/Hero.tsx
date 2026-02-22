@@ -34,7 +34,7 @@ export default function Hero() {
                     className="hologram-monitor w-full min-h-[85vh] rounded-[3rem] p-6 md:p-14 relative flex items-center overflow-hidden"
                 >
                     {/* BACKGROUND INSIDE MONITOR */}
-                    <div className="absolute inset-0 z-0 pointer-events-none rounded-[3rem] overflow-hidden opacity-60">
+                    <div className="absolute inset-0 z-0 pointer-events-none rounded-[3rem] overflow-hidden">
                         {/* Starfield */}
                         <div className="stars-container relative w-full h-full">
                             {stars.map((star) => (
@@ -64,12 +64,12 @@ export default function Hero() {
                                 y: [100, 0]
                             }}
                             transition={{ duration: 4, ease: 'easeOut' }}
-                            className="absolute -bottom-[5%] -right-[5%] w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] rounded-full earth-atmosphere overflow-hidden mix-blend-screen"
+                            className="absolute -bottom-[5%] -right-[5%] w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] rounded-full overflow-hidden"
                         >
                             <motion.div
                                 animate={{ rotate: 360 }}
                                 transition={{ duration: 300, repeat: Infinity, ease: "linear" }}
-                                className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-70 scale-125"
+                                className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-70 scale-125 mix-blend-screen"
                             />
                         </motion.div>
                     </div>
