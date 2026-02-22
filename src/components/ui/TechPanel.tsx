@@ -24,8 +24,8 @@ export default function TechPanel({ children, className = '', title, sysId }: Te
                     )}
                 </div>
                 {sysId && (
-                    <span className="font-tech text-[10px] text-text-dim opacity-50">
-            //{sysId}
+                    <span className="font-tech text-[10px] text-text-bright">
+                        //{sysId}
                     </span>
                 )}
             </div>

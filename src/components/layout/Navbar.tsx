@@ -59,7 +59,7 @@ export default function Navbar() {
                 animate={{ y: 0, opacity: 1 }}
                 className={`
           flex items-center justify-between p-4 transition-all duration-300
-          ${scrolled ? 'bg-bg-panel/90 backdrop-blur-md border-b border-border-dim' : 'bg-transparent'}
+          ${scrolled ? 'bg-bg-panel/20 backdrop-blur-sm border-b border-border-dim/10' : 'bg-transparent'}
           border-b border-transparent
         `}
             >

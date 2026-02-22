@@ -192,7 +192,7 @@ export default function Contact() {
                                     </div>
                                     <div className="flex flex-col">
                                         <span className="font-display text-sm font-bold text-text-bright">{link.label}</span>
-                                        <span className="font-mono text-[10px] text-text-bright">LINK_ESTABLISHED</span>
+                                        <span className="font-mono text-[10px] text-text-dim">LINK_ESTABLISHED</span>
                                     </div>
                                 </motion.a>
                             );

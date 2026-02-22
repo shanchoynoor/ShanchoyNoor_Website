@@ -1,270 +1,372 @@
 'use client';
 
-import { useState } from 'react';
-import { motion, AnimatePresence, type Variants } from 'framer-motion';
-import { MapPin, Github, Linkedin, Facebook, Twitter, Youtube } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { MapPin, Activity, Power, Zap, Cpu, Shield, ArrowRight, Github, Linkedin, Facebook, Twitter, Youtube, X } from 'lucide-react';
 import Button from '@/components/ui/Button';
-import GridOverlay from '@/components/effects/GridOverlay';
-import { HERO, SITE_METADATA } from '@/lib/constants';
-
-/* Animation Variants - Typed */
-const textReveal: Variants = {
-    hidden: { opacity: 0, x: -20 },
-    show: {
-        opacity: 1,
-        x: 0,
-        transition: { duration: 0.5, ease: "easeOut" }
-    }
-};
-
-const barExpand: Variants = {
-    hidden: { scaleX: 0 },
-    show: {
-        scaleX: 1,
-        transition: { duration: 0.8, ease: "circOut" }
-    }
-};
 
 export default function Hero() {
-    const [showPhotoModal, setShowPhotoModal] = useState(false);
+    const [stars, setStars] = useState<{ id: number; x: number; y: number; size: number; duration: number }[]>([]);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    useEffect(() => {
+        // Generate random stars for Layer 1
+        const newStars = Array.from({ length: 150 }).map((_, i) => ({
+            id: i,
+            x: Math.random() * 100,
+            y: Math.random() * 100,
+            size: Math.random() * 2 + 1,
+            duration: Math.random() * 3 + 2,
+        }));
+        setStars(newStars);
+    }, []);
 
     return (
-        <section id="hero" className="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
-            <GridOverlay />
+        <section id="hero" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden space-bg select-none">
 
-            {/* Hero Content Container - Aligned with About section width and grid */}
-            <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-8 md:pl-20 !lg:pl-28 pt-24 md:pt-32 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 xl:gap-12 items-center -mt-16 md:-mt-24">
+            {/* LAYER 1: BACKGROUND (Deep Space + Earth) */}
+            <div className="absolute inset-0 z-0 pointer-events-none">
+                {/* Starfield */}
+                <div className="stars-container">
+                    {stars.map((star) => (
+                        <div
+                            key={star.id}
+                            className="star"
+                            style={{
+                                left: `${star.x}%`,
+                                top: `${star.y}%`,
+                                width: `${star.size}px`,
+                                height: `${star.size}px`,
+                                animationDuration: `${star.duration}s`,
+                                animationDelay: `${Math.random() * 5}s`
+                            }}
+                        />
+                    ))}
+                </div>
 
-                {/* Left Column: Identity Packet and Prose (7/12 cols to match About) */}
+                {/* Orbital Earth */}
                 <motion.div
-                    initial="hidden"
-                    animate="show"
-                    transition={{ staggerChildren: 0.1 }}
-                    className="col-span-1 lg:col-span-7 space-y-4 md:space-y-5"
+                    initial={{ opacity: 0, scale: 1.1, rotate: -5, x: 100, y: 100 }}
+                    animate={{
+                        opacity: 1,
+                        scale: 1,
+                        rotate: 0,
+                        x: [100, 0],
+                        y: [100, 0]
+                    }}
+                    transition={{ duration: 4, ease: 'easeOut' }}
+                    className="absolute -bottom-[15%] -right-[5%] w-[75vw] h-[75vw] max-w-[1100px] max-h-[1100px] rounded-full earth-atmosphere overflow-hidden"
                 >
-                    {/* Status Badge */}
-                    <motion.div variants={textReveal} className="inline-flex items-center gap-2 px-3 py-1 border border-accent-dim bg-bg-panel/50 backdrop-blur-sm rounded-none">
-                        <span className="w-2 h-2 bg-green-500 animate-pulse shadow-[0_0_10px_#0f0]" />
-                        <span className="font-tech text-xs text-text-bright tracking-widest">SYSTEM: ONLINE // AVAILABLE FOR HIRE</span>
-                    </motion.div>
+                    <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 300, repeat: Infinity, ease: "linear" }}
+                        className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-70 mix-blend-screen scale-125"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
+                    <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-black to-transparent opacity-90" />
+                    {/* Atmospheric Rim Light */}
+                    <div className="absolute inset-0 border-[20px] border-accent-primary/5 blur-xl rounded-full" />
+                </motion.div>
+            </div>
 
-                    {/* Identity Block: Biometric Photo + Name + Title */}
-                    <div className="flex flex-col md:flex-row items-center md:items-start gap-5 md:gap-8 pb-3">
-                        {/* Biometric Photo Placeholder */}
-                        <motion.div
-                            variants={textReveal}
-                            className="relative group w-28 h-36 md:w-32 md:h-40 shrink-0 cursor-pointer"
-                            onClick={() => setShowPhotoModal(true)}
-                        >
-                            {/* High-tech frame */}
-                            <div className="absolute inset-0 border border-accent-primary/20 group-hover:border-accent-primary/40 transition-colors" />
-                            <div className="absolute -top-1 -left-1 w-2 h-2 border-t-2 border-l-2 border-accent-primary" />
-                            <div className="absolute -bottom-1 -right-1 w-2 h-2 border-b-2 border-r-2 border-accent-primary" />
+            {/* LAYER 2 & 3: SPACESHIP WINDOW FRAME & INTERIOR */}
+            <div className="absolute inset-0 z-10 pointer-events-none">
+                {/* Curved Metallic Window Frame */}
+                <div className="absolute inset-0 border-[40px] md:border-[60px] border-bg-base/95 cockpit-frame-texture shadow-[inset_0_0_100px_rgba(0,0,0,1)]">
+                    {/* Inner Rim Light Bounce */}
+                    <div className="absolute inset-0 border border-accent-primary/10 rounded-[inherit] pointer-events-none" />
 
-                            {/* Photo + Scanning Line */}
-                            <div className="absolute inset-2 overflow-hidden">
-                                <img
-                                    src="/id_image/shanchoy_noor.jpg"
-                                    alt="Shanchoy Noor"
-                                    className="w-full h-full object-cover"
-                                />
+                    {/* Decorative Panel Seams & Rivets */}
+                    <div className="absolute top-1/2 left-0 w-full h-px bg-white/5" />
+                    <div className="absolute left-1/2 top-0 h-full w-px bg-white/5" />
+                </div>
 
-                                {/* Animated Scanning Line */}
-                                <motion.div
-                                    animate={{ top: ['0%', '100%', '0%'] }}
-                                    transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
-                                    className="absolute left-0 right-0 h-px bg-accent-primary/40 shadow-[0_0_8px_var(--accent-primary)] z-10"
-                                />
-                            </div>
+                {/* Dashboard / Desk Surface */}
+                <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#050A10] via-[#0A0F16] to-transparent border-t border-white/10">
+                    {/* Volumetric Dash Glow */}
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-32 dashboard-glow opacity-50" />
+                </div>
 
-                            {/* Metadata labels - REMOVED */}
-                        </motion.div>
+                {/* Side Panels - HUD Lines */}
+                <div className="absolute left-10 top-1/4 bottom-1/4 w-px bg-accent-primary/10" />
+                <div className="absolute right-10 top-1/4 bottom-1/4 w-px bg-accent-primary/10" />
+            </div>
 
-                        {/* Name and Title Cluster */}
-                        <div className="flex flex-col items-center md:items-start text-center md:text-left pt-0 ml-0 md:ml-4">
-                            <div className="relative">
-                                <motion.h1
-                                    variants={textReveal}
-                                    className="font-display text-2xl md:text-4xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-text-bright to-text-dim leading-none whitespace-nowrap"
-                                >
-                                    SHANCHOY NOOR
-                                </motion.h1>
-                                {/* Glitch Overlay Text (Decorative) */}
-                                <h1 className="absolute top-0 left-0 font-display text-2xl md:text-4xl lg:text-4xl font-bold text-accent-primary opacity-10 blur-sm pointer-events-none glitch-hover leading-none whitespace-nowrap" aria-hidden="true">
-                                    SHANCHOY NOOR
-                                </h1>
-                            </div>
+            {/* LAYER 4 & 5: HOLOGRAPHIC MONITOR & CONTENT */}
+            <div className="relative z-20 w-full max-w-7xl px-4 md:px-12 flex items-center justify-center pt-28 pb-12">
+                <motion.div
+                    initial={{ opacity: 0, y: 40, rotateX: 5 }}
+                    animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                    transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
+                    style={{ perspective: '1000px' }}
+                    className="hologram-monitor w-full min-h-[75vh] rounded-[3rem] p-6 md:p-14 relative flex items-center"
+                >
+                    {/* Monitor UI Elements (Metadata) */}
+                    <div className="absolute top-8 left-14 font-tech text-[8px] text-accent-primary/40 tracking-[0.4em]">
+                        NAV_SYS_v4.0 // COCKPIT_HUD_A1
+                    </div>
+                    <div className="absolute top-8 right-14 font-tech text-[8px] text-accent-primary/40 tracking-[0.4em]">
+                        EYE_SENS_v2.0.4
+                    </div>
 
-                            {/* Repositioned Professional Title */}
+                    {/* Corner Bracket (Bottom Right Only) */}
+                    <div className="absolute bottom-8 right-8 w-16 h-16 border-b-2 border-r-2 cyan-neon-border opacity-60" />
+
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full pt-8">
+
+                        {/* MONITOR LEFT: Identity & Main Message */}
+                        <div className="lg:col-span-7 space-y-8">
+
+                            {/* Status Header */}
                             <motion.div
-                                variants={textReveal}
-                                className="mt-4 flex flex-col items-center md:items-start"
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0.8 }}
+                                className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10"
                             >
-                                <div className="h-0.5 w-12 bg-accent-primary/40 mb-2" />
-                                <p className="font-tech text-[10px] md:text-xs text-accent-primary tracking-[0.2em] font-medium uppercase">
-                                    {HERO.eyebrow}
-                                </p>
-                                {/* Location Block */}
-                                <div className="mt-2 flex flex-col gap-1.5 items-center md:items-start">
-                                    <div className="flex items-center gap-1.5 font-tech text-[10px] text-accent-primary/70 uppercase tracking-widest">
-                                        <MapPin size={10} className="text-accent-primary animate-pulse" />
-                                        Dhaka, Bangladesh
-                                    </div>
-                                    <div className="font-tech text-[8.5px] md:text-[9.5px] text-text-bright tracking-widest leading-relaxed">
-                                        // LAT: 23.8340 // LONG: 90.3620
-                                    </div>
+                                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_8px_#22c55e]" />
+                                <span className="font-tech text-xs text-text-bright tracking-widest uppercase">
+                                    SYSTEM: ONLINE // AVAILABLE FOR HIRE
+                                </span>
+                            </motion.div>
 
-                                    {/* Social Links */}
-                                    <motion.div variants={textReveal} className="flex gap-5 mt-3">
-                                        {[
-                                            { icon: Github, href: SITE_METADATA.social.github },
-                                            { icon: Linkedin, href: SITE_METADATA.social.linkedin },
-                                            { icon: Facebook, href: "#" },
-                                            { icon: Twitter, href: SITE_METADATA.social.twitter },
-                                            { icon: Youtube, href: "#" }
-                                        ].map((soc, i) => (
-                                            <a key={i} href={soc.href} target="_blank" rel="noopener noreferrer" className="text-text-dim hover:text-accent-primary transition-colors hover:scale-110 duration-200">
-                                                <soc.icon size={16} />
-                                            </a>
+                            {/* Identity Row: Photo + Information */}
+                            <div className="flex flex-col md:flex-row gap-8 items-start">
+                                {/* Biometric Bio-Photo */}
+                                <motion.div
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ delay: 1 }}
+                                    onClick={() => setIsModalOpen(true)}
+                                    className="relative w-32 h-40 border border-accent-primary/20 shrink-0 cursor-pointer group/img"
+                                >
+                                    <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-accent-primary" />
+                                    <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-accent-primary" />
+                                    <div className="absolute inset-1 overflow-hidden">
+                                        <img src="/id_image/shanchoy_noor.jpg" alt="Identity" className="w-full h-full object-cover" />
+                                        {/* Scanning Line */}
+                                        <motion.div
+                                            animate={{ top: ['0%', '100%'] }}
+                                            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                                            className="absolute left-0 right-0 h-px bg-accent-primary/60 shadow-[0_0_10px_#00F0FF] z-10"
+                                        />
+                                    </div>
+                                </motion.div>
+
+                                {/* Identity Text Cluster */}
+                                <div className="space-y-4 pt-1">
+                                    <motion.h1
+                                        initial={{ opacity: 0, x: -20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: 1.2 }}
+                                        className="font-display text-4xl md:text-5xl font-bold cyan-glow-text leading-tight tracking-[0.05em]"
+                                    >
+                                        SHANCHOY NOOR
+                                    </motion.h1>
+                                    <div className="space-y-1.5">
+                                        <motion.p
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            transition={{ delay: 1.4 }}
+                                            className="font-tech text-accent-primary tracking-[0.2em] font-medium uppercase text-[11px]"
+                                        >
+                                            FRONTEND & AI DEVELOPER · ENTREPRENEUR
+                                        </motion.p>
+                                        <motion.div
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            transition={{ delay: 1.5 }}
+                                            className="font-tech text-[10px] text-accent-primary/60 uppercase flex items-center gap-1.5"
+                                        >
+                                            <MapPin size={10} className="text-accent-primary animate-pulse" />
+                                            DHAKA, BANGLADESH
+                                        </motion.div>
+                                        <motion.div
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            transition={{ delay: 1.6 }}
+                                            className="font-tech text-[9.5px] text-text-bright tracking-widest leading-relaxed"
+                                        >
+                                            // LAT: 23.8340 // LONG: 90.3620
+                                        </motion.div>
+                                    </div>
+                                    {/* Social Connects */}
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 1.7 }}
+                                        className="flex gap-5 pt-1"
+                                    >
+                                        {[Github, Linkedin, Facebook, Twitter, Youtube].map((Icon, idx) => (
+                                            <Icon key={idx} size={15} className="text-text-dim hover:text-accent-primary cursor-pointer transition-colors" />
                                         ))}
                                     </motion.div>
                                 </div>
-                            </motion.div>
+                            </div>
+
+                            {/* Main CTA Section (Mission critical heading) */}
+                            <div className="space-y-6 pt-2">
+                                <motion.h2
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 1.8 }}
+                                    className="font-tech text-xl md:text-2xl text-accent-primary leading-snug uppercase tracking-tight max-w-2xl"
+                                >
+                                    &gt; I build fast, accessible, and scalable frontend systems — with the architectural depth to take them all the way to production.
+                                </motion.h2>
+                                <motion.p
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ delay: 2.0 }}
+                                    className="text-text-bright/60 text-xs md:text-sm max-w-md leading-relaxed font-body"
+                                >
+                                    Architecting high-performance systems. Integrating AI pipelines. Building the next generation of web infrastructure.
+                                </motion.p>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 2.2 }}
+                                    className="flex flex-wrap gap-4 pt-4"
+                                >
+                                    <Button variant="primary" className="px-8 !cyan-neon-border group">
+                                        INITIATE_PROTOCOL <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                                    </Button>
+                                    <Button variant="ghost" className="px-8 border-white/10 text-white/50 hover:text-white">
+                                        VIEW_SYSTEMS
+                                    </Button>
+                                </motion.div>
+                            </div>
                         </div>
+
+                        {/* MONITOR RIGHT: Telemetry Wing */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 1, delay: 1.5 }}
+                            className="hidden lg:flex lg:col-span-5 flex-col gap-6 pl-12 border-l border-white/5"
+                        >
+                            <div className="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span className="font-tech text-[10px] text-accent-primary">WORKING_ON</span>
+                                <span className="font-tech text-[9px] text-text-bright/40">ACTIVE_SPRINT: 2025.02</span>
+                            </div>
+
+                            <div className="space-y-6">
+                                {/* Project Metadata */}
+                                <div className="space-y-4">
+                                    <div className="space-y-1">
+                                        <div className="flex justify-between items-center text-[9px] uppercase tracking-widest text-text-dim">
+                                            <span className="text-accent-primary">[PROJECT.01]</span>
+                                            <span className="text-accent-primary/60">IN_PROGRESS</span>
+                                        </div>
+                                        <p className="font-display text-base text-text-bright leading-none">Choy AI Platform</p>
+                                        <p className="font-tech text-[9px] text-text-bright/60 tracking-widest">NEXT.JS // OPENAI // SUPABASE // DOCKER</p>
+                                    </div>
+
+                                    <div className="space-y-1 opacity-70">
+                                        <div className="flex justify-between items-center text-[9px] uppercase tracking-widest text-text-dim">
+                                            <span className="text-red-400">[PROJECT.02]</span>
+                                            <span className="text-red-400/60">MAINTENANCE</span>
+                                        </div>
+                                        <p className="font-display text-base text-text-bright leading-none">AI News Telegram Bot</p>
+                                        <p className="font-tech text-[9px] text-text-bright/60 tracking-widest">PYTHON // TELEGRAM_API // CRON</p>
+                                    </div>
+                                </div>
+
+                                {/* Status Indicators */}
+                                <div className="space-y-3 pt-4 font-tech text-[10px] tracking-wide">
+                                    <div className="flex items-center gap-3 text-red-400">
+                                        <span className="w-1.5 h-1.5 bg-red-400 rounded-full animate-pulse shadow-[0_0_8px_#f87171]" />
+                                        AT_ORCHESTRATION: NOMINAL
+                                    </div>
+                                    <div className="flex items-center gap-2 text-text-bright/80">
+                                        <span className="text-accent-primary">[*]</span> REACT_SERVER_COMPONENTS: ENABLED
+                                    </div>
+                                    <div className="flex items-center gap-2 text-text-bright/80">
+                                        <span className="text-accent-primary">[*]</span> SYSTEM_LATENCY: 24MS
+                                    </div>
+                                </div>
+
+                                {/* Console Box */}
+                                <div className="mt-8 p-4 bg-black/40 border border-white/5 font-mono text-[9px] text-accent-primary/80 relative overflow-hidden">
+                                    <div className="absolute top-0 right-0 w-16 h-px bg-accent-primary/20" />
+                                    <p className="typing-cursor leading-relaxed">
+                                        warn(user): 'Efficiency critical. Executing optimized sequence.'_
+                                    </p>
+                                </div>
+                            </div>
+                        </motion.div>
                     </div>
-
-                    <motion.div variants={barExpand} className="h-px w-24 bg-accent-primary/60 origin-left" />
-
-                    <motion.h2 variants={textReveal} className="font-tech text-base md:text-lg lg:text-xl text-accent-primary max-w-lg leading-snug uppercase tracking-wider">
-                        &gt; {HERO.tagline}
-                    </motion.h2>
-
-                    <motion.p variants={textReveal} className="text-text-bright text-xs md:text-sm max-w-md leading-snug">
-                        Architecting high-performance systems. Integrating AI pipelines.
-                        Building the next generation of web infrastructure.
-                    </motion.p>
-
-                    <motion.div variants={textReveal} className="flex gap-4 pt-2">
-                        <Button variant="primary" href="#projects">INITIATE_PROTOCOL</Button>
-                        <Button variant="ghost" href="#architecture">VIEW_SYSTEMS</Button>
-                    </motion.div>
                 </motion.div>
+            </div>
 
-                {/* Right Column: Visual Data Representation (Working Projects) (5/12 cols to match About) */}
-                <div className="hidden lg:flex flex-col items-end relative lg:h-[420px] col-span-1 lg:col-span-5 pr-4 lg:pr-0 xl:pr-12 mt-12 lg:mt-0">
-                    {/* Decorative HUD Elements - Fixed to right side */}
-                    <div className="absolute top-0 right-0 w-[1px] h-20 bg-accent-primary/40" />
-                    <div className="absolute top-20 right-0 w-4 h-[1px] bg-accent-primary/40" />
-                    <div className="absolute bottom-0 right-0 w-[10px] h-[10px] border border-accent-secondary/50" />
-
-                    <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.5 }}
-                        className="font-tech text-xs text-text-bright space-y-6 opacity-80 w-full max-w-sm"
-                    >
-                        <div className="border-b border-border-dim pb-2 mb-4 flex justify-between items-center">
-                            <span className="text-accent-primary">WORKING_ON</span>
-                            <span className="text-[10px] text-text-bright">ACTIVE_SPRINT: 2025.02</span>
-                        </div>
-
-                        <div className="space-y-4">
-                            <div className="group">
-                                <div className="flex justify-between mb-1">
-                                    <span className="text-accent-primary">[PROJECT.01]</span>
-                                    <span className="text-accent-primary/50 text-[10px]">IN_PROGRESS</span>
-                                </div>
-                                <p className="text-text-bright font-medium text-sm">Choy AI Platform</p>
-                                <p className="text-[10px] tracking-widest text-text-bright/90">NEXT.JS // OPENAI // SUPABASE // DOCKER</p>
-                            </div>
-
-                            <div className="group">
-                                <div className="flex justify-between mb-1">
-                                    <span className="text-accent-secondary">[PROJECT.02]</span>
-                                    <span className="text-accent-secondary/50 text-[10px]">MAINTENANCE</span>
-                                </div>
-                                <p className="text-text-bright font-medium text-sm">AI News Telegram Bot</p>
-                                <p className="text-[10px] tracking-widest text-text-bright/90">PYTHON // TELEGRAM_API // CRON</p>
-                            </div>
-                        </div>
-
-                        <div className="pt-4 space-y-2">
-                            <p className="text-accent-secondary flex items-center gap-2">
-                                <span className="w-1 h-1 bg-accent-secondary rounded-full animate-pulse" />
-                                AI_ORCHESTRATION: NOMINAL
-                            </p>
-                            <p>[*] REACT_SERVER_COMPONENTS: ENABLED</p>
-                            <p>[*] SYSTEM_LATENCY: 24MS</p>
-                        </div>
-
-                        {/* Animated Code Block */}
-                        <div className="mt-8 p-4 bg-bg-surface border border-border-dim font-mono text-[9px] text-text-code overflow-hidden relative">
-                            <div className="absolute top-0 right-0 w-12 h-[1px] bg-accent-primary/20" />
-                            <span className="typing-cursor block leading-normal">
-                                warn(user): 'Efficiency critical. Executing optimized sequence.'_
-                            </span>
-                        </div>
-                    </motion.div>
+            {/* Bottom Decorative Navigation */}
+            <div className="absolute bottom-0 w-full flex justify-center py-6 z-30 pointer-events-none">
+                <div className="px-6 py-2 border border-white/5 bg-black/40 backdrop-blur-md rounded-full flex gap-8 font-tech text-[9px] text-text-dim">
+                    <span className="hover:text-accent-primary transition-colors cursor-pointer pointer-events-auto">01_ABOUT</span>
+                    <span className="hover:text-accent-primary transition-colors cursor-pointer pointer-events-auto">02_SKILLS</span>
+                    <span className="hover:text-accent-primary transition-colors cursor-pointer pointer-events-auto">03_PROJECTS</span>
+                    <span className="hover:text-accent-primary transition-colors cursor-pointer pointer-events-auto">05_ARCH</span>
                 </div>
             </div>
 
-            {/* Bottom Decorative Ticker */}
-            <div className="absolute bottom-0 w-full h-12 border-t border-border-dim bg-bg-panel/80 backdrop-blur flex items-center px-6">
-                <div className="flex gap-12 font-tech text-[10px] text-text-bright animate-marquee whitespace-nowrap">
-                    <span>// SCROLL FOR DATA</span>
-                    <span>// SECTOR 01: ABOUT</span>
-                    <span>// SECTOR 02: SKILLS</span>
-                    <span>// SECTOR 03: PROJECTS</span>
-                    <span>// SECTOR 04: MISSION LOGS</span>
-                    <span>// SECTOR 05: ARCHITECTURE</span>
-                </div>
-            </div>
-
-            {/* Photo Modal */}
+            {/* HOLOGRAPHIC IMAGE MODAL */}
             <AnimatePresence>
-                {showPhotoModal && (
+                {isModalOpen && (
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="fixed inset-0 z-[100] flex items-center justify-center bg-bg-base/80 backdrop-blur-sm cursor-pointer"
-                        onClick={() => setShowPhotoModal(false)}
+                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12 bg-black/80 backdrop-blur-xl"
+                        onClick={() => setIsModalOpen(false)}
                     >
-                        <motion.div
-                            initial={{ scale: 0.9, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.9, opacity: 0 }}
-                            transition={{ duration: 0.25, ease: 'easeOut' }}
-                            className="relative max-w-sm w-full mx-4 cursor-default"
-                            onClick={(e) => e.stopPropagation()}
+                        {/* Close Trigger (Anywhere Click) */}
+                        <motion.button
+                            className="absolute top-8 right-8 text-accent-primary hover:text-white transition-colors z-[110]"
+                            whileHover={{ rotate: 90 }}
                         >
-                            {/* HUD Frame */}
-                            <div className="relative border border-accent-primary/30 p-2">
-                                <div className="absolute -top-1.5 -left-1.5 w-4 h-4 border-t-2 border-l-2 border-accent-primary" />
-                                <div className="absolute -top-1.5 -right-1.5 w-4 h-4 border-t-2 border-r-2 border-accent-primary" />
-                                <div className="absolute -bottom-1.5 -left-1.5 w-4 h-4 border-b-2 border-l-2 border-accent-primary" />
-                                <div className="absolute -bottom-1.5 -right-1.5 w-4 h-4 border-b-2 border-r-2 border-accent-primary" />
+                            <X size={32} />
+                        </motion.button>
 
-                                <img
-                                    src="/id_image/shanchoy_noor.jpg"
-                                    alt="Shanchoy Noor"
-                                    className="w-full h-auto"
-                                />
+                        <motion.div
+                            initial={{ scale: 0.8, y: 20, rotateX: 10 }}
+                            animate={{ scale: 1, y: 0, rotateX: 0 }}
+                            exit={{ scale: 0.8, opacity: 0 }}
+                            onClick={(e) => e.stopPropagation()}
+                            className="relative max-w-4xl w-full aspect-square md:aspect-video bg-bg-surface/40 border border-accent-primary/30 hologram-monitor p-4 md:p-8 flex flex-col md:flex-row gap-8 overflow-hidden"
+                        >
+                            {/* Decorative Scanline Overlay */}
+                            <div className="absolute inset-0 pointer-events-none opacity-20 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%]" />
 
-
+                            {/* Enlarged Biometric Photo */}
+                            <div className="relative flex-1 border border-accent-primary/20 bg-black/40 overflow-hidden group">
+                                <img src="/id_image/shanchoy_noor.jpg" alt="Identity Large" className="w-full h-full object-cover transition-all duration-700" />
                             </div>
 
-                            {/* Label */}
-                            <div className="mt-3 flex items-center justify-between font-tech text-[10px] tracking-widest text-text-dim">
-                                <span>ID_VERIFICATION // CONFIRMED</span>
+                            {/* Identity Details Panel */}
+                            <div className="w-full md:w-80 flex flex-col justify-between py-2 space-y-6">
+                                <div className="space-y-4">
+                                    <h3 className="font-display text-2xl text-accent-primary border-b border-accent-primary/20 pb-2 uppercase tracking-widest">Identity Overlay</h3>
+                                    <div className="space-y-3 font-tech text-[10px] text-text-dim">
+                                        <div className="flex justify-between"><span>FULL_NAME</span> <span className="text-text-bright">SHANCHOY NOOR</span></div>
+                                        <div className="flex justify-between"><span>DATE_OF_BIRTH</span> <span className="text-text-bright">12.01.1999</span></div>
+                                        <div className="flex justify-between"><span>LOCATION_LAT</span> <span className="text-text-bright">23.8340</span></div>
+                                        <div className="flex justify-between"><span>LOCATION_LONG</span> <span className="text-text-bright">90.3620</span></div>
+                                        <div className="flex justify-between"><span>CITIZENSHIP</span> <span className="text-text-bright">BANGLADESH</span></div>
+                                    </div>
+                                </div>
+
+
                                 <button
-                                    onClick={() => setShowPhotoModal(false)}
-                                    className="text-accent-primary hover:text-text-bright transition-colors"
+                                    onClick={() => setIsModalOpen(false)}
+                                    className="w-full py-3 border border-white/10 hover:border-accent-primary/50 text-text-dim hover:text-accent-primary transition-all font-tech text-[10px] tracking-[0.3em] uppercase"
                                 >
-                                    [ CLOSE ]
+                                    CLOSE
                                 </button>
                             </div>
+
+                            {/* Corner Accents */}
+                            <div className="absolute top-4 left-4 w-8 h-8 border-t border-l border-accent-primary/40" />
+                            <div className="absolute bottom-4 right-4 w-8 h-8 border-b border-r border-accent-primary/40" />
                         </motion.div>
                     </motion.div>
                 )}

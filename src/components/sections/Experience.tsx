@@ -54,7 +54,7 @@ export default function Experience() {
                                                     <h3 className="font-display text-lg font-bold text-text-bright">
                                                         {entry.title}
                                                     </h3>
-                                                    <p className="font-tech text-[14px] font-bold text-text-bright uppercase tracking-wider">
+                                                    <p className="font-tech text-[11px] font-bold text-text-bright uppercase tracking-wider">
                                                         {entry.company}
                                                     </p>
                                                 </div>
@@ -129,7 +129,7 @@ export default function Experience() {
                                                     <h3 className="font-display text-lg font-bold text-text-bright">
                                                         {entry.title}
                                                     </h3>
-                                                    <p className="font-tech text-[14px] font-bold text-text-bright uppercase tracking-wider">
+                                                    <p className="font-tech text-[11px] font-bold text-text-bright uppercase tracking-wider">
                                                         {entry.institution}
                                                     </p>
                                                 </div>
