@@ -34,7 +34,7 @@ export default function Hero() {
                     className="hologram-monitor w-full min-h-[85vh] rounded-[3rem] p-6 md:p-14 relative flex items-center overflow-hidden"
                 >
                     {/* BACKGROUND INSIDE MONITOR */}
-                    <div className="absolute inset-0 z-0 pointer-events-none rounded-[3rem] overflow-hidden opacity-60">
+                    <div className="absolute inset-0 z-0 pointer-events-none rounded-[3rem] overflow-hidden opacity-30">
                         {/* Starfield */}
                         <div className="stars-container relative w-full h-full">
                             {stars.map((star) => (
@@ -57,7 +57,7 @@ export default function Hero() {
                         <motion.div
                             initial={{ opacity: 0, scale: 1.1, rotate: -5, x: 100, y: 100 }}
                             animate={{
-                                opacity: 1,
+                                opacity: 0.8,
                                 scale: 1,
                                 rotate: 0,
                                 x: [100, 0],
