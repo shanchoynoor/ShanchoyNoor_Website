@@ -64,8 +64,6 @@ export default function Hero() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
                     <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-black to-transparent opacity-90" />
-                    {/* Atmospheric Rim Light */}
-                    <div className="absolute inset-0 border-[20px] border-accent-primary/5 blur-xl rounded-full" />
                 </motion.div>
             </div>
 
