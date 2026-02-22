@@ -229,25 +229,52 @@ export default function Hero() {
                                 <span className="font-tech text-[9px] text-text-bright/40">ACTIVE_SPRINT: 2025.02</span>
                             </div>
 
-                            <div className="space-y-6">
+                            <div className="space-y-6 flex-1 overflow-y-auto pr-2 custom-scrollbar max-h-[450px]">
                                 {/* Project Metadata */}
-                                <div className="space-y-4">
+                                <div className="space-y-6">
                                     <div className="space-y-1">
                                         <div className="flex justify-between items-center text-[9px] uppercase tracking-widest text-text-dim">
                                             <span className="text-accent-primary">[PROJECT.01]</span>
-                                            <span className="text-accent-primary/60">IN_PROGRESS</span>
+                                            <span className="text-accent-primary/60">ALMOST_READY</span>
                                         </div>
-                                        <p className="font-display text-base text-text-bright leading-none">Choy AI Platform</p>
-                                        <p className="font-tech text-[9px] text-text-bright/60 tracking-widest">NEXT.JS // OPENAI // SUPABASE // DOCKER</p>
+                                        <p className="font-display text-sm text-text-bright leading-tight">ChoyAI_Studio</p>
+                                        <p className="font-tech text-[8px] text-text-bright/50 tracking-wide uppercase">Multi-modal AI Generation Suite // Single Subscription</p>
                                     </div>
 
-                                    <div className="space-y-1 opacity-70">
+                                    <div className="space-y-1">
                                         <div className="flex justify-between items-center text-[9px] uppercase tracking-widest text-text-dim">
                                             <span className="text-accent-secondary">[PROJECT.02]</span>
-                                            <span className="text-accent-secondary/60">MAINTENANCE</span>
+                                            <span className="text-accent-secondary/60">ALMOST_READY</span>
                                         </div>
-                                        <p className="font-display text-base text-text-bright leading-none">AI News Telegram Bot</p>
-                                        <p className="font-tech text-[9px] text-text-bright/60 tracking-widest">PYTHON // TELEGRAM_API // CRON</p>
+                                        <p className="font-display text-sm text-text-bright leading-tight">ChoyAI_Blog Automation</p>
+                                        <p className="font-tech text-[8px] text-text-bright/50 tracking-wide uppercase">WP-Plugin // AI Writing // Scheduling // Cover Images</p>
+                                    </div>
+
+                                    <div className="space-y-1">
+                                        <div className="flex justify-between items-center text-[9px] uppercase tracking-widest text-text-dim">
+                                            <span className="text-accent-primary">[PROJECT.03]</span>
+                                            <span className="text-accent-primary/40">IN_PROGRESS</span>
+                                        </div>
+                                        <p className="font-display text-sm text-text-bright leading-tight">ChoyAI_Personal Assistant</p>
+                                        <p className="font-tech text-[8px] text-text-bright/50 tracking-wide uppercase">80% Task Automation // Personal AI Agent</p>
+                                    </div>
+
+                                    <div className="space-y-1">
+                                        <div className="flex justify-between items-center text-[9px] uppercase tracking-widest text-text-dim">
+                                            <span className="text-accent-primary">[PROJECT.04]</span>
+                                            <span className="text-accent-primary/40">IN_PROGRESS</span>
+                                        </div>
+                                        <p className="font-display text-sm text-text-bright leading-tight">ChoyMate_Social Media</p>
+                                        <p className="font-tech text-[8px] text-text-bright/50 tracking-wide uppercase">Social for Professionals // Productivity Focused</p>
+                                    </div>
+
+                                    <div className="space-y-1">
+                                        <div className="flex justify-between items-center text-[9px] uppercase tracking-widest text-text-dim">
+                                            <span className="text-accent-primary">[PROJECT.05]</span>
+                                            <span className="text-accent-primary/40">PLANNING</span>
+                                        </div>
+                                        <p className="font-display text-sm text-text-bright leading-tight">ChoyFlow</p>
+                                        <p className="font-tech text-[8px] text-text-bright/50 tracking-wide uppercase">Business Automation // Lead Gen // Marketing & Sales</p>
                                     </div>
                                 </div>
 
