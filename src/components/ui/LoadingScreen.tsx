@@ -38,79 +38,74 @@ export default function LoadingScreen() {
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-accent-secondary/5 rounded-full blur-[80px]" />
                     </div>
 
-                    {/* CENTRAL TECH SINGULARITY */}
-                    <div className="relative w-24 h-24 flex items-center justify-center">
-                        {/* Outer Telemetry Ring */}
-                        <motion.div
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                            className="absolute inset-0 border-[0.5px] border-accent-primary/20 rounded-full"
-                        >
-                            {/* Static Markers */}
-                            {[0, 90, 180, 270].map((angle) => (
-                                <div
-                                    key={angle}
-                                    style={{ transform: `rotate(${angle}deg)` }}
-                                    className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-1 bg-accent-primary/40"
-                                />
-                            ))}
-                        </motion.div>
-
-                        {/* Rotating Data Ring */}
-                        <motion.div
-                            animate={{ rotate: -360 }}
-                            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                            className="absolute inset-2 border-[1px] border-t-accent-primary/60 border-r-transparent border-b-transparent border-l-transparent rounded-full"
-                        />
-
-                        {/* Middle Tech Ring - Fragmented */}
+                    {/* GEOMETRIC TECH LOADER */}
+                    <div className="relative w-20 h-20 flex items-center justify-center">
+                        {/* Outer Hexagon Frame */}
                         <motion.div
                             animate={{ rotate: 360 }}
                             transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                            className="absolute inset-5 border-[1px] border-t-accent-secondary/30 border-r-transparent border-b-accent-secondary/30 border-l-transparent rounded-full opacity-40"
+                            className="absolute inset-0 border-[0.5px] border-accent-primary/30"
+                            style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }}
                         />
 
-                        {/* Core Singularity - Small & Sharp */}
+                        {/* Inner Rotating Hexagon */}
                         <motion.div
-                            animate={{
-                                scale: [1, 1.2, 1],
-                                opacity: [0.7, 1, 0.7]
-                            }}
-                            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                            className="w-1.5 h-1.5 bg-accent-primary rounded-full z-20 shadow-[0_0_10px_#00F0FF]"
+                            animate={{ rotate: -360 }}
+                            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                            className="absolute inset-3 border-[0.5px] border-accent-secondary/40"
+                            style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }}
                         />
 
-                        {/* Scanning HUD Line */}
-                        <motion.div
-                            animate={{
-                                top: ["10%", "90%", "10%"]
-                            }}
-                            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute left-[-10%] right-[-10%] h-[0.5px] bg-accent-primary/20 shadow-[0_0_8px_rgba(0,240,255,0.4)] z-10"
-                        />
+                        {/* Central Hub Core */}
+                        <div className="relative w-4 h-4 flex items-center justify-center">
+                            <motion.div
+                                animate={{
+                                    scale: [1, 1.2, 1],
+                                    opacity: [0.5, 1, 0.5]
+                                }}
+                                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                                className="w-1.5 h-1.5 bg-accent-primary rounded-sm rotate-45 shadow-[0_0_8px_#00F0FF]"
+                            />
+                            {/* Scanning Radar Line */}
+                            <motion.div
+                                animate={{ rotate: 360 }}
+                                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                                className="absolute w-24 h-[0.5px] bg-gradient-to-r from-transparent via-accent-primary/20 to-transparent z-10"
+                            />
+                        </div>
+
+                        {/* Vertice Markers */}
+                        <div className="absolute inset-0 pointer-events-none">
+                            {[0, 60, 120, 180, 240, 300].map((angle) => (
+                                <motion.div
+                                    key={angle}
+                                    animate={{ opacity: [0.2, 0.6, 0.2] }}
+                                    transition={{ duration: 2, repeat: Infinity, delay: angle / 360 }}
+                                    style={{
+                                        transform: `rotate(${angle}deg) translateY(-40px)`,
+                                    }}
+                                    className="absolute top-1/2 left-1/2 w-1 h-1 bg-accent-primary/40 rounded-full -translate-x-1/2 -translate-y-1/2"
+                                />
+                            ))}
+                        </div>
                     </div>
 
-                    {/* STATUS MESSAGE - Professional & Minimal */}
-                    <div className="mt-10 flex flex-col items-center gap-3">
-                        <motion.div
-                            animate={{ opacity: [0.4, 1, 0.4] }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                            className="flex items-center gap-3"
+                    {/* STATUS MESSAGE */}
+                    <div className="mt-8 flex flex-col items-center gap-2">
+                        <motion.span
+                            animate={{ opacity: [0.3, 0.8, 0.3] }}
+                            transition={{ duration: 1.5, repeat: Infinity }}
+                            className="font-tech text-[10px] tracking-[0.6em] text-accent-primary uppercase"
                         >
-                            <span className="w-1 h-1 bg-accent-secondary rounded-full animate-pulse" />
-                            <span className="font-tech text-[8px] tracking-[0.5em] text-text-bright/60 uppercase">
-                                SYNCING_NEURAL_INTERFACE
-                            </span>
-                        </motion.div>
-
-                        {/* Cinematic Minimal Progress */}
+                            INITIALIZING...
+                        </motion.span>
                         <div className="w-32 h-[1px] bg-white/5 relative overflow-hidden">
                             <motion.div
                                 animate={{
                                     left: ["-100%", "100%"]
                                 }}
                                 transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                                className="absolute top-0 bottom-0 w-1/2 bg-gradient-to-r from-transparent via-accent-primary/40 to-transparent"
+                                className="absolute top-0 bottom-0 w-1/2 bg-accent-primary/40"
                             />
                         </div>
                     </div>
