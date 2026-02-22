@@ -133,7 +133,7 @@ export default function Hero() {
                                 </motion.div>
 
                                 {/* Identity Text Cluster */}
-                                <div className="space-y-4 pt-1">
+                                <div className="space-y-1 pt-1">
                                     <motion.h1
                                         initial={{ opacity: 0, x: -20 }}
                                         animate={{ opacity: 1, x: 0 }}
@@ -142,7 +142,7 @@ export default function Hero() {
                                     >
                                         SHANCHOY NOOR
                                     </motion.h1>
-                                    <div className="space-y-1.5">
+                                    <div className="space-y-1">
                                         <motion.p
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}
