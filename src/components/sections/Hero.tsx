@@ -25,7 +25,7 @@ export default function Hero() {
         <section id="hero" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden space-bg select-none">
 
             {/* LAYER 1: BACKGROUND (Deep Space + Earth) */}
-            <div className="absolute inset-0 z-0 pointer-events-none px-6 md:px-10 py-8 md:py-12">
+            <div className="absolute inset-0 z-0 pointer-events-none py-8 md:py-12">
                 {/* Starfield */}
                 <div className="stars-container">
                     {stars.map((star) => (
@@ -70,7 +70,7 @@ export default function Hero() {
             </div>
 
             {/* LAYER 2 & 3: SPACESHIP WINDOW FRAME & INTERIOR */}
-            <div className="absolute inset-0 z-10 pointer-events-none px-6 md:px-10 py-8 md:py-12">
+            <div className="absolute inset-0 z-10 pointer-events-none py-8 md:py-12">
                 {/* Curved Metallic Window Frame */}
                 <div className="absolute inset-0 border-[40px] md:border-[60px] lg:border-[80px] border-bg-base/95 shadow-[inset_0_0_100px_rgba(0,0,0,1),0_0_50px_rgba(0,0,0,0.8)] cockpit-window pointer-events-auto">
                     {/* Inner Rim Light Bounce */}
