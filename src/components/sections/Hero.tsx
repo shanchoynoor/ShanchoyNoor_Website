@@ -97,8 +97,6 @@ export default function Hero() {
                         EYE_SENS_v2.0.4
                     </div>
 
-                    {/* Corner Bracket (Bottom Right Only) */}
-                    <div className="absolute bottom-8 right-8 w-16 h-16 border-b-2 border-r-2 cyan-neon-border opacity-60 z-10" />
 
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full pt-8 z-10 relative">
 
@@ -304,7 +302,13 @@ export default function Hero() {
                                     </div>
                                 </div>
 
-
+                                {/* Console Box */}
+                                <div className="mt-8 p-4 bg-black/40 border border-white/5 font-mono text-[9px] text-accent-primary/80 relative overflow-hidden w-fit max-w-full">
+                                    <div className="absolute top-0 right-0 w-16 h-px bg-accent-primary/20" />
+                                    <p className="typing-cursor leading-relaxed">
+                                        warn(user): 'Efficiency critical. Executing optimized sequence.'_
+                                    </p>
+                                </div>
                             </div>
                         </motion.div>
                     </div>
