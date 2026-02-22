@@ -225,7 +225,7 @@ export default function Hero() {
                             className="hidden lg:flex lg:col-span-5 flex-col gap-6 pl-12 border-l border-white/5"
                         >
                             <div className="flex justify-between items-center border-b border-white/5 pb-2">
-                                <span className="font-tech text-[10px] text-accent-primary">WORKING_ON</span>
+                                <span className="font-tech text-[10px] text-accent-secondary">WORKING_ON</span>
                                 <span className="font-tech text-[9px] text-text-bright/40">ACTIVE_SPRINT: 2025.02</span>
                             </div>
 
@@ -243,8 +243,8 @@ export default function Hero() {
 
                                     <div className="space-y-1 opacity-70">
                                         <div className="flex justify-between items-center text-[9px] uppercase tracking-widest text-text-dim">
-                                            <span className="text-red-400">[PROJECT.02]</span>
-                                            <span className="text-red-400/60">MAINTENANCE</span>
+                                            <span className="text-accent-secondary">[PROJECT.02]</span>
+                                            <span className="text-accent-secondary/60">MAINTENANCE</span>
                                         </div>
                                         <p className="font-display text-base text-text-bright leading-none">AI News Telegram Bot</p>
                                         <p className="font-tech text-[9px] text-text-bright/60 tracking-widest">PYTHON // TELEGRAM_API // CRON</p>
@@ -253,8 +253,8 @@ export default function Hero() {
 
                                 {/* Status Indicators */}
                                 <div className="space-y-3 pt-4 font-tech text-[10px] tracking-wide">
-                                    <div className="flex items-center gap-3 text-red-400">
-                                        <span className="w-1.5 h-1.5 bg-red-400 rounded-full animate-pulse shadow-[0_0_8px_#f87171]" />
+                                    <div className="flex items-center gap-3 text-accent-secondary">
+                                        <span className="w-1.5 h-1.5 bg-accent-secondary rounded-full animate-pulse shadow-[0_0_8px_rgba(255,46,46,0.5)]" />
                                         AT_ORCHESTRATION: NOMINAL
                                     </div>
                                     <div className="flex items-center gap-2 text-text-bright/80">
