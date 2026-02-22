@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import StarkHUD from '@/components/effects/StarkHUD';
+import LoadingScreen from '@/components/ui/LoadingScreen';
 import { SITE_METADATA } from "@/lib/constants";
 
 const spaceGrotesk = Space_Grotesk({
@@ -60,6 +61,7 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
     >
       <body suppressHydrationWarning>
+        <LoadingScreen />
         <Navbar />
         <main className="min-h-screen relative z-10 selection:bg-accent-primary selection:text-bg-base">
           <StarkHUD />
