@@ -63,7 +63,7 @@ export default function Experience() {
                                                 </div>
                                             </div>
 
-                                            <p className="text-text-bright text-xs leading-relaxed border-l-2 border-border-dim pl-4 group-hover:border-accent-primary/50 transition-colors">
+                                            <p className="text-text-dim text-xs leading-relaxed border-l-2 border-border-dim pl-4 group-hover:border-accent-primary/50 transition-colors font-mono">
                                                 {entry.body}
                                             </p>
                                         </TechPanel>
@@ -138,7 +138,7 @@ export default function Experience() {
                                                 </div>
                                             </div>
 
-                                            <p className="text-text-bright text-xs leading-relaxed border-l-2 border-border-dim pl-4 group-hover:border-accent-secondary/50 transition-colors">
+                                            <p className="text-text-dim text-xs leading-relaxed border-l-2 border-border-dim pl-4 group-hover:border-accent-secondary/50 transition-colors font-mono">
                                                 {entry.body}
                                             </p>
                                         </TechPanel>

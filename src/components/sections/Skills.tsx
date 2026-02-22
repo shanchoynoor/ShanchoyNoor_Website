@@ -50,8 +50,8 @@ export default function Skills() {
                                     {/* Skills List - Terminal Style */}
                                     <ul className="space-y-3 font-tech text-xs">
                                         {panel.skills.map((skill) => (
-                                            <li key={skill} className="flex items-center gap-3 text-text-bright hover:text-accent-primary transition-colors">
-                                                <span className="w-1 h-1 bg-current opacity-50" />
+                                            <li key={skill} className="flex items-center gap-3 text-text-dim text-sm leading-relaxed font-mono hover:text-accent-primary transition-colors">
+                                                <span className="w-1 h-1 bg-accent-secondary opacity-80" />
                                                 {skill}
                                             </li>
                                         ))}

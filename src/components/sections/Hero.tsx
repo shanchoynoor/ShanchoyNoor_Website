@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, Activity, Power, Zap, Cpu, Shield, ArrowRight, Github, Linkedin, Facebook, Twitter, Youtube, X } from 'lucide-react';
+import { MapPin, Activity, Power, Zap, Cpu, Shield, ArrowRight, Github, Linkedin, Facebook, Twitter, Youtube, X, Play } from 'lucide-react';
 import Button from '@/components/ui/Button';
 
 export default function Hero() {
@@ -159,7 +159,7 @@ export default function Hero() {
                                         initial={{ opacity: 0, x: -20 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{ delay: 1.2 }}
-                                        className="font-display text-4xl md:text-5xl font-bold cyan-glow-text leading-tight tracking-[0.05em]"
+                                        className="font-display text-3xl md:text-4xl font-bold cyan-glow-text leading-tight tracking-[0.05em]"
                                     >
                                         SHANCHOY NOOR
                                     </motion.h1>
@@ -210,7 +210,7 @@ export default function Hero() {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 1.8 }}
-                                    className="font-tech text-xl md:text-2xl text-accent-primary leading-snug uppercase tracking-tight max-w-2xl"
+                                    className="font-tech text-lg md:text-xl text-accent-primary leading-snug uppercase tracking-tight max-w-2xl"
                                 >
                                     &gt; I build fast, accessible, and scalable frontend systems — with the architectural depth to take them all the way to production.
                                 </motion.h2>
@@ -228,11 +228,11 @@ export default function Hero() {
                                     transition={{ delay: 2.2 }}
                                     className="flex flex-wrap gap-4 pt-4"
                                 >
-                                    <Button variant="primary" className="px-8 !cyan-neon-border group">
-                                        INITIATE_PROTOCOL <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                                    </Button>
-                                    <Button variant="ghost" className="px-8 border-white/10 text-white/50 hover:text-white">
-                                        VIEW_SYSTEMS
+                                    <Button variant="primary" className="w-[180px] h-[36px] !cyan-neon-border group">
+                                        <span className="flex flex-row items-center justify-center gap-1.5 mt-0.5">
+                                            <Play size={10} className="fill-text-bright" />
+                                            <span className="text-[10px] text-text-bright tracking-widest leading-none">VIDEO_RESUME</span>
+                                        </span>
                                     </Button>
                                 </motion.div>
                             </div>

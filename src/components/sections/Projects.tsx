@@ -70,7 +70,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                     <span className="opacity-80">&gt; {project.problemStatement}</span>
                 </div>
 
-                <p className="text-text-bright text-xs leading-relaxed mb-4 flex-grow">
+                <p className="text-text-dim text-xs leading-relaxed mb-4 flex-grow font-mono">
                     {project.description}
                 </p>
 
