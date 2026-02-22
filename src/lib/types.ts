@@ -27,6 +27,7 @@ export interface Project {
     liveUrl?: string;
     githubUrl?: string;
     isFeatured?: boolean;
+    status?: 'ready' | 'in-progress';
 }
 
 export interface ExperienceEntry {

@@ -1,12 +1,16 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import SectionLabel from '@/components/ui/SectionLabel';
 import TechPanel from '@/components/ui/TechPanel';
 import { EXPERIENCE_ENTRIES, EDUCATION_ENTRIES } from '@/lib/constants';
 import { fadeUp, staggerContainer } from '@/lib/animations';
 
 export default function Experience() {
+    const [showAllWork, setShowAllWork] = useState(false);
+    const visibleEntries = showAllWork ? EXPERIENCE_ENTRIES : EXPERIENCE_ENTRIES.slice(0, 3);
+
     return (
         <section id="experience" className="py-24 px-6 relative">
             <div className="max-w-6xl mx-auto relative z-10">
@@ -23,17 +27,17 @@ export default function Experience() {
                         </div>
 
                         <motion.div
+                            key={showAllWork ? 'all' : 'partial'}
                             className="relative max-w-2xl ml-auto"
                             initial="hidden"
-                            whileInView="show"
-                            viewport={{ once: true }}
+                            animate="show"
                             variants={staggerContainer}
                         >
                             {/* Vertical Track */}
                             <div className="absolute left-0 top-0 bottom-0 w-px bg-border-dim" />
 
                             <div className="space-y-12 pl-8">
-                                {EXPERIENCE_ENTRIES.map((entry, i) => (
+                                {visibleEntries.map((entry, i) => (
                                     <motion.div
                                         key={entry.title}
                                         variants={fadeUp}
@@ -66,6 +70,25 @@ export default function Experience() {
                                     </motion.div>
                                 ))}
                             </div>
+
+                            {/* Load More Button */}
+                            {EXPERIENCE_ENTRIES.length > 3 && (
+                                <div className="mt-8 flex justify-center">
+                                    <button
+                                        onClick={() => {
+                                            if (showAllWork) {
+                                                setShowAllWork(false);
+                                                document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
+                                            } else {
+                                                setShowAllWork(true);
+                                            }
+                                        }}
+                                        className="font-tech text-[11px] tracking-widest text-accent-primary border border-accent-primary/30 px-6 py-2 hover:bg-accent-primary/10 hover:border-accent-primary transition-all duration-300"
+                                    >
+                                        {showAllWork ? '[ COLLAPSE ]' : `[ LOAD_MORE · ${EXPERIENCE_ENTRIES.length - 3} ]`}
+                                    </button>
+                                </div>
+                            )}
                         </motion.div>
                     </div>
 

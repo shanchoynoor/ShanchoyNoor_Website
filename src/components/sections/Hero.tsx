@@ -1,6 +1,7 @@
 'use client';
 
-import { motion, type Variants } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { MapPin, Github, Linkedin, Facebook, Twitter, Youtube } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import GridOverlay from '@/components/effects/GridOverlay';
@@ -25,6 +26,8 @@ const barExpand: Variants = {
 };
 
 export default function Hero() {
+    const [showPhotoModal, setShowPhotoModal] = useState(false);
+
     return (
         <section id="hero" className="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
             <GridOverlay />
@@ -50,22 +53,21 @@ export default function Hero() {
                         {/* Biometric Photo Placeholder */}
                         <motion.div
                             variants={textReveal}
-                            className="relative group w-28 h-36 md:w-32 md:h-40 shrink-0"
+                            className="relative group w-28 h-36 md:w-32 md:h-40 shrink-0 cursor-pointer"
+                            onClick={() => setShowPhotoModal(true)}
                         >
                             {/* High-tech frame */}
                             <div className="absolute inset-0 border border-accent-primary/20 group-hover:border-accent-primary/40 transition-colors" />
                             <div className="absolute -top-1 -left-1 w-2 h-2 border-t-2 border-l-2 border-accent-primary" />
                             <div className="absolute -bottom-1 -right-1 w-2 h-2 border-b-2 border-r-2 border-accent-primary" />
 
-                            {/* Placeholder Content */}
-                            <div className="absolute inset-2 bg-accent-primary/5 flex items-center justify-center overflow-hidden">
-                                {/* Central Icon Placeholder */}
-                                <div className="text-accent-primary/10 group-hover:text-accent-primary/25 transition-colors">
-                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5">
-                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                                        <circle cx="12" cy="7" r="4" />
-                                    </svg>
-                                </div>
+                            {/* Photo + Scanning Line */}
+                            <div className="absolute inset-2 overflow-hidden">
+                                <img
+                                    src="/id_image/shanchoy_noor.jpg"
+                                    alt="Shanchoy Noor"
+                                    className="w-full h-full object-cover"
+                                />
 
                                 {/* Animated Scanning Line */}
                                 <motion.div
@@ -217,6 +219,56 @@ export default function Hero() {
                     <span>// SECTOR 05: ARCHITECTURE</span>
                 </div>
             </div>
+
+            {/* Photo Modal */}
+            <AnimatePresence>
+                {showPhotoModal && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="fixed inset-0 z-[100] flex items-center justify-center bg-bg-base/80 backdrop-blur-sm cursor-pointer"
+                        onClick={() => setShowPhotoModal(false)}
+                    >
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.9, opacity: 0 }}
+                            transition={{ duration: 0.25, ease: 'easeOut' }}
+                            className="relative max-w-sm w-full mx-4 cursor-default"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            {/* HUD Frame */}
+                            <div className="relative border border-accent-primary/30 p-2">
+                                <div className="absolute -top-1.5 -left-1.5 w-4 h-4 border-t-2 border-l-2 border-accent-primary" />
+                                <div className="absolute -top-1.5 -right-1.5 w-4 h-4 border-t-2 border-r-2 border-accent-primary" />
+                                <div className="absolute -bottom-1.5 -left-1.5 w-4 h-4 border-b-2 border-l-2 border-accent-primary" />
+                                <div className="absolute -bottom-1.5 -right-1.5 w-4 h-4 border-b-2 border-r-2 border-accent-primary" />
+
+                                <img
+                                    src="/id_image/shanchoy_noor.jpg"
+                                    alt="Shanchoy Noor"
+                                    className="w-full h-auto"
+                                />
+
+
+                            </div>
+
+                            {/* Label */}
+                            <div className="mt-3 flex items-center justify-between font-tech text-[10px] tracking-widest text-text-dim">
+                                <span>ID_VERIFICATION // CONFIRMED</span>
+                                <button
+                                    onClick={() => setShowPhotoModal(false)}
+                                    className="text-accent-primary hover:text-text-bright transition-colors"
+                                >
+                                    [ CLOSE ]
+                                </button>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 }

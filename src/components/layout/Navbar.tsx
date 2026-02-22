@@ -69,14 +69,14 @@ export default function Navbar() {
                         <Power size={18} className="animate-pulse" />
                         <span className="font-tech text-sm tracking-widest font-bold">S.NOOR</span>
                     </div>
-                    <div className="hidden md:flex flex-col text-[10px] font-tech text-text-dim leading-none">
+                    <div className="hidden md:flex flex-col text-[10px] font-tech text-text-bright leading-none">
                         <span>SYS.ONLINE</span>
                         <span>V.2.0.4</span>
                     </div>
                 </div>
 
                 {/* Center: Typing Message (Hidden on small mobile) */}
-                <div className="hidden md:flex items-center gap-6 font-tech text-xs text-text-dim">
+                <div className="hidden md:flex items-center gap-6 font-tech text-xs text-text-bright">
                     <span className="flex items-center gap-2">
                         <Terminal size={12} className="text-accent-secondary" />
                         <span className="tracking-wider text-[11px] whitespace-nowrap inline-block w-[280px]">
@@ -91,7 +91,7 @@ export default function Navbar() {
                         <a
                             key={link.label}
                             href={link.href}
-                            className="relative group text-text-dim hover:text-accent-primary transition-colors"
+                            className="relative group text-text-bright hover:text-accent-primary transition-colors"
                         >
                             {/* Hover brackets effect */}
                             <span className="absolute -left-2 opacity-0 group-hover:opacity-100 transition-opacity">[</span>

@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ExternalLink, Github, Terminal } from 'lucide-react';
+
+import { motion } from 'framer-motion';
+import { ExternalLink, Github } from 'lucide-react';
 import SectionLabel from '@/components/ui/SectionLabel';
 import TechPanel from '@/components/ui/TechPanel';
 import TechTag from '@/components/ui/TechTag';
@@ -12,7 +12,6 @@ import { fadeUp, staggerContainer } from '@/lib/animations';
 import type { Project } from '@/lib/types';
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
-    const [archExpanded, setArchExpanded] = useState(false);
 
     return (
         <TechPanel sysId={`PROJ.0${index + 1}`} className="group relative overflow-hidden h-full flex flex-col">
@@ -30,9 +29,27 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                     </div>
                     <div className="flex items-center gap-2">
                         {project.liveUrl && (
-                            <Button variant="primary" href={project.liveUrl} className="px-3 py-1 text-[9px]">
-                                LIVE_DEMO
-                            </Button>
+                            <div className="flex items-center gap-2">
+                                <Button
+                                    variant="primary"
+                                    href={project.status === 'in-progress' ? undefined : project.liveUrl}
+                                    className={`px-3 py-1 text-[9px] ${project.status === 'in-progress' ? 'opacity-40 pointer-events-none' : ''}`}
+                                >
+                                    LIVE_DEMO
+                                </Button>
+                                {project.status && (
+                                    <span className={`font-tech text-[8px] tracking-widest flex items-center gap-1 ${project.status === 'ready'
+                                        ? 'text-green-400'
+                                        : 'text-accent-warning'
+                                        }`}>
+                                        <span className={`inline-block w-1.5 h-1.5 rounded-full ${project.status === 'ready'
+                                            ? 'bg-green-400'
+                                            : 'bg-accent-warning animate-pulse'
+                                            }`} />
+                                        {project.status === 'ready' ? 'READY' : 'IN_PROGRESS'}
+                                    </span>
+                                )}
+                            </div>
                         )}
                         {project.githubUrl && (
                             <Button variant="ghost" href={project.githubUrl} className="px-3 py-1 text-[9px]">
@@ -57,36 +74,6 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                     {project.description}
                 </p>
 
-                {/* Architecture Pipeline Toggle */}
-                {project.architectureNote && (
-                    <div className="mb-4">
-                        <button
-                            onClick={() => setArchExpanded(!archExpanded)}
-                            className="flex items-center gap-2 text-[10px] font-tech text-text-bright hover:text-accent-primary transition-colors"
-                        >
-                            <Terminal size={10} />
-                            <span>{archExpanded ? 'HIDE_PIPELINE' : 'VIEW_PIPELINE'}</span>
-                            <ChevronDown size={10} className={`transition-transform duration-300 ${archExpanded ? 'rotate-180' : ''}`} />
-                        </button>
-
-                        <AnimatePresence>
-                            {archExpanded && (
-                                <motion.div
-                                    initial={{ height: 0, opacity: 0 }}
-                                    animate={{ height: 'auto', opacity: 1 }}
-                                    exit={{ height: 0, opacity: 0 }}
-                                    className="overflow-hidden"
-                                >
-                                    <div className="mt-2 p-3 bg-bg-surface border border-border-dim rounded-sm font-mono text-[9px] text-text-code">
-                                        <span className="text-accent-dim"># Architecture Flow</span>
-                                        <br />
-                                        {project.architectureNote}
-                                    </div>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
-                    </div>
-                )}
 
                 <div className="flex flex-wrap gap-2 mb-2 mt-auto">
                     {project.tech.map((t) => (

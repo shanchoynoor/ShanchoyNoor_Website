@@ -141,9 +141,9 @@ export const SKILL_PANELS: SkillPanel[] = [
 // ─── Projects ───
 export const PROJECTS: Project[] = [
     {
-        title: 'Choy AI — Modular AI Assistant Platform',
+        title: 'ChoyAI — Personal AI Assistant',
         tag: 'AI PLATFORM',
-        featuredLabel: 'FEATURED',
+        featuredLabel: 'TECH_STACK',
         problemStatement:
             'Eliminates the rebuild cost of switching AI providers by abstracting LLM calls behind a unified orchestration interface.',
         description:
@@ -151,28 +151,33 @@ export const PROJECTS: Project[] = [
         architectureNote:
             'Client → API Gateway → LLM Orchestrator → [OpenAI / Brave Search] → Response Formatter → Supabase logging → Client',
         tech: [
+            'Python',
+            'FastAPI',
             'Next.js',
-            'Node.js',
             'PostgreSQL',
             'Supabase',
-            'OpenAI API',
-            'Brave Search API',
+            'LLM Orchestration',
+            'Search API',
             'Docker',
-            'Vercel',
+            'AWS',
         ],
         liveUrl: '#',
         isFeatured: true,
+        status: 'in-progress',
     },
     {
         title: 'AI News & Finance Telegram Bot',
         tag: 'AUTOMATION · PYTHON',
         yearLabel: '2024',
+        featuredLabel: 'TECH_STACK',
         problemStatement:
             'Delivers automated daily intelligence briefings — news, crypto, and finance data — without manual aggregation.',
         description:
             'Automated pipeline that fetches global and Bangladesh news, crypto market movers, and finance headlines on a 6-hour cron schedule. Built with rate-limit-safe architecture and clean formatted output.',
         tech: ['Python', 'GNews API', 'Telegram Bot API', 'Cron Scheduling'],
         liveUrl: '#',
+        isFeatured: true,
+        status: 'ready',
     },
 ];
 
