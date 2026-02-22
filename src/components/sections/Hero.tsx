@@ -24,94 +24,70 @@ export default function Hero() {
     return (
         <section id="hero" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden space-bg select-none">
 
-            {/* LAYER 1: BACKGROUND (Deep Space + Earth) */}
-            <div className="absolute inset-0 z-0 pointer-events-none py-8 md:py-12">
-                <div className="relative w-full h-full cockpit-window overflow-hidden rounded-[2rem]">
-                    {/* Starfield */}
-                    <div className="stars-container space-bg">
-                        {stars.map((star) => (
-                            <div
-                                key={star.id}
-                                className="star bg-white rounded-full absolute"
-                                style={{
-                                    left: `${star.x}%`,
-                                    top: `${star.y}%`,
-                                    width: `${star.size}px`,
-                                    height: `${star.size}px`,
-                                    animationDuration: `${star.duration}s`,
-                                    animationDelay: `${Math.random() * 5}s`
-                                }}
-                            />
-                        ))}
-                    </div>
-
-                    {/* Orbital Earth */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 1.1, rotate: -5, x: 100, y: 100 }}
-                        animate={{
-                            opacity: 1,
-                            scale: 1,
-                            rotate: 0,
-                            x: [100, 0],
-                            y: [100, 0]
-                        }}
-                        transition={{ duration: 4, ease: 'easeOut' }}
-                        className="absolute -bottom-[5%] -right-[5%] w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] rounded-full earth-atmosphere overflow-hidden mix-blend-screen"
-                    >
-                        <motion.div
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 300, repeat: Infinity, ease: "linear" }}
-                            className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-70 scale-125"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
-                        <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-black to-transparent opacity-90" />
-                    </motion.div>
-                </div>
-            </div>
-
-            {/* LAYER 2 & 3: SPACESHIP WINDOW FRAME & INTERIOR */}
-            <div className="absolute inset-0 z-10 pointer-events-none flex items-center justify-center pt-16 pb-8 px-4 md:px-12 bg-[#050A10]/[0.98]">
-                {/* Curved Metallic Window Frame matching monitor dimensions */}
-                <div className="relative w-full max-w-7xl min-h-[85vh] rounded-[3rem] shadow-[inset_0_0_100px_rgba(0,0,0,1),0_0_50px_rgba(0,0,0,0.8)] cockpit-window pointer-events-auto border-4 border-white/5">
-                    {/* Inner Rim Light Bounce */}
-                    <div className="absolute inset-0 border-2 border-accent-primary/20 cockpit-window pointer-events-none rounded-[3rem]" />
-
-                    {/* Decorative Panel Seams & Rivets */}
-                    <div className="absolute top-1/2 left-0 w-full h-px bg-white/5" />
-                    <div className="absolute left-1/2 top-0 h-full w-px bg-white/5" />
-
-                    {/* Starfield & Earth Mask Container - So Earth doesn't bleed out of the new smaller rounded frame */}
-                    <div className="absolute inset-0 overflow-hidden rounded-[3rem] cockpit-window pointer-events-none [mask-image:linear-gradient(to_bottom,black,transparent)] opacity-0"></div>
-                </div>
-
-                {/* Dashboard / Desk Surface */}
-                <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#050A10] via-[#0A0F16] to-transparent border-t border-white/10">
-                    {/* Volumetric Dash Glow */}
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-32 dashboard-glow opacity-50" />
-                </div>
-            </div>
-
-            {/* LAYER 4 & 5: HOLOGRAPHIC MONITOR & CONTENT */}
+            {/* HOLOGRAPHIC MONITOR & CONTENT */}
             <div className="relative z-20 w-full max-w-7xl px-4 md:px-12 flex items-center justify-center pt-16 pb-8">
                 <motion.div
                     initial={{ opacity: 0, y: 40, rotateX: 5 }}
                     animate={{ opacity: 1, y: 0, rotateX: 0 }}
                     transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
                     style={{ perspective: '1000px' }}
-                    className="hologram-monitor w-full min-h-[85vh] rounded-[3rem] p-6 md:p-14 relative flex items-center"
+                    className="hologram-monitor w-full min-h-[85vh] rounded-[3rem] p-6 md:p-14 relative flex items-center overflow-hidden"
                 >
+                    {/* BACKGROUND INSIDE MONITOR */}
+                    <div className="absolute inset-0 z-0 pointer-events-none rounded-[3rem] overflow-hidden opacity-60">
+                        {/* Starfield */}
+                        <div className="stars-container relative w-full h-full">
+                            {stars.map((star) => (
+                                <div
+                                    key={star.id}
+                                    className="star bg-white rounded-full absolute"
+                                    style={{
+                                        left: `${star.x}%`,
+                                        top: `${star.y}%`,
+                                        width: `${star.size}px`,
+                                        height: `${star.size}px`,
+                                        animationDuration: `${star.duration}s`,
+                                        animationDelay: `${Math.random() * 5}s`
+                                    }}
+                                />
+                            ))}
+                        </div>
+
+                        {/* Orbital Earth */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 1.1, rotate: -5, x: 100, y: 100 }}
+                            animate={{
+                                opacity: 1,
+                                scale: 1,
+                                rotate: 0,
+                                x: [100, 0],
+                                y: [100, 0]
+                            }}
+                            transition={{ duration: 4, ease: 'easeOut' }}
+                            className="absolute -bottom-[5%] -right-[5%] w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] rounded-full earth-atmosphere overflow-hidden mix-blend-screen"
+                        >
+                            <motion.div
+                                animate={{ rotate: 360 }}
+                                transition={{ duration: 300, repeat: Infinity, ease: "linear" }}
+                                className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-70 scale-125"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
+                            <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-black to-transparent opacity-90" />
+                        </motion.div>
+                    </div>
+
                     {/* Monitor UI Elements (Metadata) */}
-                    <div className="absolute top-8 left-14 font-tech text-[8px] text-accent-primary/40 tracking-[0.4em]">
+                    <div className="absolute top-8 left-14 font-tech text-[8px] text-accent-primary/40 tracking-[0.4em] z-10">
                         NAV_SYS_v4.0 // COCKPIT_HUD_A1
                     </div>
-                    <div className="absolute top-8 right-14 font-tech text-[8px] text-accent-primary/40 tracking-[0.4em]">
+                    <div className="absolute top-8 right-14 font-tech text-[8px] text-accent-primary/40 tracking-[0.4em] z-10">
                         EYE_SENS_v2.0.4
                     </div>
 
                     {/* Corner Bracket (Bottom Right Only) */}
-                    <div className="absolute bottom-8 right-8 w-16 h-16 border-b-2 border-r-2 cyan-neon-border opacity-60" />
+                    <div className="absolute bottom-8 right-8 w-16 h-16 border-b-2 border-r-2 cyan-neon-border opacity-60 z-10" />
 
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full pt-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full pt-8 z-10 relative">
 
                         {/* MONITOR LEFT: Identity & Main Message */}
                         <div className="lg:col-span-7 space-y-8">
