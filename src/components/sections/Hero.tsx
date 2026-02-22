@@ -71,8 +71,6 @@ export default function Hero() {
                                 transition={{ duration: 300, repeat: Infinity, ease: "linear" }}
                                 className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-70 scale-125"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
-                            <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-black to-transparent opacity-90" />
                         </motion.div>
                     </div>
 
