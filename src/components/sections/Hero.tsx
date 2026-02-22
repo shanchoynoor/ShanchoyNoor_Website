@@ -304,8 +304,7 @@ export default function Hero() {
                                     </div>
                                 </div>
 
-                                {/* Decorative L-Bracket */}
-                                <div className="mt-auto ml-auto w-16 h-16 border-r-2 border-b-2 border-accent-primary/20" />
+
                             </div>
                         </motion.div>
                     </div>
