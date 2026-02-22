@@ -264,28 +264,6 @@ body {
   position: relative;
 }
 
-.hologram-monitor::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: repeating-linear-gradient(0deg,
-      transparent 0px,
-      rgba(0, 245, 255, 0.03) 1px,
-      transparent 2px);
-  pointer-events: none;
-  animation: scanline 8s linear infinite;
-}
-
-@keyframes scanline {
-  0% {
-    transform: translateY(-100%);
-  }
-
-  100% {
-    transform: translateY(100%);
-  }
-}
 
 .cyan-glow-text {
   color: #E0F7FF;
