@@ -50,7 +50,7 @@ export default function Experience() {
                                                     <h3 className="font-display text-lg font-bold text-text-bright">
                                                         {entry.title}
                                                     </h3>
-                                                    <p className="font-tech text-[14px] font-bold text-text-dim uppercase tracking-wider">
+                                                    <p className="font-tech text-[14px] font-bold text-text-bright uppercase tracking-wider">
                                                         {entry.company}
                                                     </p>
                                                 </div>
@@ -59,7 +59,7 @@ export default function Experience() {
                                                 </div>
                                             </div>
 
-                                            <p className="text-text-dim text-xs leading-relaxed border-l-2 border-border-dim pl-4 group-hover:border-accent-primary/50 transition-colors">
+                                            <p className="text-text-bright text-xs leading-relaxed border-l-2 border-border-dim pl-4 group-hover:border-accent-primary/50 transition-colors">
                                                 {entry.body}
                                             </p>
                                         </TechPanel>
@@ -106,7 +106,7 @@ export default function Experience() {
                                                     <h3 className="font-display text-lg font-bold text-text-bright">
                                                         {entry.title}
                                                     </h3>
-                                                    <p className="font-tech text-[14px] font-bold text-text-dim uppercase tracking-wider">
+                                                    <p className="font-tech text-[14px] font-bold text-text-bright uppercase tracking-wider">
                                                         {entry.institution}
                                                     </p>
                                                 </div>
@@ -115,7 +115,7 @@ export default function Experience() {
                                                 </div>
                                             </div>
 
-                                            <p className="text-text-dim text-xs leading-relaxed border-l-2 border-border-dim pl-4 group-hover:border-accent-secondary/50 transition-colors">
+                                            <p className="text-text-bright text-xs leading-relaxed border-l-2 border-border-dim pl-4 group-hover:border-accent-secondary/50 transition-colors">
                                                 {entry.body}
                                             </p>
                                         </TechPanel>

@@ -42,7 +42,7 @@ export default function Hero() {
                     {/* Status Badge */}
                     <motion.div variants={textReveal} className="inline-flex items-center gap-2 px-3 py-1 border border-accent-dim bg-bg-panel/50 backdrop-blur-sm rounded-none">
                         <span className="w-2 h-2 bg-green-500 animate-pulse shadow-[0_0_10px_#0f0]" />
-                        <span className="font-tech text-xs text-text-dim tracking-widest">SYSTEM: ONLINE // AVAILABLE FOR HIRE</span>
+                        <span className="font-tech text-xs text-text-bright tracking-widest">SYSTEM: ONLINE // AVAILABLE FOR HIRE</span>
                     </motion.div>
 
                     {/* Identity Block: Biometric Photo + Name + Title */}
@@ -108,7 +108,7 @@ export default function Hero() {
                                         <MapPin size={10} className="text-accent-primary animate-pulse" />
                                         Dhaka, Bangladesh
                                     </div>
-                                    <div className="font-tech text-[8.5px] md:text-[9.5px] text-text-dim opacity-50 tracking-widest leading-relaxed">
+                                    <div className="font-tech text-[8.5px] md:text-[9.5px] text-text-bright tracking-widest leading-relaxed">
                                         // LAT: 23.8340 // LONG: 90.3620
                                     </div>
 
@@ -137,7 +137,7 @@ export default function Hero() {
                         &gt; {HERO.tagline}
                     </motion.h2>
 
-                    <motion.p variants={textReveal} className="text-text-dim text-xs md:text-sm max-w-md leading-snug opacity-70">
+                    <motion.p variants={textReveal} className="text-text-bright text-xs md:text-sm max-w-md leading-snug">
                         Architecting high-performance systems. Integrating AI pipelines.
                         Building the next generation of web infrastructure.
                     </motion.p>
@@ -159,11 +159,11 @@ export default function Hero() {
                         initial={{ opacity: 0, x: 30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.5 }}
-                        className="font-tech text-xs text-text-dim space-y-6 opacity-80 w-full max-w-sm"
+                        className="font-tech text-xs text-text-bright space-y-6 opacity-80 w-full max-w-sm"
                     >
                         <div className="border-b border-border-dim pb-2 mb-4 flex justify-between items-center">
                             <span className="text-accent-primary">WORKING_ON</span>
-                            <span className="text-[10px] opacity-40">ACTIVE_SPRINT: 2025.02</span>
+                            <span className="text-[10px] text-text-bright">ACTIVE_SPRINT: 2025.02</span>
                         </div>
 
                         <div className="space-y-4">
@@ -173,7 +173,7 @@ export default function Hero() {
                                     <span className="text-accent-primary/50 text-[10px]">IN_PROGRESS</span>
                                 </div>
                                 <p className="text-text-bright font-medium text-sm">Choy AI Platform</p>
-                                <p className="text-[10px] tracking-widest text-text-dim/60">NEXT.JS // OPENAI // SUPABASE // DOCKER</p>
+                                <p className="text-[10px] tracking-widest text-text-bright/90">NEXT.JS // OPENAI // SUPABASE // DOCKER</p>
                             </div>
 
                             <div className="group">
@@ -182,11 +182,11 @@ export default function Hero() {
                                     <span className="text-accent-secondary/50 text-[10px]">MAINTENANCE</span>
                                 </div>
                                 <p className="text-text-bright font-medium text-sm">AI News Telegram Bot</p>
-                                <p className="text-[10px] tracking-widest text-text-dim/60">PYTHON // TELEGRAM_API // CRON</p>
+                                <p className="text-[10px] tracking-widest text-text-bright/90">PYTHON // TELEGRAM_API // CRON</p>
                             </div>
                         </div>
 
-                        <div className="pt-4 space-y-2 opacity-60">
+                        <div className="pt-4 space-y-2">
                             <p className="text-accent-secondary flex items-center gap-2">
                                 <span className="w-1 h-1 bg-accent-secondary rounded-full animate-pulse" />
                                 AI_ORCHESTRATION: NOMINAL
@@ -208,7 +208,7 @@ export default function Hero() {
 
             {/* Bottom Decorative Ticker */}
             <div className="absolute bottom-0 w-full h-12 border-t border-border-dim bg-bg-panel/80 backdrop-blur flex items-center px-6">
-                <div className="flex gap-12 font-tech text-[10px] text-text-dim animate-marquee whitespace-nowrap">
+                <div className="flex gap-12 font-tech text-[10px] text-text-bright animate-marquee whitespace-nowrap">
                     <span>// SCROLL FOR DATA</span>
                     <span>// SECTOR 01: ABOUT</span>
                     <span>// SECTOR 02: SKILLS</span>

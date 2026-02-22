@@ -1,6 +1,5 @@
 'use client';
 
-import { motion, useScroll, useTransform, type MotionValue } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 interface WeatherData {
@@ -30,11 +29,9 @@ function getWeatherLabel(code: number): string {
 }
 
 export default function StarkHUD() {
-    const { scrollYProgress } = useScroll();
     const [sysHash, setSysHash] = useState('0x77A2...F4');
     const [weather, setWeather] = useState<WeatherData | null>(null);
     const [loadState, setLoadState] = useState<'loading' | 'ready' | 'error'>('loading');
-    const scrollTop = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
     // Fetch real weather based on visitor IP
     useEffect(() => {
@@ -83,7 +80,7 @@ export default function StarkHUD() {
             {/* --- ADVANCED ARC GAUGE REMOVED --- */}
 
             {/* --- BOTTOM LEFT: SCROLL TRACKING HUD --- */}
-            <ScrollTrack scrollTop={scrollTop} />
+            <ScrollTrack />
 
             {/* --- DECORATIVE BARS --- */}
             <div className="absolute bottom-10 right-10 flex gap-1.5 opacity-20">
@@ -100,12 +97,12 @@ const SECTIONS = [
     { id: 'about', label: 'PROFILE' },
     { id: 'skills', label: 'MODULES' },
     { id: 'projects', label: 'DATA_LOG' },
-    { id: 'architecture', label: 'SCHEMATIC' },
     { id: 'experience', label: 'MISSION' },
+    { id: 'architecture', label: 'SCHEMATIC' },
     { id: 'contact', label: 'COMM_LINK' },
 ];
 
-function ScrollTrack({ scrollTop }: { scrollTop: MotionValue<string> }) {
+function ScrollTrack() {
     const [activeSection, setActiveSection] = useState('hero');
 
     useEffect(() => {
@@ -127,6 +124,10 @@ function ScrollTrack({ scrollTop }: { scrollTop: MotionValue<string> }) {
 
         return () => observers.forEach(o => o.disconnect());
     }, []);
+
+    // Triangle position = active label position. Same formula, guaranteed match.
+    const activeIndex = SECTIONS.findIndex(s => s.id === activeSection);
+    const triangleTop = (activeIndex / (SECTIONS.length - 1)) * 100;
 
     return (
         <div className="absolute left-10 top-64 hidden md:block" style={{ bottom: '160px' }}>
@@ -159,10 +160,10 @@ function ScrollTrack({ scrollTop }: { scrollTop: MotionValue<string> }) {
                 );
             })}
 
-            {/* Scroll-tracking triangle — centered on the line */}
-            <motion.div
-                style={{ top: scrollTop }}
+            {/* Triangle indicator — follows active label */}
+            <div
                 className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-auto cursor-pointer group z-10"
+                style={{ top: `${triangleTop}%`, transition: 'top 400ms ease-out' }}
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 title="SCROLL_TO_TOP"
             >
@@ -174,7 +175,7 @@ function ScrollTrack({ scrollTop }: { scrollTop: MotionValue<string> }) {
                         <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2s" repeatCount="indefinite" />
                     </circle>
                 </svg>
-            </motion.div>
+            </div>
         </div>
     );
 }

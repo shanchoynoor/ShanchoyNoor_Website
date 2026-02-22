@@ -47,13 +47,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 </h3>
 
                 {/* Problem Statement - Terminal Block */}
-                <div className="bg-bg-base border-l-2 border-accent-secondary p-3 mb-4 my-2 font-mono text-[10px] text-text-dim">
+                <div className="bg-bg-base border-l-2 border-accent-secondary p-3 mb-4 my-2 font-mono text-[10px] text-text-bright">
                     <span className="text-accent-secondary">$ cat problem.log</span>
                     <br />
                     <span className="opacity-80">&gt; {project.problemStatement}</span>
                 </div>
 
-                <p className="text-text-dim text-xs leading-relaxed mb-4 flex-grow">
+                <p className="text-text-bright text-xs leading-relaxed mb-4 flex-grow">
                     {project.description}
                 </p>
 
@@ -62,7 +62,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                     <div className="mb-4">
                         <button
                             onClick={() => setArchExpanded(!archExpanded)}
-                            className="flex items-center gap-2 text-[10px] font-tech text-text-dim hover:text-accent-primary transition-colors"
+                            className="flex items-center gap-2 text-[10px] font-tech text-text-bright hover:text-accent-primary transition-colors"
                         >
                             <Terminal size={10} />
                             <span>{archExpanded ? 'HIDE_PIPELINE' : 'VIEW_PIPELINE'}</span>

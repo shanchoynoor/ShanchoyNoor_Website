@@ -13,7 +13,7 @@ import type {
 
 // ─── Metadata ───
 export const SITE_METADATA = {
-    title: 'Shanchoy Noor — Frontend Engineer & AI Systems Builder',
+    title: 'Shanchoy Noor — Frontend & AI Developer',
     description:
         'Frontend engineer specializing in React, Next.js, and TypeScript. Building AI-powered systems and production-grade web applications from Dhaka, Bangladesh.',
     keywords:

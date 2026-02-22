@@ -4,7 +4,7 @@ interface TechTagProps {
 }
 
 const VARIANT_STYLES = {
-    default: 'border-border-dim text-text-dim hover:text-text-bright hover:border-text-dim',
+    default: 'border-border-dim text-text-bright/90 hover:text-text-bright hover:border-text-dim',
     featured: 'border-accent-warning/30 text-accent-warning bg-accent-warning/5',
     ai: 'border-accent-primary/30 text-accent-primary bg-accent-primary/5',
 } as const;

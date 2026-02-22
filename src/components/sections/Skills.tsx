@@ -50,7 +50,7 @@ export default function Skills() {
                                     {/* Skills List - Terminal Style */}
                                     <ul className="space-y-3 font-tech text-xs">
                                         {panel.skills.map((skill) => (
-                                            <li key={skill} className="flex items-center gap-3 text-text-dim hover:text-accent-primary transition-colors">
+                                            <li key={skill} className="flex items-center gap-3 text-text-bright hover:text-accent-primary transition-colors">
                                                 <span className="w-1 h-1 bg-current opacity-50" />
                                                 {skill}
                                             </li>
@@ -79,10 +79,10 @@ export default function Skills() {
                         <div className="flex flex-wrap gap-8 md:gap-10">
                             {Object.entries(ToolIcons).map(([name, Icon]) => (
                                 <div key={name} className="flex flex-col items-center gap-2 group cursor-default">
-                                    <div className="text-3xl text-text-dim group-hover:scale-110 group-hover:text-text-bright transition-all duration-300 drop-shadow-lg">
+                                    <div className="text-3xl text-text-bright group-hover:scale-110 group-hover:text-accent-primary transition-all duration-300 drop-shadow-lg">
                                         <Icon />
                                     </div>
-                                    <span className="font-tech text-[9px] text-text-dim/60 uppercase tracking-widest group-hover:text-accent-primary transition-colors duration-300">
+                                    <span className="font-tech text-[9px] text-text-bright/90 uppercase tracking-widest group-hover:text-accent-primary transition-colors duration-300">
                                         {name}
                                     </span>
                                 </div>

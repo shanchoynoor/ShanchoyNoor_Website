@@ -135,7 +135,7 @@ export default function Architecture() {
                                         {card.title}
                                     </h3>
                                 </div>
-                                <p className="text-text-dim text-xs leading-relaxed font-mono">
+                                <p className="text-text-bright text-xs leading-relaxed font-mono">
                                     {card.description}
                                 </p>
                             </TechPanel>

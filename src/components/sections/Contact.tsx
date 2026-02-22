@@ -175,7 +175,7 @@ export default function Contact() {
                         variants={staggerContainer}
                         className="space-y-4"
                     >
-                        <p className="font-tech text-xs text-text-dim border-b border-border-dim pb-2">// SECURE_CHANNELS</p>
+                        <p className="font-tech text-xs text-text-bright border-b border-border-dim pb-2">// SECURE_CHANNELS</p>
                         {CONTACT_LINKS.map((link) => {
                             const Icon = ICON_MAP[link.iconName];
                             return (
@@ -187,12 +187,12 @@ export default function Contact() {
                                     rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                                     className="flex items-center gap-4 p-4 border border-border-dim bg-bg-surface hover:border-accent-primary hover:bg-accent-primary/5 transition-all group"
                                 >
-                                    <div className="text-text-dim group-hover:text-accent-primary transition-colors">
+                                    <div className="text-text-bright group-hover:text-accent-primary transition-colors">
                                         {Icon && <Icon size={20} />}
                                     </div>
                                     <div className="flex flex-col">
                                         <span className="font-display text-sm font-bold text-text-bright">{link.label}</span>
-                                        <span className="font-mono text-[10px] text-text-dim">LINK_ESTABLISHED</span>
+                                        <span className="font-mono text-[10px] text-text-bright">LINK_ESTABLISHED</span>
                                     </div>
                                 </motion.a>
                             );

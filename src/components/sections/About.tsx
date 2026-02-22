@@ -45,7 +45,7 @@ export default function About() {
                                     </p>
 
                                     {i === 0 && (
-                                        <div className="mt-2 font-tech text-[10px] text-accent-primary opacity-40 uppercase tracking-[0.2em]">
+                                        <div className="mt-2 font-tech text-[10px] text-text-bright uppercase tracking-[0.2em]">
                                     // SECURITY_CLEARANCE: LEVEL_8_GRANTED
                                         </div>
                                     )}
@@ -76,7 +76,7 @@ export default function About() {
                                             <span className="font-display text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-accent-primary to-accent-primary/50 group-hover:animate-pulse">
                                                 {stat.value}
                                             </span>
-                                            <span className="font-tech text-[10px] text-text-dim uppercase tracking-[0.15em] leading-tight max-w-[100px]">
+                                            <span className="font-tech text-[10px] text-text-bright uppercase tracking-[0.15em] leading-tight max-w-[100px]">
                                                 {stat.label}
                                             </span>
                                         </div>
@@ -84,7 +84,7 @@ export default function About() {
                                 </div>
 
                                 {/* Bottom Console Readout */}
-                                <div className="mt-6 pt-4 border-t border-border-dim/30 font-tech text-[9px] text-text-dim flex justify-between uppercase tracking-widest opacity-60">
+                                <div className="mt-6 pt-4 border-t border-border-dim/30 font-tech text-[9px] text-text-bright flex justify-between uppercase tracking-widest">
                                     <span>STATUS: OPTIMAL</span>
                                     <span>SYNC: 100%</span>
                                 </div>
