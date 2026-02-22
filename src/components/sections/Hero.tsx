@@ -293,7 +293,7 @@ export default function Hero() {
                                 </div>
 
                                 {/* Console Box */}
-                                <div className="mt-8 p-4 bg-black/40 border border-white/5 font-mono text-[9px] text-accent-primary/80 relative overflow-hidden">
+                                <div className="mt-8 p-4 bg-black/40 border border-white/5 font-mono text-[9px] text-accent-primary/80 relative overflow-hidden w-fit max-w-full">
                                     <div className="absolute top-0 right-0 w-16 h-px bg-accent-primary/20" />
                                     <p className="typing-cursor leading-relaxed">
                                         warn(user): 'Efficiency critical. Executing optimized sequence.'_
