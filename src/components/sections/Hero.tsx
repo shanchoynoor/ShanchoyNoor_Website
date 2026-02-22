@@ -147,7 +147,7 @@ export default function Hero() {
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}
                                             transition={{ delay: 1.4 }}
-                                            className="font-tech text-accent-primary tracking-[0.2em] font-medium uppercase text-[11px]"
+                                            className="font-tech text-accent-primary tracking-[0.2em] font-medium uppercase text-[13px]"
                                         >
                                             FRONTEND & AI DEVELOPER · ENTREPRENEUR
                                         </motion.p>
