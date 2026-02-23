@@ -1,6 +1,6 @@
 # About Me
 
-I build the systems that power digital experiences. With over 8 years crossing the boundaries of code and design, I bridge the gap between robust frontend architecture and captivating visual storytelling. 
+I am a versatile IT professional with over 8 years of experience crossing the boundaries of code and design. I bridge the gap between robust frontend architecture and captivating visual storytelling to build systems that power digital experiences.
 
 Currently, I work as a **Frontend Developer & Post Production Manager**, overseeing technical and creative operations for prominent platforms including *AroundMeBD*, *Village Grandpa's Cooking*, and the *Fortunate Guest* YouTube channel. In this dual role, I architect seamless web experiences while leading narrative-driven video editing and post-production workflows that engage millions.
 
