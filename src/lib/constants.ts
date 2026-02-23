@@ -232,7 +232,7 @@ export const PROJECTS: Project[] = [
         tag: ['DESKTOP APP', 'MOBILE APP'],
         featuredLabel: 'TECH_STACK',
         problemStatement:
-            'Eliminates the rebuild cost of switching AI providers by abstracting LLM calls behind a unified interface.',
+            'Abstracts LLM calls behind a unified interface to eliminate vendor lock-in.',
         description:
             'An extensible AI infrastructure platform built for real production workloads. Architected around a modular LLM orchestration layer with pluggable data sources, real-time API integrations, and multi-environment deployment pipelines.',
         architectureNote:
