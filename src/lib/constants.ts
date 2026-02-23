@@ -53,10 +53,10 @@ export const HERO = {
 
 // ─── About ───
 export const ABOUT_PARAGRAPHS: string[] = [
-    "I am a versatile IT professional and creative technologist with 8+ years of hands-on experience building production-grade web applications. My foundation is built on early career experience as an assistant network engineer and developing numerous WordPress themes and plugins, which evolved into deep expertise with Bootstrap, React, Next.js, and Python web apps.",
-    "While my primary expertise is frontend development—crafting seamless, user-centered experiences with React, TypeScript, and Tailwind CSS—I go beyond the UI layer. Backend API design, database modeling, AI integration, and DevOps (including Docker and VPS deployments) are core parts of how I assemble systems. I operate with a product developer's mental model: architecture defines the ceiling, execution determines the floor.",
+    "I am a versatile IT professional with over 8 years of experience crossing the boundaries of code and design. I bridge the gap between robust frontend architecture and captivating visual storytelling to build systems that power digital experiences.",
     "Currently, I lead technical and creative operations at a hybrid technology and media production company. Serving as a Frontend Developer & Post Production Manager, I oversee execution for prominent platforms including AroundMeBD, Village Grandpa's Cooking, and the Fortunate Guest YouTube channel. In this dual role, I architect seamless web experiences while directing narrative-driven video editing and post-production workflows that engage millions.",
-    "Looking ahead to 2025, I am consolidating my tech and creative passions to launch my own software company, Choyzenic.",
+    "My journey didn't start with perfect code; it started with an insatiable curiosity for how digital experiences bring people together. Before writing intricate web applications, my career evolved from computer networking and e-commerce into leading my own creative agency. I operate with a simple belief: the best products don't just function—they make people feel something.",
+    "My passion for pushing boundaries has naturally led me to the frontier of artificial intelligence, where I am currently building Choy AI. Looking forward to 2025, I am incredibly excited to consolidate a lifetime of creative and technical pursuits by launching my own software company, Choyzenic.",
 ];
 
 export const ABOUT_STATS: Stat[] = [
