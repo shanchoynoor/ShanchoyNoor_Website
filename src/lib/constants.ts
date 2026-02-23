@@ -142,7 +142,7 @@ export const SKILL_PANELS: SkillPanel[] = [
 export const PROJECTS: Project[] = [
     {
         title: 'ChoyWatch',
-        tag: 'ENTERTAINMENT PLATFORM',
+        tag: 'Webapp',
         featuredLabel: 'TECH_STACK',
         problemStatement:
             'A unified experience for tracking movies and TV shows with real-time ratings from top platforms.',
