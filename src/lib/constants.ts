@@ -207,7 +207,7 @@ export const PROJECTS: Project[] = [
     },
     {
         title: 'ChoyAI — Personal AI Assistant',
-        tag: 'DESKTOP APP',
+        tag: ['DESKTOP APP', 'MOBILE APP'],
         featuredLabel: 'TECH_STACK',
         problemStatement:
             'Eliminates the rebuild cost of switching AI providers by abstracting LLM calls behind a unified orchestration interface.',

@@ -19,9 +19,17 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-3">
-                        <span className="font-tech text-[10px] text-accent-primary tracking-widest bg-accent-primary/10 px-2 py-0.5 rounded-sm">
-                            {project.tag}
-                        </span>
+                        {Array.isArray(project.tag) ? (
+                            project.tag.map((t, i) => (
+                                <span key={i} className="font-tech text-[10px] text-accent-primary tracking-widest bg-accent-primary/10 px-2 py-0.5 rounded-sm">
+                                    {t}
+                                </span>
+                            ))
+                        ) : (
+                            <span className="font-tech text-[10px] text-accent-primary tracking-widest bg-accent-primary/10 px-2 py-0.5 rounded-sm">
+                                {project.tag}
+                            </span>
+                        )}
                         {project.featuredLabel && (
                             <span className="font-tech text-[10px] text-accent-warning tracking-widest border border-accent-warning/30 px-2 py-0.5 rounded-sm">
                                 {project.featuredLabel}

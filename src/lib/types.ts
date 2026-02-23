@@ -17,7 +17,7 @@ export interface SkillPanel {
 
 export interface Project {
     title: string;
-    tag: string;
+    tag: string | string[];
     yearLabel?: string;
     featuredLabel?: string;
     problemStatement: string;
