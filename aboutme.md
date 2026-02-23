@@ -1,11 +1,10 @@
 # About Me
 
-I am a versatile Frontend Engineer and Creative Technologist with 8+ years of experience blending production-grade software development with high-impact digital storytelling. 
+I build the systems that power digital experiences. With over 8 years crossing the boundaries of code and design, I bridge the gap between robust frontend architecture and captivating visual storytelling. 
 
 Currently, I work as a **Frontend Developer & Post Production Manager**, overseeing technical and creative operations for prominent platforms including *AroundMeBD*, *Village Grandpa's Cooking*, and the *Fortunate Guest* YouTube channel. In this dual role, I architect seamless web experiences while leading narrative-driven video editing and post-production workflows that engage millions.
 
-// SECURITY_CLEARANCE: LEVEL_8_GRANTED
-My technical foundation spans React, Next.js, TypeScript, and Tailwind CSS. I approach frontend engineering with a full-stack mindset—incorporating Python, database modeling, DevOps (Docker, VPS), and AI integrations into my solutions. I operate with a product engineer's mental model: *architecture defines the ceiling, execution determines the floor.*
+My technical foundation spans React, Next.js, TypeScript, and Tailwind CSS. I approach frontend development with a full-stack mindset—incorporating Python, database modeling, DevOps (Docker, VPS), and AI integrations into my solutions. I operate with a product developer's mental model: *architecture defines the ceiling, execution determines the floor.*
 
 Prior to my current roles, my career evolved from computer networking and e-commerce into deep web development. I spent years building custom WordPress themes and plugins, which naturally expanded into modern frontend frameworks and leading my own creative agency, **Choy Agency**, delivering branding and UI/UX design for a diverse client roster.
 
