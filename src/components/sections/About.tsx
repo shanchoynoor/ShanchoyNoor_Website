@@ -5,6 +5,17 @@ import SectionLabel from '@/components/ui/SectionLabel';
 import TechPanel from '@/components/ui/TechPanel';
 import { ABOUT_PARAGRAPHS, ABOUT_STATS } from '@/lib/constants';
 import { fadeUp, staggerContainer } from '@/lib/animations';
+import { 
+    Briefcase,
+    Code,
+    Palette,
+    MonitorPlay,
+    Network,
+    TrendingUp,
+    User,
+    Clapperboard,
+    Camera
+} from 'lucide-react';
 
 export default function About() {
     return (
@@ -92,91 +103,41 @@ export default function About() {
                                 <div className="flex-1 h-1 bg-accent-primary/2" />
                             </div>
 
-                            {/* Experience Evolution Timeline */}
-                            <div className="mt-16 pb-4 relative hidden sm:block">
-                                {/* Connecting Path 1 (Right C-Curve) */}
-                                <div className="absolute top-[6px] right-[6%] w-[10%] h-[76px] border-t border-r border-accent-primary/50 text-accent-primary/50 shadow-[0_0_8px_rgba(0,240,255,0.2)] rounded-tr-[1.5rem] rounded-br-[1.5rem] pointer-events-none" />
-                                
-                                {/* Connecting Path 2 (Left C-Curve) */}
-                                <div className="absolute top-[82px] left-[6%] w-[10%] h-[76px] border-b border-l border-accent-primary/50 text-accent-primary/50 shadow-[0_0_8px_rgba(0,240,255,0.2)] rounded-tl-[1.5rem] rounded-bl-[1.5rem] pointer-events-none" />
-
-                                {/* Row 1 */}
-                                <div className="relative flex justify-between items-center px-[8%]">
-                                    <div className="absolute top-1/2 left-[8%] right-[6%] h-px bg-accent-primary/50 shadow-[0_0_8px_rgba(0,240,255,0.2)] -translate-y-1/2" />
-                                    {[
-                                        "Business",
-                                        "Backend/Frontend",
-                                        "UI/UX & Graphics"
-                                    ].map((exp) => (
-                                        <div key={exp} className="relative group z-10 cursor-default">
-                                            <div className="w-3 h-3 rounded-full bg-bg-surface border-[1.5px] border-accent-primary shadow-[0_0_8px_rgba(0,240,255,0.4)] transition-shadow group-hover:shadow-[0_0_12px_rgba(0,240,255,0.8)]" />
-                                            <span className="absolute bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap font-tech text-[10px] tracking-widest uppercase text-text-bright/60 group-hover:text-accent-primary transition-colors">
-                                                {exp}
-                                            </span>
-                                        </div>
-                                    ))}
+                            {/* Experience Matrix with Icons */}
+                            <div className="mt-12 pt-6 border-t border-border-dim/20 relative">
+                                <div className="flex items-center gap-2 mb-6 cursor-default">
+                                    <div className="w-1.5 h-1.5 bg-accent-primary shadow-[0_0_8px_rgba(0,240,255,0.8)] animate-pulse" />
+                                    <span className="font-tech text-[10px] text-accent-primary uppercase tracking-[0.2em]">Career Matrix</span>
                                 </div>
                                 
-                                {/* Row 2 */}
-                                <div className="relative flex justify-between items-center px-[8%] mt-[64px]">
-                                    <div className="absolute top-1/2 left-[6%] right-[6%] h-px bg-accent-primary/50 shadow-[0_0_8px_rgba(0,240,255,0.2)] -translate-y-1/2" />
+                                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                                     {[
-                                        "Video Editing",
-                                        "Networking",
-                                        "Trading"
-                                    ].map((exp) => (
-                                        <div key={exp} className="relative group z-10 cursor-default">
-                                            <div className="w-3 h-3 rounded-full bg-bg-surface border-[1.5px] border-accent-primary shadow-[0_0_8px_rgba(0,240,255,0.4)] transition-shadow group-hover:shadow-[0_0_12px_rgba(0,240,255,0.8)]" />
-                                            <span className="absolute top-5 left-1/2 -translate-x-1/2 whitespace-nowrap font-tech text-[10px] tracking-widest uppercase text-text-bright/60 group-hover:text-accent-primary transition-colors">
-                                                {exp}
+                                        { tag: "Business", icon: Briefcase },
+                                        { tag: "Backend/Frontend", icon: Code },
+                                        { tag: "UI/UX & Graphics", icon: Palette },
+                                        { tag: "Video Editing", icon: MonitorPlay },
+                                        { tag: "Networking", icon: Network },
+                                        { tag: "Trading", icon: TrendingUp },
+                                        { tag: "Acting", icon: User },
+                                        { tag: "Cinematography", icon: Clapperboard },
+                                        { tag: "Photography", icon: Camera }
+                                    ].map((item) => (
+                                        <div key={item.tag} className="group relative bg-bg-surface/40 hover:bg-accent-primary/5 transition-all p-4 flex flex-col items-center justify-center gap-3 overflow-hidden min-h-[90px] border border-accent-primary/10 hover:border-accent-primary/40 cursor-default">
+                                            {/* HUD Corner Accents */}
+                                            <div className="absolute top-0 left-0 w-1.5 h-1.5 border-t border-l border-accent-primary/50 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                            <div className="absolute bottom-0 right-0 w-1.5 h-1.5 border-b border-r border-accent-primary/50 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                            
+                                            {/* Background glow burst */}
+                                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-accent-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+
+                                            <item.icon className="w-5 h-5 text-text-bright/40 group-hover:text-accent-primary transition-colors relative z-10" strokeWidth={1.5} />
+                                            
+                                            <span className="font-tech text-center text-[9px] text-text-bright/60 group-hover:text-text-bright tracking-[0.1em] sm:tracking-widest uppercase relative z-10 leading-tight">
+                                                {item.tag}
                                             </span>
                                         </div>
                                     ))}
                                 </div>
-
-                                {/* Row 3 */}
-                                <div className="relative flex justify-between items-center px-[8%] mt-[64px]">
-                                    <div className="absolute top-1/2 left-[6%] right-[8%] h-px bg-accent-primary/50 shadow-[0_0_8px_rgba(0,240,255,0.2)] -translate-y-1/2" />
-                                    {[
-                                        "Acting",
-                                        "Cinematography",
-                                        "Photography"
-                                    ].map((exp) => (
-                                        <div key={exp} className="relative group z-10 cursor-default">
-                                            <div className="w-3 h-3 rounded-full bg-bg-surface border-[1.5px] border-accent-primary shadow-[0_0_8px_rgba(0,240,255,0.4)] transition-shadow group-hover:shadow-[0_0_12px_rgba(0,240,255,0.8)]" />
-                                            <span className="absolute bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap font-tech text-[10px] tracking-widest uppercase text-text-bright/60 group-hover:text-accent-primary transition-colors">
-                                                {exp}
-                                            </span>
-                                        </div>
-                                    ))}
-                                </div>
-
-                                <div className="text-center mt-12 font-tech text-[10px] text-accent-primary/50 uppercase tracking-[0.3em] relative z-20">
-                                    <span className="px-5 py-2 border border-accent-primary/30 bg-accent-primary/5 rounded-full opacity-80 backdrop-blur-sm shadow-[0_0_15px_rgba(0,240,255,0.1)]">Career shift trajectory</span>
-                                </div>
-                            </div>
-
-                            {/* Mobile Experience List (Vertical) */}
-                            <div className="mt-8 space-y-5 relative sm:hidden pt-2 pb-4 pl-2">
-                                <div className="absolute top-4 bottom-4 left-[13px] w-px bg-gradient-to-b from-accent-primary/50 via-accent-primary/20 to-transparent pointer-events-none" />
-                                {[
-                                    "Business",
-                                    "Backend/Frontend",
-                                    "UI/UX & Graphics",
-                                    "Video Editing",
-                                    "Networking",
-                                    "Trading",
-                                    "Acting",
-                                    "Cinematography",
-                                    "Photography"
-                                ].map((exp) => (
-                                    <div key={exp} className="flex items-center gap-6 relative group ml-1">
-                                        <div className="w-2.5 h-2.5 rounded-full bg-bg-surface border-[1.5px] border-accent-primary/80 group-hover:border-accent-primary group-hover:shadow-[0_0_10px_rgba(0,240,255,0.8)] transition-all z-10" />
-                                        <span className="font-tech text-text-bright/80 group-hover:text-accent-primary text-[10px] tracking-widest uppercase transition-colors pt-1">
-                                            {exp}
-                                        </span>
-                                    </div>
-                                ))}
                             </div>
                         </motion.div>
                     </motion.div>
