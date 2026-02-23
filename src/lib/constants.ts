@@ -141,6 +141,71 @@ export const SKILL_PANELS: SkillPanel[] = [
 // ─── Projects ───
 export const PROJECTS: Project[] = [
     {
+        title: 'ChoyWatch',
+        tag: 'ENTERTAINMENT PLATFORM',
+        featuredLabel: 'TECH_STACK',
+        problemStatement:
+            'A unified experience for tracking movies and TV shows with real-time ratings from top platforms.',
+        description:
+            'A modern movie and TV show tracking application featuring seamless TMDB integration, personalized watchlists, and real-time ratings from major critic platforms like IMDb and Rotten Tomatoes. Designed with a dark cinematic UI.',
+        tech: ['Next.js', 'React', 'Supabase', 'TMDB API', 'Tailwind CSS'],
+        liveUrl: 'https://choywatch.vercel.app/',
+        isFeatured: true,
+        status: 'ready',
+    },
+    {
+        title: 'LostLink',
+        tag: 'NETWORK DIAGNOSTICS',
+        featuredLabel: 'TECH_STACK',
+        problemStatement:
+            'Provides deep insights into connection routing, latency, and precise IP geolocation data.',
+        description:
+            'A comprehensive IP tracking and network diagnostic tool. It offers users immediate visibility into their network footprint, featuring detailed geographical mapping, ISP identification, and secure connection analysis.',
+        tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'API Routes'],
+        liveUrl: 'https://lostlinkip.org/',
+        isFeatured: true,
+        status: 'ready',
+    },
+    {
+        title: 'YouTube Village',
+        tag: 'CREATOR HUB',
+        featuredLabel: 'TECH_STACK',
+        problemStatement:
+            'Elevates rural content creators by providing a dedicated, structured platform to showcase their work globally.',
+        description:
+            'A central hub tailored for rural video content creators in Bangladesh. The platform features organized video galleries, detailed creator profiles, and streamlined content distribution, bridging the gap between local talent and global audiences.',
+        tech: ['Next.js', 'React', 'Node.js', 'Tailwind CSS'],
+        liveUrl: 'https://youtubevillage.com/',
+        isFeatured: true,
+        status: 'ready',
+    },
+    {
+        title: 'AroundMeBD',
+        tag: 'LOCAL DISCOVERY',
+        featuredLabel: 'TECH_STACK',
+        problemStatement:
+            'An interactive mapping platform highlighting culturally significant locations and local businesses across Bangladesh.',
+        description:
+            'An interactive local discovery platform highlighting culturally significant locations, businesses, and untold stories across Bangladesh. Features dynamic mapping interfaces and a highly performant directory structure.',
+        tech: ['Next.js', 'React', 'Google Maps API', 'Framer Motion'],
+        liveUrl: 'https://aroundmebd.com/',
+        isFeatured: true,
+        status: 'ready',
+    },
+    {
+        title: 'ChoyAI Studio',
+        tag: 'AI WORKSPACE',
+        featuredLabel: 'TECH_STACK',
+        problemStatement:
+            'A dedicated creative suite for generating, managing, and iterating upon complex multi-modal AI assets locally.',
+        description:
+            'A professional desktop and web-based AI creation studio featuring advanced prompting environments, multi-modal generation pipelines, and local asset management, built for power users demanding high bandwidth creation capabilities.',
+        tech: ['Python', 'FastAPI', 'Next.js', 'Electron', 'AWS'],
+        liveUrl: '#',
+        isFeatured: true,
+        status: 'in-progress',
+    },
+    {
         title: 'ChoyAI — Personal AI Assistant',
         tag: 'AI PLATFORM',
         featuredLabel: 'TECH_STACK',
@@ -150,35 +215,24 @@ export const PROJECTS: Project[] = [
             'An extensible AI infrastructure platform built for real production workloads. Architected around a modular LLM orchestration layer with pluggable data sources, real-time API integrations, and multi-environment deployment pipelines.',
         architectureNote:
             'Client → API Gateway → LLM Orchestrator → [OpenAI / Brave Search] → Response Formatter → Supabase logging → Client',
-        tech: [
-            'Python',
-            'FastAPI',
-            'Next.js',
-            'PostgreSQL',
-            'Supabase',
-            'LLM Orchestration',
-            'Search API',
-            'Docker',
-            'AWS',
-        ],
+        tech: ['Python', 'FastAPI', 'Next.js', 'PostgreSQL', 'Supabase', 'LLM Orchestration', 'Search API'],
         liveUrl: '#',
         isFeatured: true,
         status: 'in-progress',
     },
     {
-        title: 'AI News & Finance Telegram Bot',
-        tag: 'AUTOMATION · PYTHON',
-        yearLabel: '2024',
+        title: 'ChoyMate',
+        tag: 'AI COMPANION',
         featuredLabel: 'TECH_STACK',
         problemStatement:
-            'Delivers automated daily intelligence briefings — news, crypto, and finance data — without manual aggregation.',
+            'A highly interactive, real-time AI companion focused on fluid conversational dynamics and emotional intelligence.',
         description:
-            'Automated pipeline that fetches global and Bangladesh news, crypto market movers, and finance headlines on a 6-hour cron schedule. Built with rate-limit-safe architecture and clean formatted output.',
-        tech: ['Python', 'GNews API', 'Telegram Bot API', 'Cron Scheduling'],
+            'A specialized AI companion application focusing on low-latency, real-time conversational interfaces. Integrates advanced emotional intelligence modeling and contextual memory access for incredibly lifelike digital interactions.',
+        tech: ['Next.js', 'WebSockets', 'OpenAI API', 'Framer Motion'],
         liveUrl: '#',
         isFeatured: true,
-        status: 'ready',
-    },
+        status: 'in-progress',
+    }
 ];
 
 export const PERFORMANCE_METRICS = {
