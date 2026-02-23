@@ -2,7 +2,7 @@
 
 I am a versatile IT professional with over 8 years of experience crossing the boundaries of code and design. I bridge the gap between robust frontend architecture and captivating visual storytelling to build systems that power digital experiences.
 
-Currently, I work as a **Frontend Developer & Post Production Manager**, overseeing technical and creative operations for prominent platforms including *AroundMeBD*, *Village Grandpa's Cooking*, and the *Fortunate Guest* YouTube channel. In this dual role, I architect seamless web experiences while leading narrative-driven video editing and post-production workflows that engage millions.
+Currently, I lead technical and creative operations at a hybrid technology and media production company. Serving as a **Frontend Developer & Post Production Manager**, I oversee execution for prominent platforms including *AroundMeBD*, *Village Grandpa's Cooking*, and the *Fortunate Guest* YouTube channel. In this dual role, I architect seamless web experiences while directing narrative-driven video editing and post-production workflows that engage millions.
 
 My technical foundation spans React, Next.js, TypeScript, and Tailwind CSS. I approach frontend development with a full-stack mindset—incorporating Python, database modeling, DevOps (Docker, VPS), and AI integrations into my solutions. I operate with a product developer's mental model: *architecture defines the ceiling, execution determines the floor.*
 
