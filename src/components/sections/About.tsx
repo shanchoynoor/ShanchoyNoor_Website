@@ -92,20 +92,49 @@ export default function About() {
                                 <div className="flex-1 h-1 bg-accent-primary/2" />
                             </div>
 
-                            {/* Experience Evolution */}
-                            <div className="mt-4 grid grid-cols-3 gap-2">
+                            {/* Experience Evolution Timeline */}
+                            <div className="mt-8 relative hidden sm:block">
+                                <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent-primary/20 to-transparent -translate-y-1/2" />
+                                <div className="flex justify-between items-center relative">
+                                    {[
+                                        "Trading",
+                                        "Networking",
+                                        "Video Editing",
+                                        "UI/UX & Graphics",
+                                        "Backend/Frontend",
+                                        "Business"
+                                    ].map((exp, i, arr) => (
+                                        <div key={exp} className="relative group flex flex-col items-center">
+                                            {/* Connecting node */}
+                                            <div className="w-1.5 h-1.5 rounded-full bg-border-dim border border-accent-primary/50 group-hover:bg-accent-primary group-hover:shadow-[0_0_10px_rgba(0,240,255,0.8)] transition-all z-10 mb-2" />
+                                            {/* Label */}
+                                            <span className="font-tech text-text-bright/40 group-hover:text-accent-primary text-[9px] tracking-widest uppercase transition-colors whitespace-nowrap absolute top-4 text-center w-24 -ml-12 left-1/2">
+                                                {exp}
+                                            </span>
+                                            {/* Accent line pointing up */}
+                                            <div className="w-px h-3 bg-accent-primary/0 group-hover:bg-accent-primary/50 absolute bottom-1.5 left-1/2 -translate-x-1/2 transition-colors z-0" />
+                                        </div>
+                                    ))}
+                                </div>
+                                <div className="text-center mt-12 font-tech text-[10px] text-accent-primary/60 uppercase tracking-[0.3em]">
+                                    Career shift trajectory
+                                </div>
+                            </div>
+
+                            {/* Mobile Experience List (Vertical) */}
+                            <div className="mt-6 space-y-3 relative sm:hidden">
+                                <div className="absolute top-2 bottom-2 left-[5px] w-px bg-gradient-to-b from-transparent via-accent-primary/20 to-transparent" />
                                 {[
-                                    "Backend",
-                                    "Frontend",
-                                    "UI/UX & Graphics",
-                                    "Video Editing",
+                                    "Trading",
                                     "Networking",
-                                    "Cinematography"
-                                ].map((exp) => (
-                                    <div key={exp} className="bg-bg-surface/30 border border-accent-primary/10 p-2 flex items-center justify-center text-center group hover:border-accent-primary/30 hover:bg-accent-primary/5 transition-all relative min-h-[48px]">
-                                        <div className="absolute top-0 left-0 w-1 h-1 border-t border-l border-accent-primary/40 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                        <div className="absolute bottom-0 right-0 w-1 h-1 border-b border-r border-accent-primary/40 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                        <span className="font-tech text-text-bright/60 group-hover:text-accent-primary text-[9px] sm:text-[10px] tracking-widest uppercase leading-tight">
+                                    "Video Editing",
+                                    "UI/UX & Graphics",
+                                    "Backend/Frontend",
+                                    "Business"
+                                ].map((exp, i) => (
+                                    <div key={exp} className="flex items-center gap-4 relative group">
+                                        <div className="w-2.5 h-2.5 rounded-full bg-bg-surface border border-accent-primary/40 group-hover:bg-accent-primary group-hover:shadow-[0_0_10px_rgba(0,240,255,0.8)] transition-all z-10" />
+                                        <span className="font-tech text-text-bright/60 group-hover:text-accent-primary text-[10px] tracking-widest uppercase transition-colors">
                                             {exp}
                                         </span>
                                     </div>
