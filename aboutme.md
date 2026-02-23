@@ -5,5 +5,3 @@ On the media side, I serve as Post Production Manager, running end-to-end conten
 
 Beyond my primary roles, I founded Choyzenic — a product-focused software company dedicated to AI-driven tools, automation systems, and scalable digital infrastructure. This shift reflects a deliberate long-term strategy: moving from trading time for services toward building proprietary technology assets.
 Currently, my deepest focus is Choy AI — an agentic AI, cross-platform personal assistant designed to orchestrate productivity, decision-making, and workflow automation intelligently.
-
-One principle drives everything I build: technology should create leverage — not just function. Whether through engineered platforms, AI systems, or media operations, I build for compounding value and durable impact.
