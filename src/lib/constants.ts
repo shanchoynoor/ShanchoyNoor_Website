@@ -145,7 +145,7 @@ export const PROJECTS: Project[] = [
         tag: 'web app',
         featuredLabel: 'TECH_STACK',
         problemStatement:
-            'A unified experience for tracking movies and TV shows with real-time ratings from top platforms.',
+            'A unified experience tracking movies and TV shows with real-time ratings from top critic platforms.',
         description:
             'A modern movie and TV show tracking application featuring seamless TMDB integration, personalized watchlists, and real-time ratings from major critic platforms like IMDb and Rotten Tomatoes. Designed with a dark cinematic UI.',
         tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'API Routes', 'PostgreSQL', 'Vercel'],
@@ -163,7 +163,7 @@ export const PROJECTS: Project[] = [
         tag: 'web app',
         featuredLabel: 'TECH_STACK',
         problemStatement:
-            'A community-powered platform dedicated to helping find missing persons and reunite them with their families through volunteer efforts and donations.',
+            'A community platform helping find missing persons and reunite families through volunteer efforts.',
         description:
             'To provide hope and action for families of missing persons through community mobilization, resources, and unwavering support.',
         tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'API Routes', 'PostgreSQL', 'Vercel', 'Cloudflare R2'],
@@ -180,7 +180,7 @@ export const PROJECTS: Project[] = [
         tag: 'website',
         featuredLabel: 'TECH_STACK',
         problemStatement:
-            'Elevates rural content creators by providing a dedicated, structured platform to showcase their work globally.',
+            'Elevates rural content creators by providing a structured platform to showcase their work globally.',
         description:
             'A central hub tailored for rural video content creators in Bangladesh. The platform features organized video galleries, detailed creator profiles, and streamlined content distribution, bridging the gap between local talent and global audiences.',
         tech: ['Next.js', 'React', 'Node.js', 'Tailwind CSS'],
@@ -198,7 +198,7 @@ export const PROJECTS: Project[] = [
         tag: 'website',
         featuredLabel: 'TECH_STACK',
         problemStatement:
-            'An interactive mapping platform highlighting culturally significant locations and local businesses across Bangladesh.',
+            'An interactive mapping platform highlighting cultural locations and businesses across Bangladesh.',
         description:
             'An interactive local discovery platform highlighting culturally significant locations, businesses, and untold stories across Bangladesh. Features dynamic mapping interfaces and a highly performant directory structure.',
         tech: ['Next.js', 'React', 'Google Maps API', 'Framer Motion'],
@@ -215,7 +215,7 @@ export const PROJECTS: Project[] = [
         tag: 'web app',
         featuredLabel: 'TECH_STACK',
         problemStatement:
-            'A dedicated creative suite for generating, managing, and iterating upon complex multi-modal AI assets locally.',
+            'A dedicated creative suite for generating and iterating on complex multi-modal AI assets locally.',
         description:
             'A professional desktop and web-based AI creation studio featuring advanced prompting environments, multi-modal generation pipelines, and local asset management, built for power users demanding high bandwidth creation capabilities.',
         tech: ['Python', 'FastAPI', 'Next.js', 'Electron', 'AWS'],
@@ -232,7 +232,7 @@ export const PROJECTS: Project[] = [
         tag: ['DESKTOP APP', 'MOBILE APP'],
         featuredLabel: 'TECH_STACK',
         problemStatement:
-            'Eliminates the rebuild cost of switching AI providers by abstracting LLM calls behind a unified orchestration interface.',
+            'Eliminates the rebuild cost of switching AI providers by abstracting LLM calls behind a unified interface.',
         description:
             'An extensible AI infrastructure platform built for real production workloads. Architected around a modular LLM orchestration layer with pluggable data sources, real-time API integrations, and multi-environment deployment pipelines.',
         architectureNote:
@@ -252,7 +252,7 @@ export const PROJECTS: Project[] = [
         tag: ['DESKTOP APP', 'MOBILE APP'],
         featuredLabel: 'TECH_STACK',
         problemStatement:
-            'A highly interactive, real-time AI companion focused on fluid conversational dynamics and emotional intelligence.',
+            'A real-time AI companion focused on fluid conversational dynamics and emotional intelligence.',
         description:
             'A specialized AI companion application focusing on low-latency, real-time conversational interfaces. Integrates advanced emotional intelligence modeling and contextual memory access for incredibly lifelike digital interactions.',
         tech: ['Next.js', 'WebSockets', 'OpenAI API', 'Framer Motion'],
