@@ -148,20 +148,20 @@ export const PROJECTS: Project[] = [
             'A unified experience for tracking movies and TV shows with real-time ratings from top platforms.',
         description:
             'A modern movie and TV show tracking application featuring seamless TMDB integration, personalized watchlists, and real-time ratings from major critic platforms like IMDb and Rotten Tomatoes. Designed with a dark cinematic UI.',
-        tech: ['Next.js', 'React', 'Supabase', 'TMDB API', 'Tailwind CSS'],
+        tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'API Routes', 'PostgreSQL', 'Vercel'],
         liveUrl: 'https://choywatch.vercel.app/',
         isFeatured: true,
         status: 'ready',
     },
     {
-        title: 'LostLink',
+        title: 'Lostlinkip.org',
         tag: 'NETWORK DIAGNOSTICS',
         featuredLabel: 'TECH_STACK',
         problemStatement:
-            'Provides deep insights into connection routing, latency, and precise IP geolocation data.',
+            'A community-powered platform dedicated to helping find missing persons and reunite them with their families through volunteer efforts and donations.',
         description:
-            'A comprehensive IP tracking and network diagnostic tool. It offers users immediate visibility into their network footprint, featuring detailed geographical mapping, ISP identification, and secure connection analysis.',
-        tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'API Routes'],
+            'To provide hope and action for families of missing persons through community mobilization, resources, and unwavering support.',
+        tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'API Routes', 'PostgreSQL', 'Vercel', 'Cloudflare R2'],
         liveUrl: 'https://lostlinkip.org/',
         isFeatured: true,
         status: 'ready',
