@@ -53,10 +53,12 @@ export const HERO = {
 
 // ─── About ───
 export const ABOUT_PARAGRAPHS: string[] = [
-    "I am a versatile IT professional with over 8 years of experience crossing the boundaries of code and design. I bridge the gap between robust frontend architecture and captivating visual storytelling to build systems that power digital experiences.",
-    "Currently, I lead technical and creative operations at a hybrid technology and media production company. Serving as a Frontend Developer & Post Production Manager, I oversee execution for prominent platforms including AroundMeBD, Village Grandpa's Cooking, and the Fortunate Guest YouTube channel. In this dual role, I architect seamless web experiences while directing narrative-driven video editing and post-production workflows that engage millions.",
-    "My journey didn't start with perfect code; it started with an insatiable curiosity for how digital experiences bring people together. Before writing intricate web applications, my career evolved from computer networking and e-commerce into leading my own creative agency. I operate with a simple belief: the best products don't just function—they make people feel something.",
-    "My passion for pushing boundaries has naturally led me to the frontier of artificial intelligence, where I am currently building Choy AI. Looking forward to 2025, I am incredibly excited to consolidate a lifetime of creative and technical pursuits by launching my own software company, Choyzenic.",
+    "I'm a computer engineer and entrepreneur with over 10 years of experience building at the intersection of design, software, and media — focused on systems that scale, assets that compound, and products that actually move people.",
+    "I work within a joint ecosystem where a software development company and a video production studio operate under one roof. On the tech side, I work as a Frontend Developer — turning complex product requirements into clean, scalable web platforms and digital products.",
+    "On the media side, I serve as Post Production Manager, running end-to-end content workflows, narrative structure, and editing systems for AroundMeBD, Village Grandpa's Cooking, and Fortunate Guest — high-volume channels reaching millions across social platforms.",
+    "Beyond my primary roles, I founded Choyzenic — a product-focused software company dedicated to AI-driven tools, automation systems, and scalable digital infrastructure. This shift reflects a deliberate long-term strategy: moving from trading time for services toward building proprietary technology assets.",
+    "Currently, my deepest focus is Choy AI — an agentic AI, cross-platform personal assistant designed to orchestrate productivity, decision-making, and workflow automation intelligently.",
+    "One principle drives everything I build: technology should create leverage — not just function. Whether through engineered platforms, AI systems, or media operations, I build for compounding value and durable impact.",
 ];
 
 export const ABOUT_STATS: Stat[] = [
