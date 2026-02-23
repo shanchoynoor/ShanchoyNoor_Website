@@ -53,10 +53,10 @@ export const HERO = {
 
 // ─── About ───
 export const ABOUT_PARAGRAPHS: string[] = [
-    "I'm a frontend engineer with 8+ years of hands-on experience building production-grade web applications — from component architecture and performance optimization to full deployment pipelines.",
-    'My primary expertise is frontend engineering: React, Next.js, TypeScript, and Tailwind CSS built to real performance standards. I go beyond the UI layer when the product demands it — backend API design, database modeling, AI integration, and DevOps are part of how I think about every system I build.',
-    'Currently leading development of Choy AI — a modular AI assistant platform architected for LLM orchestration, real-time data pipelines, and multi-environment deployment.',
-    'I operate with a product engineer\'s mental model: architecture defines the ceiling, execution determines the floor.',
+    "I'm a versatile frontend engineer and creative technologist with 8+ years of hands-on experience building production-grade web applications. My foundation is built on early career experience as an assistant network engineer and developing numerous WordPress themes and plugins, which evolved into deep expertise with Bootstrap, React, Next.js, and Python web apps.",
+    "While my primary expertise is frontend engineering—crafting seamless, user-centered experiences with React, TypeScript, and Tailwind CSS—I go beyond the UI layer. Backend API design, database modeling, AI integration, and DevOps (including Docker and VPS deployments) are core parts of how I assemble systems. I operate with a product engineer's mental model: architecture defines the ceiling, execution determines the floor.",
+    "Beyond engineering, I bring a senior-level background in video editing, post-production supervising, UI/UX design, and social media management. By day, I build high-performance software; by night, I lead Choy Agency, my creative agency delivering innovative branding, campaigns, and high-impact digital products.",
+    "Currently, I’m building Choy AI, a JARVIS-style modular personal assistant designed to think, work, and act across all your tools. Looking ahead to 2025, I am consolidating these passions to build my own software company, Choyzenic.",
 ];
 
 export const ABOUT_STATS: Stat[] = [
