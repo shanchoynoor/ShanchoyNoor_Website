@@ -130,7 +130,12 @@ export default function Projects() {
                     >
                         <Button
                             variant="primary"
-                            onClick={() => setShowAll(!showAll)}
+                            onClick={() => {
+                                if (showAll) {
+                                    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+                                }
+                                setShowAll(!showAll);
+                            }}
                             className="px-8 py-3 group"
                         >
                             <span className="flex items-center gap-2">
