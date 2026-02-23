@@ -1,7 +1,8 @@
 'use client';
 
 
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
 import SectionLabel from '@/components/ui/SectionLabel';
 import TechPanel from '@/components/ui/TechPanel';
@@ -86,25 +87,65 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 }
 
 export default function Projects() {
+    const [showAll, setShowAll] = useState(false);
+
+    // Determine how many projects to display
+    const displayedProjects = showAll ? PROJECTS : PROJECTS.slice(0, 4);
+
     return (
         <section id="projects" className="py-24 px-6">
             <div className="max-w-6xl mx-auto relative z-10">
                 <SectionLabel label="03" title="Recent Projects" />
 
                 <motion.div
-                    className="grid md:grid-cols-2 gap-8 mb-16"
+                    className="grid md:grid-cols-2 gap-8 mb-12"
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: true }}
                     variants={staggerContainer}
                 >
-                    {PROJECTS.map((project, index) => (
-                        <motion.div key={project.title} variants={fadeUp}>
-                            <ProjectCard project={project} index={index} />
-                        </motion.div>
-                    ))}
+                    <AnimatePresence mode="popLayout">
+                        {displayedProjects.map((project, index) => (
+                            <motion.div
+                                key={project.title}
+                                variants={fadeUp}
+                                layout
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, scale: 0.95 }}
+                                transition={{ duration: 0.3 }}
+                            >
+                                <ProjectCard project={project} index={index} />
+                            </motion.div>
+                        ))}
+                    </AnimatePresence>
                 </motion.div>
 
+                {PROJECTS.length > 4 && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        className="flex justify-center"
+                    >
+                        <Button
+                            variant="primary"
+                            onClick={() => setShowAll(!showAll)}
+                            className="px-8 py-3 group"
+                        >
+                            <span className="flex items-center gap-2">
+                                {showAll ? 'SHOW LESS' : 'LOAD MORE_'}
+                                <motion.span
+                                    animate={{ y: showAll ? -2 : 2 }}
+                                    transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
+                                    className="inline-block"
+                                >
+                                    {showAll ? '↑' : '↓'}
+                                </motion.span>
+                            </span>
+                        </Button>
+                    </motion.div>
+                )}
 
             </div>
         </section>
