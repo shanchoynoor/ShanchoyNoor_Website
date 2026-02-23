@@ -142,7 +142,7 @@ export const SKILL_PANELS: SkillPanel[] = [
 export const PROJECTS: Project[] = [
     {
         title: 'ChoyWatch',
-        tag: 'Webapp',
+        tag: 'web app',
         featuredLabel: 'TECH_STACK',
         problemStatement:
             'A unified experience for tracking movies and TV shows with real-time ratings from top platforms.',
@@ -155,7 +155,7 @@ export const PROJECTS: Project[] = [
     },
     {
         title: 'Lostlinkip.org',
-        tag: 'NETWORK DIAGNOSTICS',
+        tag: 'web app',
         featuredLabel: 'TECH_STACK',
         problemStatement:
             'A community-powered platform dedicated to helping find missing persons and reunite them with their families through volunteer efforts and donations.',
@@ -168,7 +168,7 @@ export const PROJECTS: Project[] = [
     },
     {
         title: 'YouTube Village',
-        tag: 'CREATOR HUB',
+        tag: 'website',
         featuredLabel: 'TECH_STACK',
         problemStatement:
             'Elevates rural content creators by providing a dedicated, structured platform to showcase their work globally.',
@@ -181,7 +181,7 @@ export const PROJECTS: Project[] = [
     },
     {
         title: 'AroundMeBD',
-        tag: 'LOCAL DISCOVERY',
+        tag: 'website',
         featuredLabel: 'TECH_STACK',
         problemStatement:
             'An interactive mapping platform highlighting culturally significant locations and local businesses across Bangladesh.',
@@ -194,7 +194,7 @@ export const PROJECTS: Project[] = [
     },
     {
         title: 'ChoyAI Studio',
-        tag: 'AI WORKSPACE',
+        tag: 'web app',
         featuredLabel: 'TECH_STACK',
         problemStatement:
             'A dedicated creative suite for generating, managing, and iterating upon complex multi-modal AI assets locally.',
@@ -207,7 +207,7 @@ export const PROJECTS: Project[] = [
     },
     {
         title: 'ChoyAI — Personal AI Assistant',
-        tag: 'AI PLATFORM',
+        tag: 'DESKTOP APP',
         featuredLabel: 'TECH_STACK',
         problemStatement:
             'Eliminates the rebuild cost of switching AI providers by abstracting LLM calls behind a unified orchestration interface.',
