@@ -69,21 +69,19 @@ function ProjectCard({ project, index, onImageClick }: { project: Project; index
                     </div>
                 </div>
 
-                <h3 className="font-display text-xl font-bold text-text-bright mb-2 group-hover:text-accent-primary transition-colors">
-                    {project.title}
-                </h3>
-
-                {/* Problem Statement - Terminal Block */}
-                <div className="bg-bg-base border-l-2 border-accent-secondary p-3 mb-4 my-2 font-mono text-[10px] text-text-bright">
-                    <span className="text-accent-secondary">$ cat problem.log</span>
-                    <br />
-                    <span className="opacity-80">&gt; {project.problemStatement}</span>
+                <div className="mb-4">
+                    <h3 className="font-display text-xl font-bold text-text-bright group-hover:text-accent-primary transition-colors inline">
+                        {project.title}
+                    </h3>
+                    <span className="font-mono text-[11px] text-text-dim opacity-80 ml-2 inline">
+                        — {project.problemStatement}
+                    </span>
                 </div>
 
                 {/* Project Thumbnail */}
                 {project.images && project.images.length > 0 ? (
                     <div
-                        className="relative w-full h-48 mb-4 rounded-sm overflow-hidden cursor-pointer group/image border border-accent-primary/20 hover:border-accent-primary/50 transition-colors"
+                        className="relative w-full h-64 sm:h-72 mb-4 rounded-sm overflow-hidden cursor-pointer group/image border border-accent-primary/20 hover:border-accent-primary/50 transition-colors shrink-0"
                         onClick={() => onImageClick(project.images!)}
                     >
                         <div className="absolute inset-0 bg-accent-primary/10 group-hover/image:bg-transparent transition-colors z-10" />
