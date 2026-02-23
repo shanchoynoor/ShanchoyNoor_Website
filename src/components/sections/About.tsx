@@ -91,6 +91,26 @@ export default function About() {
                                 <div className="flex-1 h-1 bg-accent-primary/5" />
                                 <div className="flex-1 h-1 bg-accent-primary/2" />
                             </div>
+
+                            {/* Experience Evolution */}
+                            <div className="mt-4 grid grid-cols-3 gap-2">
+                                {[
+                                    "Backend",
+                                    "Frontend",
+                                    "UI/UX & Graphics",
+                                    "Video Editing",
+                                    "Networking",
+                                    "Cinematography"
+                                ].map((exp) => (
+                                    <div key={exp} className="bg-bg-surface/30 border border-accent-primary/10 p-2 flex items-center justify-center text-center group hover:border-accent-primary/30 hover:bg-accent-primary/5 transition-all relative min-h-[48px]">
+                                        <div className="absolute top-0 left-0 w-1 h-1 border-t border-l border-accent-primary/40 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                        <div className="absolute bottom-0 right-0 w-1 h-1 border-b border-r border-accent-primary/40 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                        <span className="font-tech text-text-bright/60 group-hover:text-accent-primary text-[9px] sm:text-[10px] tracking-widest uppercase leading-tight">
+                                            {exp}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
                         </motion.div>
                     </motion.div>
                 </div>
