@@ -1,12 +1,9 @@
-# About Me
+I'm a computer engineer and entrepreneur with over 10 years of experience building at the intersection of design, software, and media — focused on systems that scale, assets that compound, and products that actually move people.
 
-I am a versatile IT professional with over 8 years of experience crossing the boundaries of code and design. I bridge the gap between robust frontend architecture and captivating visual storytelling to build systems that power digital experiences.
+I work within a joint ecosystem where a software development company and a video production studio operate under one roof. On the tech side, I work as a Frontend Developer — turning complex product requirements into clean, scalable web platforms and digital products.
+On the media side, I serve as Post Production Manager, running end-to-end content workflows, narrative structure, and editing systems for AroundMeBD, Village Grandpa's Cooking, and Fortunate Guest — high-volume channels reaching millions across social platforms.
 
-Currently, I lead technical and creative operations at a hybrid technology and media production company. Serving as a **Frontend Developer & Post Production Manager**, I oversee execution for prominent platforms including *AroundMeBD*, *Village Grandpa's Cooking*, and the *Fortunate Guest* YouTube channel. In this dual role, I architect seamless web experiences while directing narrative-driven video editing and post-production workflows that engage millions.
+Beyond my primary roles, I founded Choyzenic — a product-focused software company dedicated to AI-driven tools, automation systems, and scalable digital infrastructure. This shift reflects a deliberate long-term strategy: moving from trading time for services toward building proprietary technology assets.
+Currently, my deepest focus is Choy AI — an agentic AI, cross-platform personal assistant designed to orchestrate productivity, decision-making, and workflow automation intelligently.
 
-My journey didn't start with perfect code; it started with an insatiable curiosity for how digital experiences bring people together. Before writing intricate web applications, I was untangling computer networks and running e-commerce ventures. Those early days taught me that technology is meaningless without human connection. That realization drove me to spend years crafting custom web solutions and eventually launching my own creative agency, **Choy Agency**, where I fell in love with the art of branding and intuitive user experiences.
-
-I operate with a simple belief: the best products don't just function—they make people feel something. Whether I'm building a complex web interface or directing a high-impact video campaign, my goal is always to weave authentic narratives with cutting-edge technology. It's this intersection of storytelling and engineering that truly fuels my daily work.
-
-**The Next Horizon**
-My passion for pushing boundaries has naturally led me to the frontier of artificial intelligence. I am currently pouring my enthusiasm into building **Choy AI**, a personal assistant designed to orchestrate workflows intuitively. Looking forward to 2025, I am incredibly excited to consolidate a lifetime of creative and technical passions by launching my own software company, **Choyzenic**. I thrive on solving complex problems, bringing visions to life, and collaborating with others who share a relentless drive for innovation.
+One principle drives everything I build: technology should create leverage — not just function. Whether through engineered platforms, AI systems, or media operations, I build for compounding value and durable impact.
