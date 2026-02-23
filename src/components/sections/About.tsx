@@ -44,11 +44,6 @@ export default function About() {
                                         {paragraph}
                                     </p>
 
-                                    {i === 0 && (
-                                        <div className="mt-2 font-tech text-[10px] text-text-bright uppercase tracking-[0.2em]">
-                                    // SECURITY_CLEARANCE: LEVEL_8_GRANTED
-                                        </div>
-                                    )}
                                 </motion.div>
                             ))}
                         </div>
