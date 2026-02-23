@@ -222,11 +222,11 @@ export default function Projects() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="fixed inset-0 z-[99999] bg-bg-base/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-8"
+                            className="fixed inset-0 z-50 bg-bg-base/95 backdrop-blur-xl flex items-center justify-center p-4 pt-24 md:p-8 md:pt-28"
                             onClick={() => setGallery(null)}
                         >
                             <div
-                                className="relative w-full max-w-6xl max-h-screen flex flex-col items-center border border-accent-primary/20 bg-bg-base/50 p-2 md:p-4 rounded-sm shadow-[0_0_50px_rgba(0,240,255,0.05)]"
+                                className="relative w-full max-w-6xl max-h-[calc(100vh-7rem)] flex flex-col items-center border border-accent-primary/20 bg-bg-base/50 p-2 md:p-4 rounded-sm shadow-[0_0_50px_rgba(0,240,255,0.05)]"
                                 onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
                             >
                                 {/* Header / Controls */}
@@ -290,8 +290,8 @@ export default function Projects() {
                                                 key={idx}
                                                 onClick={() => setGallery({ ...gallery, currentIndex: idx })}
                                                 className={`relative w-16 md:w-20 aspect-video shrink-0 rounded-sm overflow-hidden border transition-all ${idx === gallery.currentIndex
-                                                        ? 'border-accent-primary shadow-[0_0_10px_rgba(0,240,255,0.3)]'
-                                                        : 'border-white/10 opacity-50 hover:opacity-100'
+                                                    ? 'border-accent-primary shadow-[0_0_10px_rgba(0,240,255,0.3)]'
+                                                    : 'border-white/10 opacity-50 hover:opacity-100'
                                                     }`}
                                             >
                                                 <Image src={img} alt={`Thumbnail ${idx + 1}`} fill className="object-cover" />
