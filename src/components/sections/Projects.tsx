@@ -1,9 +1,10 @@
 'use client';
 
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, X, ChevronLeft, ChevronRight, ImageIcon } from 'lucide-react';
+import Image from 'next/image';
 import SectionLabel from '@/components/ui/SectionLabel';
 import TechPanel from '@/components/ui/TechPanel';
 import TechTag from '@/components/ui/TechTag';
@@ -12,7 +13,7 @@ import { PROJECTS } from '@/lib/constants';
 import { fadeUp, staggerContainer } from '@/lib/animations';
 import type { Project } from '@/lib/types';
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
+function ProjectCard({ project, index, onImageClick }: { project: Project; index: number; onImageClick: (images: string[]) => void }) {
 
     return (
         <TechPanel sysId={`PROJ.0${index + 1}`} className="group relative overflow-hidden h-full flex flex-col">
@@ -79,9 +80,30 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                     <span className="opacity-80">&gt; {project.problemStatement}</span>
                 </div>
 
-                <p className="text-text-dim text-xs leading-relaxed mb-4 flex-grow font-mono">
-                    {project.description}
-                </p>
+                {/* Project Thumbnail */}
+                {project.images && project.images.length > 0 ? (
+                    <div
+                        className="relative w-full h-48 mb-4 rounded-sm overflow-hidden cursor-pointer group/image border border-accent-primary/20 hover:border-accent-primary/50 transition-colors"
+                        onClick={() => onImageClick(project.images!)}
+                    >
+                        <div className="absolute inset-0 bg-accent-primary/10 group-hover/image:bg-transparent transition-colors z-10" />
+                        <Image
+                            src={project.images[0]}
+                            alt={`${project.title} thumbnail`}
+                            fill
+                            className="object-cover group-hover/image:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute top-2 right-2 bg-bg-base/80 backdrop-blur-sm border border-accent-primary/30 p-1.5 rounded-sm z-20 flex items-center gap-1.5">
+                            <ImageIcon className="w-3 h-3 text-accent-primary" />
+                            <span className="font-tech text-[8px] text-accent-primary">{project.images.length}</span>
+                        </div>
+                    </div>
+                ) : (
+                    <div className="w-full h-48 mb-4 rounded-sm border border-accent-primary/10 bg-accent-primary/5 flexitems-center justify-center flex-col gap-2">
+                        <ImageIcon className="w-6 h-6 text-text-dim opacity-50" />
+                        <span className="font-tech text-[10px] tracking-widest text-text-dim opacity-50">NO_IMAGE_DATA</span>
+                    </div>
+                )}
 
 
                 <div className="flex flex-wrap gap-2 mb-2 mt-auto">
@@ -96,6 +118,39 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
 export default function Projects() {
     const [showAll, setShowAll] = useState(false);
+    const [gallery, setGallery] = useState<{ images: string[], currentIndex: number } | null>(null);
+
+    // Lock body scroll when gallery is open
+    useEffect(() => {
+        if (gallery) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => { document.body.style.overflow = 'unset'; };
+    }, [gallery]);
+
+    const handleImageClick = (images: string[]) => {
+        setGallery({ images, currentIndex: 0 });
+    };
+
+    const nextImage = () => {
+        if (gallery) {
+            setGallery({
+                ...gallery,
+                currentIndex: (gallery.currentIndex + 1) % gallery.images.length
+            });
+        }
+    };
+
+    const prevImage = () => {
+        if (gallery) {
+            setGallery({
+                ...gallery,
+                currentIndex: (gallery.currentIndex - 1 + gallery.images.length) % gallery.images.length
+            });
+        }
+    };
 
     // Determine how many projects to display
     const displayedProjects = showAll ? PROJECTS : PROJECTS.slice(0, 4);
@@ -123,7 +178,7 @@ export default function Projects() {
                                 exit={{ opacity: 0, scale: 0.95 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <ProjectCard project={project} index={index} />
+                                <ProjectCard project={project} index={index} onImageClick={handleImageClick} />
                             </motion.div>
                         ))}
                     </AnimatePresence>
@@ -160,6 +215,94 @@ export default function Projects() {
                     </motion.div>
                 )}
 
+                {/* Lightbox Gallery Modal */}
+                <AnimatePresence>
+                    {gallery && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="fixed inset-0 z-[99999] bg-bg-base/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-8"
+                            onClick={() => setGallery(null)}
+                        >
+                            <div
+                                className="relative w-full max-w-6xl max-h-screen flex flex-col items-center border border-accent-primary/20 bg-bg-base/50 p-2 md:p-4 rounded-sm shadow-[0_0_50px_rgba(0,240,255,0.05)]"
+                                onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+                            >
+                                {/* Header / Controls */}
+                                <div className="w-full flex justify-between items-center mb-4 px-2">
+                                    <div className="font-tech text-[10px] tracking-widest text-accent-primary uppercase flex items-center gap-2">
+                                        <div className="w-1.5 h-1.5 bg-accent-primary rounded-full animate-pulse" />
+                                        IMAGE {gallery.currentIndex + 1} OF {gallery.images.length}
+                                    </div>
+                                    <button
+                                        onClick={() => setGallery(null)}
+                                        className="text-text-dim hover:text-accent-warning transition-colors p-1"
+                                    >
+                                        <X size={24} />
+                                    </button>
+                                </div>
+
+                                {/* Main Image Container */}
+                                <div className="relative w-full aspect-video rounded-sm overflow-hidden bg-black/50 border border-white/5">
+                                    <AnimatePresence mode="wait">
+                                        <motion.div
+                                            key={gallery.currentIndex}
+                                            initial={{ opacity: 0, scale: 0.98 }}
+                                            animate={{ opacity: 1, scale: 1 }}
+                                            exit={{ opacity: 0, scale: 1.02 }}
+                                            transition={{ duration: 0.2 }}
+                                            className="absolute inset-0"
+                                        >
+                                            <Image
+                                                src={gallery.images[gallery.currentIndex]}
+                                                alt={`Gallery Image ${gallery.currentIndex + 1}`}
+                                                fill
+                                                className="object-contain"
+                                            />
+                                        </motion.div>
+                                    </AnimatePresence>
+
+                                    {/* Navigation Arrows */}
+                                    {gallery.images.length > 1 && (
+                                        <>
+                                            <button
+                                                onClick={(e) => { e.stopPropagation(); prevImage(); }}
+                                                className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 p-2 bg-bg-base/50 hover:bg-accent-primary/20 border border-white/10 hover:border-accent-primary/50 text-white rounded-full backdrop-blur-md transition-all z-10"
+                                            >
+                                                <ChevronLeft size={24} />
+                                            </button>
+                                            <button
+                                                onClick={(e) => { e.stopPropagation(); nextImage(); }}
+                                                className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 p-2 bg-bg-base/50 hover:bg-accent-primary/20 border border-white/10 hover:border-accent-primary/50 text-white rounded-full backdrop-blur-md transition-all z-10"
+                                            >
+                                                <ChevronRight size={24} />
+                                            </button>
+                                        </>
+                                    )}
+                                </div>
+
+                                {/* Thumbnails row (optional but nice) */}
+                                {gallery.images.length > 1 && (
+                                    <div className="flex gap-2 mt-4 overflow-x-auto max-w-full pb-2 scrollbar-thin scrollbar-thumb-accent-primary/30">
+                                        {gallery.images.map((img, idx) => (
+                                            <button
+                                                key={idx}
+                                                onClick={() => setGallery({ ...gallery, currentIndex: idx })}
+                                                className={`relative w-16 md:w-20 aspect-video shrink-0 rounded-sm overflow-hidden border transition-all ${idx === gallery.currentIndex
+                                                        ? 'border-accent-primary shadow-[0_0_10px_rgba(0,240,255,0.3)]'
+                                                        : 'border-white/10 opacity-50 hover:opacity-100'
+                                                    }`}
+                                            >
+                                                <Image src={img} alt={`Thumbnail ${idx + 1}`} fill className="object-cover" />
+                                            </button>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </section>
     );

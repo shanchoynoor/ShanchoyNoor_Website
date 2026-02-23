@@ -26,6 +26,7 @@ export interface Project {
     tech: string[];
     liveUrl?: string;
     githubUrl?: string;
+    images?: string[];
     isFeatured?: boolean;
     status?: 'ready' | 'in-progress';
 }

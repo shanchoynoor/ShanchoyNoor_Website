@@ -150,6 +150,11 @@ export const PROJECTS: Project[] = [
             'A modern movie and TV show tracking application featuring seamless TMDB integration, personalized watchlists, and real-time ratings from major critic platforms like IMDb and Rotten Tomatoes. Designed with a dark cinematic UI.',
         tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'API Routes', 'PostgreSQL', 'Vercel'],
         liveUrl: 'https://choywatch.vercel.app/',
+        images: [
+            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=CHOYWATCH+SCREEN+1',
+            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=CHOYWATCH+SCREEN+2',
+            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=CHOYWATCH+SCREEN+3'
+        ],
         isFeatured: true,
         status: 'ready',
     },
@@ -163,6 +168,10 @@ export const PROJECTS: Project[] = [
             'To provide hope and action for families of missing persons through community mobilization, resources, and unwavering support.',
         tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'API Routes', 'PostgreSQL', 'Vercel', 'Cloudflare R2'],
         liveUrl: 'https://lostlinkip.org/',
+        images: [
+            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=LOSTLINK+SCREEN+1',
+            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=LOSTLINK+SCREEN+2'
+        ],
         isFeatured: true,
         status: 'ready',
     },
@@ -176,6 +185,11 @@ export const PROJECTS: Project[] = [
             'A central hub tailored for rural video content creators in Bangladesh. The platform features organized video galleries, detailed creator profiles, and streamlined content distribution, bridging the gap between local talent and global audiences.',
         tech: ['Next.js', 'React', 'Node.js', 'Tailwind CSS'],
         liveUrl: 'https://youtubevillage.com/',
+        images: [
+            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=YTVILLAGE+SCREEN+1',
+            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=YTVILLAGE+SCREEN+2',
+            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=YTVILLAGE+SCREEN+3'
+        ],
         isFeatured: true,
         status: 'ready',
     },
@@ -189,6 +203,10 @@ export const PROJECTS: Project[] = [
             'An interactive local discovery platform highlighting culturally significant locations, businesses, and untold stories across Bangladesh. Features dynamic mapping interfaces and a highly performant directory structure.',
         tech: ['Next.js', 'React', 'Google Maps API', 'Framer Motion'],
         liveUrl: 'https://aroundmebd.com/',
+        images: [
+            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=AROUNDMEBD+SCREEN+1',
+            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=AROUNDMEBD+SCREEN+2'
+        ],
         isFeatured: true,
         status: 'ready',
     },
@@ -202,6 +220,10 @@ export const PROJECTS: Project[] = [
             'A professional desktop and web-based AI creation studio featuring advanced prompting environments, multi-modal generation pipelines, and local asset management, built for power users demanding high bandwidth creation capabilities.',
         tech: ['Python', 'FastAPI', 'Next.js', 'Electron', 'AWS'],
         liveUrl: '#',
+        images: [
+            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=CHOYAISTUDIO+SCREEN+1',
+            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=CHOYAISTUDIO+SCREEN+2'
+        ],
         isFeatured: true,
         status: 'in-progress',
     },
@@ -217,12 +239,17 @@ export const PROJECTS: Project[] = [
             'Client → API Gateway → LLM Orchestrator → [OpenAI / Brave Search] → Response Formatter → Supabase logging → Client',
         tech: ['Python', 'FastAPI', 'Next.js', 'PostgreSQL', 'Supabase', 'LLM Orchestration', 'Search API'],
         liveUrl: '#',
+        images: [
+            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=CHOYAI+SCREEN+1',
+            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=CHOYAI+SCREEN+2',
+            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=CHOYAI+SCREEN+3'
+        ],
         isFeatured: true,
         status: 'in-progress',
     },
     {
         title: 'ChoyMate',
-        tag: 'AI COMPANION',
+        tag: ['DESKTOP APP', 'MOBILE APP'],
         featuredLabel: 'TECH_STACK',
         problemStatement:
             'A highly interactive, real-time AI companion focused on fluid conversational dynamics and emotional intelligence.',
@@ -230,6 +257,10 @@ export const PROJECTS: Project[] = [
             'A specialized AI companion application focusing on low-latency, real-time conversational interfaces. Integrates advanced emotional intelligence modeling and contextual memory access for incredibly lifelike digital interactions.',
         tech: ['Next.js', 'WebSockets', 'OpenAI API', 'Framer Motion'],
         liveUrl: '#',
+        images: [
+            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=CHOYMATE+SCREEN+1',
+            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=CHOYMATE+SCREEN+2'
+        ],
         isFeatured: true,
         status: 'in-progress',
     }
