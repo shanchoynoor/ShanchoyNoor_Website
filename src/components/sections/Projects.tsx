@@ -89,6 +89,9 @@ function ProjectCard({ project, index, onImageClick }: { project: Project; index
                             src={project.images[0]}
                             alt={`${project.title} thumbnail`}
                             fill
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            priority={index < 2}
+                            loading={index < 2 ? 'eager' : 'lazy'}
                             className="object-cover group-hover/image:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute top-2 right-2 bg-bg-base/80 backdrop-blur-sm border border-accent-primary/30 p-1.5 rounded-sm z-20 flex items-center gap-1.5">
@@ -256,6 +259,8 @@ export default function Projects() {
                                                 src={gallery.images[gallery.currentIndex]}
                                                 alt={`Gallery Image ${gallery.currentIndex + 1}`}
                                                 fill
+                                                sizes="(max-width: 768px) 100vw, 80vw"
+                                                loading="eager"
                                                 className="object-contain"
                                             />
                                         </motion.div>
@@ -292,7 +297,14 @@ export default function Projects() {
                                                     : 'border-white/10 opacity-50 hover:opacity-100'
                                                     }`}
                                             >
-                                                <Image src={img} alt={`Thumbnail ${idx + 1}`} fill className="object-cover" />
+                                                <Image
+                                                    src={img}
+                                                    alt={`Thumbnail ${idx + 1}`}
+                                                    fill
+                                                    sizes="64px"
+                                                    loading="lazy"
+                                                    className="object-cover"
+                                                />
                                             </button>
                                         ))}
                                     </div>

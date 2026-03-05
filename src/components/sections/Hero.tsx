@@ -1,9 +1,10 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { MapPin, Activity, Power, Zap, Cpu, Shield, ArrowRight, Github, Linkedin, Facebook, Twitter, Youtube, X, Play } from 'lucide-react';
 import Button from '@/components/ui/Button';
+import Image from 'next/image';
 
 export default function Hero() {
     const [stars, setStars] = useState<{ id: number; x: number; y: number; size: number; duration: number }[]>([]);

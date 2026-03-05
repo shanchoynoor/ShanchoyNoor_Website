@@ -11,6 +11,7 @@ interface ButtonProps {
     className?: string;
     type?: 'button' | 'submit';
     disabled?: boolean;
+    target?: '_blank' | '_self' | '_parent' | '_top';
 }
 
 const BASE_STYLES = "relative inline-flex items-center justify-center font-tech uppercase tracking-widest text-xs font-bold transition-all duration-300 overflow-hidden group";
@@ -28,6 +29,7 @@ export default function Button({
     className = '',
     type = 'button',
     disabled = false,
+    target,
 }: ButtonProps) {
 
     // Angle cut styles via clip-path
@@ -47,11 +49,14 @@ export default function Button({
     );
 
     if (href) {
+        const isExternal = href.startsWith('http');
         return (
             <a
                 href={href}
                 className={combinedClasses}
                 style={clipStyle}
+                target={target ?? (isExternal ? '_blank' : '_self')}
+                rel={isExternal ? 'noopener noreferrer' : undefined}
             >
                 {buttonContent}
             </a>

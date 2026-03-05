@@ -23,8 +23,8 @@ export const SITE_METADATA = {
         github: 'https://github.com/shanchoynoor',
         linkedin: 'https://linkedin.com/in/shanchoynoor',
         twitter: 'https://twitter.com/shanchoynoor',
-        facebook: '#',
-        youtube: '#',
+        facebook: 'https://facebook.com/shanchoynoor',
+        youtube: 'https://youtube.com/@shanchoynoor',
     }
 } as const;
 
@@ -49,6 +49,17 @@ export const HERO = {
     subline: 'Dhaka, Bangladesh  ·  Open to Dubai, Remote & Global Roles',
     ctaPrimary: 'View Projects',
     ctaSecondary: 'See Architecture',
+} as const;
+
+export const HERO_MEDIA = {
+    portrait: {
+        src: '/id_image/shanchoy_noor.jpg',
+        width: 640,
+        height: 800,
+        blurDataURL:
+            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4AWPYdvL/PwAETAPQ3cR/2wAAAABJRU5ErkJggg==',
+        alt: 'Portrait of Shanchoy Noor',
+    },
 } as const;
 
 // ─── About ───
@@ -150,9 +161,9 @@ export const PROJECTS: Project[] = [
         tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'API Routes', 'PostgreSQL', 'Vercel'],
         liveUrl: 'https://choywatch.vercel.app/',
         images: [
-            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=CHOYWATCH+SCREEN+1',
-            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=CHOYWATCH+SCREEN+2',
-            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=CHOYWATCH+SCREEN+3'
+            'https://placehold.co/1280x720/0a0a0a/00F0FF.png?text=CHOYWATCH+SCREEN+1',
+            'https://placehold.co/1280x720/0a0a0a/00F0FF.png?text=CHOYWATCH+SCREEN+2',
+            'https://placehold.co/1280x720/0a0a0a/00F0FF.png?text=CHOYWATCH+SCREEN+3'
         ],
         isFeatured: true,
         status: 'ready',
@@ -168,8 +179,8 @@ export const PROJECTS: Project[] = [
         tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'API Routes', 'PostgreSQL', 'Vercel', 'Cloudflare R2'],
         liveUrl: 'https://lostlinkip.org/',
         images: [
-            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=LOSTLINK+SCREEN+1',
-            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=LOSTLINK+SCREEN+2'
+            'https://placehold.co/1280x720/0a0a0a/00F0FF.png?text=LOSTLINK+SCREEN+1',
+            'https://placehold.co/1280x720/0a0a0a/00F0FF.png?text=LOSTLINK+SCREEN+2'
         ],
         isFeatured: true,
         status: 'ready',
@@ -185,9 +196,9 @@ export const PROJECTS: Project[] = [
         tech: ['Next.js', 'React', 'Node.js', 'Tailwind CSS'],
         liveUrl: 'https://youtubevillage.com/',
         images: [
-            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=YTVILLAGE+SCREEN+1',
-            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=YTVILLAGE+SCREEN+2',
-            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=YTVILLAGE+SCREEN+3'
+            'https://placehold.co/1280x720/0a0a0a/00F0FF.png?text=YTVILLAGE+SCREEN+1',
+            'https://placehold.co/1280x720/0a0a0a/00F0FF.png?text=YTVILLAGE+SCREEN+2',
+            'https://placehold.co/1280x720/0a0a0a/00F0FF.png?text=YTVILLAGE+SCREEN+3'
         ],
         isFeatured: true,
         status: 'ready',
@@ -203,8 +214,8 @@ export const PROJECTS: Project[] = [
         tech: ['Next.js', 'React', 'Google Maps API', 'Framer Motion'],
         liveUrl: 'https://aroundmebd.com/',
         images: [
-            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=AROUNDMEBD+SCREEN+1',
-            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=AROUNDMEBD+SCREEN+2'
+            'https://placehold.co/1280x720/0a0a0a/00F0FF.png?text=AROUNDMEBD+SCREEN+1',
+            'https://placehold.co/1280x720/0a0a0a/00F0FF.png?text=AROUNDMEBD+SCREEN+2'
         ],
         isFeatured: true,
         status: 'ready',
@@ -220,8 +231,8 @@ export const PROJECTS: Project[] = [
         tech: ['Python', 'FastAPI', 'Next.js', 'Electron', 'AWS'],
         liveUrl: '#',
         images: [
-            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=CHOYAISTUDIO+SCREEN+1',
-            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=CHOYAISTUDIO+SCREEN+2'
+            'https://placehold.co/1280x720/0a0a0a/00F0FF.png?text=CHOYAISTUDIO+SCREEN+1',
+            'https://placehold.co/1280x720/0a0a0a/00F0FF.png?text=CHOYAISTUDIO+SCREEN+2'
         ],
         isFeatured: true,
         status: 'in-progress',
@@ -239,9 +250,9 @@ export const PROJECTS: Project[] = [
         tech: ['Python', 'FastAPI', 'Next.js', 'PostgreSQL', 'Supabase', 'LLM Orchestration', 'Search API'],
         liveUrl: '#',
         images: [
-            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=CHOYAI+SCREEN+1',
-            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=CHOYAI+SCREEN+2',
-            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=CHOYAI+SCREEN+3'
+            'https://placehold.co/1280x720/0a0a0a/00F0FF.png?text=CHOYAI+SCREEN+1',
+            'https://placehold.co/1280x720/0a0a0a/00F0FF.png?text=CHOYAI+SCREEN+2',
+            'https://placehold.co/1280x720/0a0a0a/00F0FF.png?text=CHOYAI+SCREEN+3'
         ],
         isFeatured: true,
         status: 'in-progress',
@@ -257,8 +268,8 @@ export const PROJECTS: Project[] = [
         tech: ['Next.js', 'WebSockets', 'OpenAI API', 'Framer Motion'],
         liveUrl: '#',
         images: [
-            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=CHOYMATE+SCREEN+1',
-            'https://placehold.co/1280x720/0a0a0a/00F0FF?text=CHOYMATE+SCREEN+2'
+            'https://placehold.co/1280x720/0a0a0a/00F0FF.png?text=CHOYMATE+SCREEN+1',
+            'https://placehold.co/1280x720/0a0a0a/00F0FF.png?text=CHOYMATE+SCREEN+2'
         ],
         isFeatured: true,
         status: 'in-progress',
