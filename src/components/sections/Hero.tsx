@@ -113,19 +113,19 @@ export default function Hero() {
                             >
                                 <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_8px_#22c55e]" />
                                 <span className="font-tech text-xs text-text-bright tracking-widest uppercase">
-                                    SYSTEM: ONLINE // AVAILABLE FOR HIRE
+                                    SYSTEM: LIVE // OPEN TO COLLABORATION
                                 </span>
                             </motion.div>
 
                             {/* Identity Row: Photo + Information */}
-                            <div className="flex flex-col md:flex-row gap-8 items-start">
+                            <div className="flex flex-col md:flex-row gap-8 items-stretch">
                                 {/* Biometric Bio-Photo */}
                                 <motion.div
                                     initial={{ opacity: 0, scale: 0.9 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ delay: 1 }}
                                     onClick={() => setIsModalOpen(true)}
-                                    className="relative w-32 h-40 border border-accent-primary/20 shrink-0 cursor-pointer group/img"
+                                    className="relative w-32 md:w-36 min-h-[160px] border border-accent-primary/20 shrink-0 cursor-pointer group/img"
                                 >
                                     <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-accent-primary" />
                                     <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-accent-primary" />
@@ -157,8 +157,33 @@ export default function Hero() {
                                             transition={{ delay: 1.4 }}
                                             className="font-tech text-accent-primary tracking-[0.2em] font-medium uppercase text-[13px]"
                                         >
-                                            FRONTEND & AI DEVELOPER · ENTREPRENEUR
+                                            WEB & AI DEVELOPER · ENTREPRENEUR
                                         </motion.p>
+                                        <motion.div
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            transition={{ delay: 1.45 }}
+                                            className="font-tech text-text-bright/70 uppercase text-[10px] tracking-wider space-y-1"
+                                        >
+                                            <p>
+                                                Co-founder & CEO at{' '}
+                                                <a href="https://choyzenic.com" target="_blank" rel="noopener noreferrer" className="text-accent-primary hover:underline transition-colors">
+                                                    Choyzenic
+                                                </a>
+                                            </p>
+                                            <p>
+                                                UI/UX Designer at{' '}
+                                                <a href="https://iqrasys.com" target="_blank" rel="noopener noreferrer" className="text-accent-primary hover:underline transition-colors">
+                                                    Iqrasys Solution Ltd.
+                                                </a>
+                                            </p>
+                                            <p>
+                                                Post-Production Manager at{' '}
+                                                <a href="https://youtubevillage.com" target="_blank" rel="noopener noreferrer" className="text-accent-primary hover:underline transition-colors">
+                                                    YouTube Village
+                                                </a>
+                                            </p>
+                                        </motion.div>
                                         <motion.div
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}
@@ -168,14 +193,7 @@ export default function Hero() {
                                             <MapPin size={10} className="text-accent-primary animate-pulse" />
                                             DHAKA, BANGLADESH
                                         </motion.div>
-                                        <motion.div
-                                            initial={{ opacity: 0 }}
-                                            animate={{ opacity: 1 }}
-                                            transition={{ delay: 1.6 }}
-                                            className="font-tech text-[9.5px] text-text-bright tracking-widest leading-relaxed"
-                                        >
-                                            // LAT: 23.8340 // LONG: 90.3620
-                                        </motion.div>
+
                                     </div>
                                     {/* Social Connects */}
                                     <motion.div

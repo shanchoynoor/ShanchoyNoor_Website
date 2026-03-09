@@ -13,7 +13,7 @@ import type {
 
 // ─── Metadata ───
 export const SITE_METADATA = {
-    title: 'Shanchoy Noor — Frontend & AI Developer',
+    title: 'Shanchoy Noor — Web & AI Developer',
     description:
         'Frontend engineer specializing in React, Next.js, and TypeScript. Building AI-powered systems and production-grade web applications from Dhaka, Bangladesh.',
     keywords:
@@ -41,7 +41,7 @@ export const NAV_LINKS: NavLink[] = [
 // ─── Hero ───
 export const HERO = {
     statusBadge: 'Available for select global opportunities',
-    eyebrow: 'FRONTEND & AI DEVELOPER · ENTREPRENEUR',
+    eyebrow: 'WEB & AI DEVELOPER · ENTREPRENEUR',
     firstName: 'Shanchoy',
     lastName: 'Noor',
     tagline:

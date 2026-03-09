@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Power, Menu, X, Terminal } from 'lucide-react';
+import { Power, Menu, X, Terminal, Download } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { NAV_LINKS } from '@/lib/constants';
 
@@ -98,8 +98,9 @@ export default function Navbar() {
                             <span className="absolute -right-2 opacity-0 group-hover:opacity-100 transition-opacity">]</span>
                         </a>
                     ))}
-                    <a href="#" className="px-4 py-1 border border-accent-primary text-accent-primary hover:bg-accent-primary hover:text-bg-base transition-colors text-xs tracking-widest">
-                        DOWNLOAD_RESUME
+                    <a href="#" className="flex items-center gap-2 px-4 py-1 border border-accent-primary text-accent-primary hover:bg-accent-primary hover:text-bg-base transition-colors text-xs tracking-widest">
+                        <Download size={14} />
+                        RESUME
                     </a>
                 </nav>
 
