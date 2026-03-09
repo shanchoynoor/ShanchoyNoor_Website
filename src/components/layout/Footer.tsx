@@ -106,7 +106,7 @@ export default function Footer() {
             {/* Background Decorative Grid - subtle */}
             <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-accent-primary/5 to-transparent pointer-events-none" />
 
-            <div className="max-w-6xl mx-auto px-6 relative">
+            <div className="max-w-6xl mx-auto relative">
                 {/* Main HUD Control Surface */}
                 <div className="relative grid grid-cols-1 md:grid-cols-12 items-end gap-6 md:gap-0">
 

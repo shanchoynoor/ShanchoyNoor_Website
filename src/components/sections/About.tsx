@@ -45,7 +45,7 @@ export default function About() {
                             ))}
                         </div>
 
-                        <div className="space-y-8 pl-4 md:pl-0">
+                        <div className="space-y-8">
                             {ABOUT_PARAGRAPHS.map((paragraph, i) => (
                                 <motion.div key={i} variants={fadeUp} className="relative group">
                                     {/* Paragraph Indicator */}

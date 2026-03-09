@@ -53,35 +53,45 @@ export default function Navbar() {
     }, []);
 
     return (
-        <header className="fixed top-0 w-full z-50 px-6 py-4">
+        <header className="fixed top-0 w-full z-50">
             <motion.div
                 initial={{ y: -20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 className={`
-          flex items-center justify-between p-4 transition-all duration-300
-          ${scrolled ? 'bg-bg-panel/20 backdrop-blur-sm' : 'bg-transparent'}
+          w-full px-6 transition-all duration-300
+          ${scrolled ? 'bg-bg-panel/20 backdrop-blur-sm shadow-sm border-b border-border-dim/20' : 'bg-transparent py-4'}
         `}
             >
-                {/* Left: System Status */}
-                <div className="flex items-center gap-4">
+                {/* Absolute Top-Left Branding */}
+                <div className="absolute left-6 top-1/2 -translate-y-1/2 flex items-center gap-4 hidden lg:flex z-10">
                     <div className="flex items-center gap-2 text-accent-primary">
                         <Power size={18} className="animate-pulse" />
                         <span className="font-tech text-sm tracking-widest font-bold">S.NOOR</span>
                     </div>
-                    <div className="hidden md:flex flex-col text-[10px] font-tech text-text-bright leading-none">
+                    <div className="flex flex-col text-[10px] font-tech text-text-bright leading-none">
                         <span>SYS.ONLINE</span>
                         <span>V.2.0.4</span>
                     </div>
                 </div>
 
-                {/* Center: Typing Message (Hidden on small mobile) */}
-                <div className="hidden md:flex items-center gap-6 font-tech text-xs text-text-bright">
+                <div className="max-w-6xl mx-auto h-16 flex items-center justify-between w-full">
+                
+                {/* Center -> Now Left-aligned within max-w-6xl container: Typing Message */}
+                <div className="hidden md:flex items-center gap-6 font-tech text-xs text-text-bright ml-[26px]">
                     <span className="flex items-center gap-2">
                         <Terminal size={12} className="text-accent-secondary" />
                         <span className="tracking-wider text-[11px] whitespace-nowrap inline-block w-[280px]">
                             {typedText}<span className="animate-pulse">_</span>
                         </span>
                     </span>
+                </div>
+                
+                {/* Mobile only branding (centered when layout shrinks) */}
+                <div className="flex lg:hidden items-center gap-4">
+                    <div className="flex items-center gap-2 text-accent-primary">
+                        <Power size={18} className="animate-pulse" />
+                        <span className="font-tech text-sm tracking-widest font-bold">S.NOOR</span>
+                    </div>
                 </div>
 
                 {/* Right: Navigation */}
@@ -108,6 +118,7 @@ export default function Navbar() {
                 <button className="md:hidden text-accent-primary" onClick={() => setIsOpen(!isOpen)}>
                     {isOpen ? <X /> : <Menu />}
                 </button>
+                </div>
             </motion.div>
 
             {/* Mobile Overlay */}
