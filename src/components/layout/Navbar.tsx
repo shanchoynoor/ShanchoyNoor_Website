@@ -58,8 +58,8 @@ export default function Navbar() {
                 initial={{ y: -20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 className={`
-          w-full px-6 transition-all duration-300
-          ${scrolled ? 'bg-bg-panel/20 backdrop-blur-sm shadow-sm border-b border-border-dim/20' : 'bg-transparent py-4'}
+          w-full px-5 py-2 transition-all duration-300 border-b
+          ${scrolled ? 'bg-bg-panel/20 backdrop-blur-sm shadow-sm border-border-dim/20' : 'bg-transparent border-transparent'}
         `}
             >
                 {/* Absolute Top-Left Branding */}
@@ -68,16 +68,12 @@ export default function Navbar() {
                         <Power size={18} className="animate-pulse" />
                         <span className="font-tech text-sm tracking-widest font-bold">S.NOOR</span>
                     </div>
-                    <div className="flex flex-col text-[10px] font-tech text-text-bright leading-none">
-                        <span>SYS.ONLINE</span>
-                        <span>V.2.0.4</span>
-                    </div>
                 </div>
 
-                <div className="max-w-6xl mx-auto h-16 flex items-center justify-between w-full">
+                <div className="max-w-6xl mx-auto h-12 flex items-center justify-between w-full">
                 
                 {/* Center -> Now Left-aligned within max-w-6xl container: Typing Message */}
-                <div className="hidden md:flex items-center gap-6 font-tech text-xs text-text-bright ml-[26px]">
+                <div className="hidden md:flex items-center gap-5 font-tech text-xs text-text-bright ml-[26px]">
                     <span className="flex items-center gap-2">
                         <Terminal size={12} className="text-accent-secondary" />
                         <span className="tracking-wider text-[11px] whitespace-nowrap inline-block w-[280px]">

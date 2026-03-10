@@ -172,7 +172,7 @@ export default function Hero() {
                                                 </a>
                                             </p>
                                             <p>
-                                                UI/UX Designer at{' '}
+                                                Frontend Developer at{' '}
                                                 <a href="https://iqrasys.com" target="_blank" rel="noopener noreferrer" className="text-accent-primary hover:underline transition-colors">
                                                     Iqrasys Solution Ltd.
                                                 </a>
@@ -233,12 +233,13 @@ export default function Hero() {
                                     transition={{ delay: 2.2 }}
                                     className="flex flex-wrap gap-4 pt-4"
                                 >
-                                    <Button variant="primary" className="w-[180px] h-[36px] !cyan-neon-border group">
-                                        <span className="flex flex-row items-center justify-center gap-1.5 mt-0.5">
-                                            <Play size={10} className="fill-text-bright" />
-                                            <span className="text-[10px] text-text-bright tracking-widest leading-none">VIDEO_RESUME</span>
-                                        </span>
-                                    </Button>
+                                    <a
+                                        href="#"
+                                        className="flex items-center gap-2 px-4 py-1 border border-accent-primary text-accent-primary hover:bg-accent-primary hover:text-bg-base transition-colors text-[10px] tracking-widest uppercase"
+                                    >
+                                        <Play size={12} />
+                                        VIDEO_RESUME
+                                    </a>
                                 </motion.div>
                             </div>
                         </div>
@@ -252,7 +253,7 @@ export default function Hero() {
                         >
                             <div className="flex justify-between items-center border-b border-white/5 pb-2">
                                 <span className="font-tech text-[10px] text-accent-secondary">WORKING_ON</span>
-                                <span className="font-tech text-[9px] text-text-bright/40">ACTIVE_SPRINT: 2025.02</span>
+                                <span className="font-tech text-[9px] text-text-bright/40">ACTIVE_SPRINT: 2026.03</span>
                             </div>
 
                             <div
@@ -264,18 +265,18 @@ export default function Hero() {
                                     <div className="space-y-1">
                                         <div className="flex justify-between items-center text-[9px] uppercase tracking-widest text-text-dim">
                                             <span className="text-accent-primary">[PROJECT.01]</span>
-                                            <span className="text-accent-primary/60">ALMOST_READY</span>
+                                            <span className="text-accent-primary/60">MVP_READY</span>
                                         </div>
-                                        <p className="font-display text-sm text-text-bright leading-tight">ChoyAI_Studio</p>
+                                        <p className="font-display text-sm text-text-bright leading-tight">ChoyCraft_AI Content Generation</p>
                                         <p className="font-tech text-[8px] text-text-bright/50 tracking-wide uppercase">Multi-modal AI Generation Suite // Single Subscription</p>
                                     </div>
 
                                     <div className="space-y-1">
                                         <div className="flex justify-between items-center text-[9px] uppercase tracking-widest text-text-dim">
-                                            <span className="text-accent-secondary">[PROJECT.02]</span>
-                                            <span className="text-accent-secondary/60">ALMOST_READY</span>
+                                            <span className="text-accent-primary">[PROJECT.02]</span>
+                                            <span className="text-accent-primary/60">MVP_READY</span>
                                         </div>
-                                        <p className="font-display text-sm text-text-bright leading-tight">ChoyAI_Blog Automation</p>
+                                        <p className="font-display text-sm text-text-bright leading-tight">ChoyBlog_Automation</p>
                                         <p className="font-tech text-[8px] text-text-bright/50 tracking-wide uppercase">WP-Plugin // AI Writing // Scheduling // Cover Images</p>
                                     </div>
 
@@ -284,16 +285,16 @@ export default function Hero() {
                                             <span className="text-accent-primary">[PROJECT.03]</span>
                                             <span className="text-accent-primary/40">IN_PROGRESS</span>
                                         </div>
-                                        <p className="font-display text-sm text-text-bright leading-tight">ChoyAI_Personal Assistant</p>
-                                        <p className="font-tech text-[8px] text-text-bright/50 tracking-wide uppercase">80% Task Automation // Personal AI Agent</p>
+                                        <p className="font-display text-sm text-text-bright leading-tight">ChoyAI_Personal AI Assistant</p>
+                                        <p className="font-tech text-[8px] text-text-bright/50 tracking-wide uppercase">Task Automation // Personal Agentic AI</p>
                                     </div>
 
                                     <div className="space-y-1">
                                         <div className="flex justify-between items-center text-[9px] uppercase tracking-widest text-text-dim">
                                             <span className="text-accent-primary">[PROJECT.04]</span>
-                                            <span className="text-accent-primary/40">IN_PROGRESS</span>
+                                            <span className="text-accent-primary/40">STARTED</span>
                                         </div>
-                                        <p className="font-display text-sm text-text-bright leading-tight">ChoyMate_Social Media</p>
+                                        <p className="font-display text-sm text-text-bright leading-tight">ChoyNet_Social Media</p>
                                         <p className="font-tech text-[8px] text-text-bright/50 tracking-wide uppercase">Social for Professionals // Productivity Focused</p>
                                     </div>
 
@@ -302,22 +303,8 @@ export default function Hero() {
                                             <span className="text-accent-primary">[PROJECT.05]</span>
                                             <span className="text-accent-primary/40">PLANNING</span>
                                         </div>
-                                        <p className="font-display text-sm text-text-bright leading-tight">ChoyFlow</p>
-                                        <p className="font-tech text-[8px] text-text-bright/50 tracking-wide uppercase">Business Automation // Lead Gen // Marketing & Sales</p>
-                                    </div>
-                                </div>
-
-                                {/* Status Indicators */}
-                                <div className="space-y-3 pt-4 font-tech text-[10px] tracking-wide">
-                                    <div className="flex items-center gap-3 text-accent-secondary">
-                                        <span className="w-1.5 h-1.5 bg-accent-secondary rounded-full animate-pulse shadow-[0_0_8px_rgba(255,46,46,0.5)]" />
-                                        AT_ORCHESTRATION: NOMINAL
-                                    </div>
-                                    <div className="flex items-center gap-2 text-text-bright/80">
-                                        <span className="text-accent-primary">[*]</span> REACT_SERVER_COMPONENTS: ENABLED
-                                    </div>
-                                    <div className="flex items-center gap-2 text-text-bright/80">
-                                        <span className="text-accent-primary">[*]</span> SYSTEM_LATENCY: 24MS
+                                        <p className="font-display text-sm text-text-bright leading-tight">ChoyFlow_Business Automation</p>
+                                        <p className="font-tech text-[8px] text-text-bright/50 tracking-wide uppercase">CRM/ERP // Lead Gen // Marketing & Sales</p>
                                     </div>
                                 </div>
 
