@@ -286,7 +286,7 @@ export default function Hero() {
                                             <span className="text-accent-primary/40">IN_PROGRESS</span>
                                         </div>
                                         <p className="font-display text-sm text-text-bright leading-tight">ChoyAI_Personal AI Assistant</p>
-                                        <p className="font-tech text-[8px] text-text-bright/50 tracking-wide uppercase">Task Automation // Personal Agentic AI</p>
+                                        <p className="font-tech text-[8px] text-text-bright/50 tracking-wide uppercase">Personal Agentic AI // Task Automation // Companion AI </p>
                                     </div>
 
                                     <div className="space-y-1">

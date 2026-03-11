@@ -31,12 +31,6 @@ export default function TechPanel({ children, className = '', title, sysId }: Te
             </div>
 
             {children}
-
-            {/* Footer Decoration */}
-            <div className="absolute bottom-2 right-4 flex gap-1 opacity-20">
-                <div className="w-8 h-1 bg-accent-primary" />
-                <div className="w-2 h-1 bg-accent-primary" />
-            </div>
         </div>
     );
 }
