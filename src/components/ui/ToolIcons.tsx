@@ -1,64 +1,52 @@
+import Image from 'next/image';
+
+// using sizes roughly mapping to the 3xl text size in the parent component
+// width/height of 48 is a good baseline for text-3xl (which is 30px, line height 36px)
+
 export const ToolIcons = {
     Windsurf: () => (
-        <svg viewBox="0 0 512 512" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg">
-            {/* Using a generic code icon for Windsurf since it lacks a standard simple SVG logo in common CDN repos */}
-            <path d="M416 112L256 16v96zm0 288l-160 96v-96zM96 400L256 496v-96zm0-288L256 16v96z" fill="#0EA5E9" />
-            <path d="M496 256L256 400 16 256l240-144z" fill="#38BDF8" />
-        </svg>
+        <div className="relative w-[1em] h-[1em]">
+            <Image src="/tools_logo/windsurf-white.png" alt="Windsurf" fill className="object-contain" sizes="30px" />
+        </div>
     ),
     Antigravity: () => (
-        <svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            {/* Generic placeholder for Antigravity */}
-            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-        </svg>
+        <div className="relative w-[1em] h-[1em]">
+            <Image src="/tools_logo/antigravity.png" alt="Antigravity" fill className="object-contain" sizes="30px" />
+        </div>
     ),
     Cursor: () => (
-        <svg viewBox="0 0 24 24" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 3l12 18-5.5-1.5L9 24l-3-21z" fill="#fff" stroke="#000" strokeWidth="1.5" strokeLinejoin="round" />
-        </svg>
+        <div className="relative w-[1em] h-[1em]">
+            <Image src="/tools_logo/cursor.png" alt="Cursor" fill className="object-contain" sizes="30px" />
+        </div>
     ),
     VSCode: () => (
-        <svg viewBox="0 0 256 256" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
-            <path d="M192.348 238.257l-159.223-95.27 159.223-95.233 46.505 27.56-112.656 67.673 112.656 67.636-46.505 27.634zM169.516 224.64l46.506-27.635-112.657-67.636 112.657-67.672-46.506-27.56-121.282 72.544 54.407 32.723L48.234 106.84V64.673l121.282-72.58 54.407-32.535 32.077 18.991v200.74l-32.077 18.99-54.407-32.536zM32.077 96.166l54.406 32.722-54.406 32.61V96.166z" fill="#0066b8" />
-            <path d="M32.077 96.166l54.406 32.722-54.406 32.61V96.166z" fill="#007acc" />
-        </svg>
+        <div className="relative w-[1em] h-[1em]">
+            <Image src="/tools_logo/vscode.webp" alt="VS Code" fill className="object-contain" sizes="30px" />
+        </div>
     ),
     Figma: () => (
-        <svg viewBox="0 0 38 57" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg">
-            <path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#1abcfe" />
-            <path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" fill="#0acf83" />
-            <path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" fill="#ff7262" />
-            <path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#f24e1e" />
-            <path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#a259ff" />
-        </svg>
+        <div className="relative w-[1em] h-[1em]">
+            <Image src="/tools_logo/figma.png" alt="Figma" fill className="object-contain" sizes="30px" />
+        </div>
     ),
     Git: () => (
-        <svg viewBox="0 0 256 256" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
-            <path d="M250.76 110.151L145.823 5.216A21.572 21.572 0 00130.56.024a21.439 21.439 0 00-15.192 6.302L4.045 117.653a21.488 21.488 0 000 30.404l104.939 104.94a21.472 21.472 0 0030.428 0l111.348-111.349a21.464 21.464 0 000-30.405l-.012-.02x" fill="#f1502f" />
-            <path d="M129.412 178.69a19.123 19.123 0 01-19.11-19.112A19.135 19.135 0 01129.412 140.5V64.654A19.136 19.136 0 11116.59 48v89.493a19.135 19.135 0 11-12.822 17.593v.01l0 .01a31.91 31.91 0 0014.288 26.544c8.498 5.765 19.196 6.014 27.973 1.144a44.3 44.3 0 005.15-3.321 19.123 19.123 0 11-21.756-20.781.012.012 0 00-.012-.004m0-111.946a6.315 6.315 0 106.314-6.315 6.324 6.324 0 00-6.314 6.315M110.3 159.578a6.316 6.316 0 106.316-6.315 6.322 6.322 0 00-6.316 6.315m45.163-.1a6.315 6.315 0 106.314-6.315 6.325 6.325 0 00-6.314 6.315" fill="#fff" />
-            <path d="M136.007 141.05v.2a19.135 19.135 0 00-11.755 17.64 19.155 19.155 0 0019.234 19.114V140.5a19.123 19.123 0 00-7.48.55zM122.905 48a19.133 19.133 0 01-6.315 14.12V48z" fill="#ffd1c9" />
-        </svg>
+        <div className="relative w-[1em] h-[1em]">
+            <Image src="/tools_logo/git.webp" alt="Git" fill className="object-contain" sizes="30px" />
+        </div>
     ),
     Photoshop: () => (
-        <svg viewBox="0 0 256 256" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
-            <path d="M38.406 0h179.18A38.411 38.411 0 01256 38.406v179.18A38.411 38.411 0 01217.586 256H38.406A38.411 38.411 0 010 217.586v-179.18A38.411 38.411 0 0138.406 0" fill="#001d26" />
-            <path d="M38.406 1.157h179.18c20.574 0 37.25 16.674 37.25 37.25v179.18c0 20.574-16.676 37.25-37.25 37.25H38.406c-20.575 0-37.25-16.676-37.25-37.25v-179.18c0-20.576 16.675-37.25 37.25-37.25" fill="#001d26" />
-            <path d="M35.636 35.637h184.721V220.36H35.636z" fill="#2eb0e5" />
-            <path d="M60.158 190.413h21.01V157.06h18.261c14.288 0 26.697-3.99 35.342-11.396 6.848-5.71 11.23-14.773 11.23-26.696 0-11.603-3.696-19.66-9.55-25.043h.05c-8.497-7.85-20.088-11.6-32.062-11.6H60.16v108.088zm21.01-49.805V98.986h11.902c6.98 0 11.782 1.487 14.886 4.603 3.4 3.4 5.253 8.355 5.253 14.717 0 7.632-1.996 12.87-5.597 16.035-3.352 3.013-8.875 4.417-15.688 4.417h-10.756v1.85zM151.724 191.045c11.082 0 21.572-3.141 29.584-9.011v-17.765a39.426 39.426 0 01-14.722 5.093 33.4 33.4 0 01-13.064-.26c-5.717-.96-10.613-3.52-13.843-7.227-2.906-3.328-4.32-6.953-4.32-11.054 0-5.71 2.502-10.435 8.163-14.475 4.685-3.342 12.378-5.325 21.066-5.46h5.864c.264-10.873-10.36-12.791-20.93-12.791-4.806 0-9.87.5-14.426 2.05l-5.694-15.548c7.324-2.822 17.51-4.477 28.167-4.477 10.605 0 18.825 2.112 24.364 6.275 6.002 4.545 8.955 11.706 8.955 21.824 0 35.845-.034 40.54.034 50.31a9.206 9.206 0 001.295 4.65V189.92a62.031 62.031 0 01-12.605 2.028v-10.14h-.351c-4.423 5.378-11.411 9.873-23.703 9.873-10.925 0-18.73-2.9-23.473-8.66-4.636-5.66-6.974-12.693-6.974-21.282.002-9.757 3.328-17.653 10.038-23.21l16.575 12.516" fill="#001d26" />
-        </svg>
+        <div className="relative w-[1em] h-[1em]">
+            <Image src="/tools_logo/photoshop.png" alt="Photoshop" fill className="object-contain" sizes="30px" />
+        </div>
     ),
     Illustrator: () => (
-        <svg viewBox="0 0 256 256" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
-            <path d="M38.406 0h179.18A38.411 38.411 0 01256 38.406v179.18A38.411 38.411 0 01217.586 256H38.406A38.411 38.411 0 010 217.586v-179.18A38.411 38.411 0 0138.406 0" fill="#300" />
-            <path d="M35.636 35.637h184.721V220.36H35.636z" fill="#ff7c00" />
-            <path d="M57.653 190.724h21.05V82.253H57.653v108.471zm27.172-132.339A13.298 13.298 0 0071.554 45a13.3 13.3 0 00-13.242 13.385 13.303 13.303 0 0013.242 13.385 13.3 13.3 0 0013.271-13.385zm25.922 132.339h20.706V82.253h-20.706v108.471zm26.852-132.339a13.298 13.298 0 00-13.271 13.385 13.3 13.3 0 0013.271 13.385A13.306 13.306 0 00151.17 45.002a13.303 13.303 0 00-13.57 13.383" fill="#300" />
-        </svg>
+        <div className="relative w-[1em] h-[1em]">
+            <Image src="/tools_logo/illustrator.webp" alt="Illustrator" fill className="object-contain" sizes="30px" />
+        </div>
     ),
     Premiere: () => (
-        <svg viewBox="0 0 256 256" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
-            <path d="M38.406 0h179.18A38.411 38.411 0 01256 38.406v179.18A38.411 38.411 0 01217.586 256H38.406A38.411 38.411 0 010 217.586v-179.18A38.411 38.411 0 0138.406 0" fill="#00004d" />
-            <path d="M35.636 35.637h184.721V220.36H35.636z" fill="#ea77ff" />
-            <path d="M54.545 190.413h21.01V152.41h16.208c15.823 0 27.684-2.822 35.257-9.336 6.324-5.46 9.875-13.064 9.875-23.472 0-11.23-3.992-19.16-9.69-24.364-8.8-8.204-20.843-11.604-33.14-11.604H54.545v106.779zm21.01-49.805V98.986h11.9c6.98 0 11.78.96 14.885 4.075 3.4 3.4 5.253 8.355 5.253 14.717 0 7.632-1.996 12.87-5.597 16.035-3.352 3.013-8.875 4.417-15.688 4.417h-10.753v2.378zM148.88 190.413h20.66v-41.402c4.321-3.642 10.966-4.992 18.062-4.992 4.456 0 9.172.936 12.384 2.148l2.946-19.67c-2.812-1.002-6.526-1.545-10.72-1.545-7.662 0-14.852 3.86-19.4 10.198v-11.8h-23.931v67.063z" fill="#00004d" />
-        </svg>
+        <div className="relative w-[1em] h-[1em]">
+            <Image src="/tools_logo/premiere-pro.webp" alt="Premiere Pro" fill className="object-contain" sizes="30px" />
+        </div>
     ),
 };
