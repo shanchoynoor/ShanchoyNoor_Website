@@ -59,7 +59,7 @@ export default function Contact() {
         }
     };
 
-    const handleSubmit = (e: FormEvent) => {
+    const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         const validationErrors = validateForm(form);
 
@@ -69,11 +69,38 @@ export default function Contact() {
         }
 
         setStatus('sending');
-        // Simulate send — replace with real API call
-        setTimeout(() => {
-            setStatus('sent');
-            setForm({ name: '', email: '', role: '', message: '' });
-        }, 1500);
+
+        try {
+            const response = await fetch('https://formsubmit.co/ajax/shanchoy.noor@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: form.name,
+                    email: form.email,
+                    role: form.role,
+                    message: form.message,
+                    _subject: `New Contact Form Submission from ${form.name}`,
+                    _template: 'box'
+                }),
+            });
+
+            if (response.ok) {
+                setStatus('sent');
+                setForm({ name: '', email: '', role: '', message: '' });
+                // Reset status back to idle after 3 seconds
+                setTimeout(() => setStatus('idle'), 3000);
+            } else {
+                setStatus('error');
+                setTimeout(() => setStatus('idle'), 3000);
+            }
+        } catch (error) {
+            console.error('Form submission error:', error);
+            setStatus('error');
+            setTimeout(() => setStatus('idle'), 3000);
+        }
     };
 
     return (
