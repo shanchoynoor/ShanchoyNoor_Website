@@ -131,7 +131,10 @@ export default function About() {
                                         {careerTrajectory.map((row, rowIndex) => (
                                             <div
                                                 key={`trajectory-row-${rowIndex}`}
-                                                className="grid grid-cols-3 w-full text-center"
+                                                className={`grid grid-cols-3 w-full text-center ${
+                                                    rowIndex === 0 ? '-translate-y-3' : 
+                                                    rowIndex === 2 ? 'translate-y-6' : ''
+                                                }`}
                                             >
                                                 {row.map((item) => (
                                                     <div key={`trajectory-${rowIndex}-${item.label}`} className="flex flex-col items-center gap-0.5">
