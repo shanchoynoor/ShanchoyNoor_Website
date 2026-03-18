@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Play } from 'lucide-react';
+import NextImage from 'next/image';
 import SectionLabel from '@/components/ui/SectionLabel';
 import TechPanel from '@/components/ui/TechPanel';
 import { VIDEOS_INTRO, LATEST_YOUTUBE_VIDEOS, YOUTUBE_PROFILE_IMAGE } from '@/lib/constants';
@@ -20,11 +21,12 @@ function VideoCard({ video, index }: { video: { id: string; title: string }; ind
             >
                 {/* Header: Original YT Profile + Compact Title */}
                 <div className="flex items-center gap-2.5 mb-3 px-1">
-                    <div className="w-5 h-5 rounded-full overflow-hidden border border-accent-primary/20 shrink-0">
-                        <img
+                    <div className="w-5 h-5 rounded-full overflow-hidden border border-accent-primary/20 shrink-0 relative">
+                        <NextImage
                             src={YOUTUBE_PROFILE_IMAGE}
                             alt="Shanchoy Noor"
-                            className="w-full h-full object-cover"
+                            fill
+                            className="object-cover"
                         />
                     </div>
                     <span className="text-[9px] font-tech text-text-bright/70 line-clamp-1 uppercase tracking-tighter">
@@ -40,10 +42,12 @@ function VideoCard({ video, index }: { video: { id: string; title: string }; ind
                     {!isPlaying ? (
                         <>
                             {/* Static Thumbnail Facade */}
-                            <img
+                            <NextImage
                                 src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
                                 alt={video.title}
-                                className="w-full h-full object-cover opacity-70 transition-all duration-700 group-hover:scale-105 group-hover:opacity-90"
+                                fill
+                                sizes="(max-width: 768px) 100vw, 33vw"
+                                className="object-cover opacity-70 transition-all duration-700 group-hover:scale-105 group-hover:opacity-90"
                             />
                             {/* Play Overlay */}
                             <div className="absolute inset-0 flex items-center justify-center">
@@ -94,11 +98,12 @@ export default function YoutubeVideos() {
                         <div className="p-4 rounded-xl bg-bg-surface/30 border border-border-dim/30 backdrop-blur-sm shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
                             <div className="flex items-center gap-4 sm:gap-5">
                                 {/* Profile Image (Compact) */}
-                                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden border border-accent-primary/20 shrink-0 shadow-[0_0_20px_rgba(0,240,255,0.05)]">
-                                    <img
+                                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden border border-accent-primary/20 shrink-0 shadow-[0_0_20px_rgba(0,240,255,0.05)] relative">
+                                    <NextImage
                                         src={YOUTUBE_PROFILE_IMAGE}
                                         alt="Shanchoy Noor"
-                                        className="w-full h-full object-cover"
+                                        fill
+                                        className="object-cover"
                                     />
                                 </div>
 

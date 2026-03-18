@@ -4,7 +4,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Github, X, ChevronLeft, ChevronRight, ImageIcon } from 'lucide-react';
-import Image from 'next/image';
+import NextImage from 'next/image';
 import SectionLabel from '@/components/ui/SectionLabel';
 import TechPanel from '@/components/ui/TechPanel';
 import TechTag from '@/components/ui/TechTag';
@@ -85,7 +85,7 @@ function ProjectCard({ project, index, onImageClick }: { project: Project; index
                         onClick={() => onImageClick(project.images!)}
                     >
                         <div className="absolute inset-0 bg-accent-primary/10 group-hover/image:bg-transparent transition-colors z-10" />
-                        <Image
+                        <NextImage
                             src={project.images[0]}
                             alt={`${project.title} thumbnail`}
                             fill
@@ -100,7 +100,7 @@ function ProjectCard({ project, index, onImageClick }: { project: Project; index
                         </div>
                     </div>
                 ) : (
-                    <div className="w-full h-48 mb-4 rounded-sm border border-accent-primary/10 bg-accent-primary/5 flexitems-center justify-center flex-col gap-2">
+                    <div className="w-full h-48 mb-4 rounded-sm border border-accent-primary/10 bg-accent-primary/5 flex items-center justify-center flex-col gap-2">
                         <ImageIcon className="w-6 h-6 text-text-dim opacity-50" />
                         <span className="font-tech text-[10px] tracking-widest text-text-dim opacity-50">NO_IMAGE_DATA</span>
                     </div>
@@ -255,7 +255,7 @@ export default function Projects() {
                                             transition={{ duration: 0.2 }}
                                             className="absolute inset-0"
                                         >
-                                            <Image
+                                            <NextImage
                                                 src={gallery.images[gallery.currentIndex]}
                                                 alt={`Gallery Image ${gallery.currentIndex + 1}`}
                                                 fill
@@ -297,7 +297,7 @@ export default function Projects() {
                                                     : 'border-white/10 opacity-50 hover:opacity-100'
                                                     }`}
                                             >
-                                                <Image
+                                                <NextImage
                                                     src={img}
                                                     alt={`Thumbnail ${idx + 1}`}
                                                     fill

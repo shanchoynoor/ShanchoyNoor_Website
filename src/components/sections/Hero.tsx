@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { MapPin, Activity, Power, Zap, Cpu, Shield, ArrowRight, Github, Linkedin, Facebook, Twitter, Youtube, X, Play } from 'lucide-react';
 import Button from '@/components/ui/Button';
-import Image from 'next/image';
+import NextImage from 'next/image';
 
 export default function Hero() {
     const [stars, setStars] = useState<{ id: number; x: number; y: number; size: number; duration: number }[]>([]);
@@ -79,8 +79,16 @@ export default function Hero() {
                             <motion.div
                                 animate={{ rotate: 360 }}
                                 transition={{ duration: 300, repeat: Infinity, ease: "linear" }}
-                                className="absolute inset-0 bg-[url('https://pngimg.com/uploads/earth/earth_PNG39.png')] bg-cover bg-center scale-125"
-                            />
+                                className="absolute inset-0 scale-125"
+                            >
+                                <NextImage
+                                    src="https://pngimg.com/uploads/earth/earth_PNG39.png"
+                                    alt="Orbital Earth"
+                                    fill
+                                    className="object-cover"
+                                    priority
+                                />
+                            </motion.div>
                             {/* Dramatic Atmospheric Rim Glow */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
                             <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-black to-transparent opacity-70" />
@@ -130,7 +138,13 @@ export default function Hero() {
                                     <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-accent-primary" />
                                     <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-accent-primary" />
                                     <div className="absolute inset-1 overflow-hidden">
-                                        <img src="/id_image/shanchoy_noor.jpg" alt="Identity" className="w-full h-full object-cover" />
+                                        <NextImage
+                                            src="/id_image/shanchoy_noor.jpg"
+                                            alt="Identity"
+                                            fill
+                                            priority
+                                            className="object-cover"
+                                        />
                                         {/* Scanning Line */}
                                         <motion.div
                                             animate={{ top: ['0%', '100%'] }}
@@ -355,7 +369,7 @@ export default function Hero() {
 
                             {/* Enlarged Biometric Photo */}
                             <div className="relative flex-1 border border-accent-primary/20 bg-black/40 overflow-hidden group">
-                                <img src="/id_image/shanchoy_noor.jpg" alt="Identity Large" className="w-full h-full object-cover transition-all duration-700" />
+                                <NextImage src="/id_image/shanchoy_noor.jpg" alt="Identity Large" fill className="object-cover transition-all duration-700" />
                             </div>
 
                             {/* Identity Details Panel */}

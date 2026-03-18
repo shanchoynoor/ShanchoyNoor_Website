@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import StarkHUD from '@/components/effects/StarkHUD';
 import LoadingScreen from '@/components/ui/LoadingScreen';
 import { SITE_METADATA } from "@/lib/constants";
+import StarkHUDDynamic from '@/components/effects/StarkHUDDynamic';
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -61,11 +62,17 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        <link rel="preconnect" href="https://img.youtube.com" />
+        <link rel="preconnect" href="https://ip-api.com" />
+        <link rel="preconnect" href="https://api.open-meteo.com" />
+        <link rel="preconnect" href="https://freeipapi.com" />
+      </head>
       <body suppressHydrationWarning>
         <LoadingScreen />
         <Navbar />
         <main className="min-h-screen relative z-10 selection:bg-accent-primary selection:text-bg-base">
-          <StarkHUD />
+          <StarkHUDDynamic />
           {children}
         </main>
         <Footer />
