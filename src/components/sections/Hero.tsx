@@ -333,21 +333,23 @@ export default function Hero() {
                         className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12 bg-black/80 backdrop-blur-xl"
                         onClick={() => setIsModalOpen(false)}
                     >
-                        {/* Close Trigger (Anywhere Click) */}
-                        <motion.button
-                            className="absolute top-8 right-8 text-accent-primary hover:text-white transition-colors z-[110]"
-                            whileHover={{ rotate: 90 }}
-                        >
-                            <X size={32} />
-                        </motion.button>
-
                         <motion.div
                             initial={{ scale: 0.8, y: 20, rotateX: 10 }}
                             animate={{ scale: 1, y: 0, rotateX: 0 }}
                             exit={{ scale: 0.8, opacity: 0 }}
                             onClick={(e) => e.stopPropagation()}
-                            className="relative max-w-4xl w-full aspect-square md:aspect-video bg-bg-surface/40 border border-accent-primary/30 hologram-monitor p-4 md:p-8 flex flex-col md:flex-row gap-8 overflow-hidden"
+                            className="relative max-w-4xl w-full aspect-square md:aspect-video bg-bg-surface/40 border border-accent-primary/30 hologram-monitor p-4 md:p-8 flex flex-col md:flex-row gap-8 overflow-hidden pointer-events-auto"
                         >
+                            {/* Close Trigger (X) */}
+                            <motion.button
+                                onClick={() => setIsModalOpen(false)}
+                                className="absolute top-4 right-4 text-accent-primary hover:text-white transition-all z-[120] p-1 bg-black/40 border border-white/5 backdrop-blur-sm rounded-sm"
+                                whileHover={{ rotate: 90, scale: 1.1 }}
+                                whileTap={{ scale: 0.9 }}
+                                aria-label="Close modal"
+                            >
+                                <X size={20} />
+                            </motion.button>
                             {/* Decorative Scanline Overlay */}
                             <div className="absolute inset-0 pointer-events-none opacity-20 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%]" />
 

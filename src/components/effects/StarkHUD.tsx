@@ -98,7 +98,7 @@ const SECTIONS = [
     { id: 'skills', label: 'MODULES' },
     { id: 'projects', label: 'DATA_LOG' },
     { id: 'experience', label: 'MISSION' },
-    { id: 'architecture', label: 'SCHEMATIC' },
+    { id: 'videos', label: 'SCHEMATIC' },
     { id: 'contact', label: 'COMM_LINK' },
 ];
 

@@ -228,7 +228,7 @@ export default function Footer() {
 
                 {/* Extra Minimal Copyright */}
                 <div className="mt-4 flex justify-between items-center opacity-80 px-2 flex-wrap gap-2 uppercase">
-                    <span className="font-display text-[10px] text-text-dim tracking-wider">Copyright © SHANCHOY_NOOR ALL_RIGHTS_RESERVED</span>
+                    <span className="font-display text-[10px] text-text-dim tracking-wider">Copyright © SHANCHOY NOOR • ALL RIGHTS RESERVED</span>
                     <span className="font-display text-[10px] text-text-dim tracking-wider">shanchoynoor.me</span>
                 </div>
             </div>

@@ -220,18 +220,18 @@ export const PROJECTS: Project[] = [
         status: 'ready',
     },
     {
-        title: 'ChoyAI Studio',
+        title: 'ChoyCraft - AI Content Generation',
         tag: 'web app',
         featuredLabel: 'TECH_STACK',
         problemStatement:
             'A dedicated creative suite for generating and iterating on complex multi-modal AI assets locally.',
         description:
-            'A professional desktop and web-based AI creation studio featuring advanced prompting environments, multi-modal generation pipelines, and local asset management, built for power users demanding high bandwidth creation capabilities.',
+            'A dedicated creative suite for generating and iterating on complex multi-modal AI assets locally.',
         tech: ['Python', 'FastAPI', 'Next.js', 'Electron', 'AWS'],
         liveUrl: '#',
         images: [
-            'https://placehold.co/1280x720/0a0a0a/00F0FF.png?text=CHOYAISTUDIO+SCREEN+1',
-            'https://placehold.co/1280x720/0a0a0a/00F0FF.png?text=CHOYAISTUDIO+SCREEN+2'
+            'https://placehold.co/1280x720/0a0a0a/00F0FF.png?text=CHOYCRAFT+SCREEN+1',
+            'https://placehold.co/1280x720/0a0a0a/00F0FF.png?text=CHOYCRAFT+SCREEN+2'
         ],
         isFeatured: true,
         status: 'in-progress',
@@ -243,7 +243,7 @@ export const PROJECTS: Project[] = [
         problemStatement:
             'Abstracts LLM calls behind a unified interface to eliminate vendor lock-in.',
         description:
-            'An extensible AI infrastructure platform built for real production workloads. Architected around a modular LLM orchestration layer with pluggable data sources, real-time API integrations, and multi-environment deployment pipelines.',
+            'Abstracts LLM calls behind a unified interface to eliminate vendor lock-in.',
         architectureNote:
             'Client → API Gateway → LLM Orchestrator → [OpenAI / Brave Search] → Response Formatter → Supabase logging → Client',
         tech: ['Python', 'FastAPI', 'Next.js', 'PostgreSQL', 'Supabase', 'LLM Orchestration', 'Search API'],
@@ -257,18 +257,18 @@ export const PROJECTS: Project[] = [
         status: 'in-progress',
     },
     {
-        title: 'ChoyMate',
+        title: 'ChoyNet  — Social Media Platform',
         tag: ['DESKTOP APP', 'MOBILE APP'],
         featuredLabel: 'TECH_STACK',
         problemStatement:
             'A real-time AI companion focused on fluid conversational dynamics and emotional intelligence.',
         description:
-            'A specialized AI companion application focusing on low-latency, real-time conversational interfaces. Integrates advanced emotional intelligence modeling and contextual memory access for incredibly lifelike digital interactions.',
+            'A real-time AI companion focused on fluid conversational dynamics and emotional intelligence.',
         tech: ['Next.js', 'WebSockets', 'OpenAI API', 'Framer Motion'],
         liveUrl: '#',
         images: [
-            'https://placehold.co/1280x720/0a0a0a/00F0FF.png?text=CHOYMATE+SCREEN+1',
-            'https://placehold.co/1280x720/0a0a0a/00F0FF.png?text=CHOYMATE+SCREEN+2'
+            'https://placehold.co/1280x720/0a0a0a/00F0FF.png?text=CHOYNET+SCREEN+1',
+            'https://placehold.co/1280x720/0a0a0a/00F0FF.png?text=CHOYNET+SCREEN+2'
         ],
         isFeatured: true,
         status: 'in-progress',
@@ -299,11 +299,11 @@ export const LATEST_YOUTUBE_VIDEOS = [
 // ─── Experience ───
 export const EXPERIENCE_ENTRIES: ExperienceEntry[] = [
     {
-        title: 'UI/UX and Frontend Developer',
+        title: 'Frontend Developer',
         company: 'Iqrasys Solutions Limited',
         location: '',
         period: 'September 1, 2019 - Present',
-        body: 'Designed and improved user interfaces and user experiences for various digital products, ensuring high-quality interactive designs.',
+        body: 'Architecting premium frontend systems with React and Next.js. Delivering high-performance, accessible interfaces.',
         isCurrent: true,
     },
     {
@@ -367,18 +367,19 @@ export const EXPERIENCE_ENTRIES: ExperienceEntry[] = [
 // ─── Education & Courses ───
 export const EDUCATION_ENTRIES: EducationEntry[] = [
     {
-        title: 'B.Sc. in Computer Science',
-        institution: 'University Name — Location',
-        location: 'City, Country',
-        period: '2018 – 2022',
-        body: 'Focused on software engineering, distributed systems, and artificial intelligence. Graduated with honors. Key projects included a machine learning-based recommendation engine.',
+        title: 'BSc, Computer Science and Engineering',
+        institution: 'European University of Bangladesh',
+        location: 'Dhaka, Bangladesh',
+        period: '2023 - 2026',
+        body: 'Mastering advanced software architecture, distributed systems and algorithms. Preparing for high-impact tech roles.',
+        isCurrent: true,
     },
     {
-        title: 'Advanced AI Systems Certification',
-        institution: 'Tech Institute / Platform',
-        location: 'Online',
-        period: '2023',
-        body: 'Intensive coursework covering LLM orchestration, retrieval-augmented generation (RAG) pipelines, and deployment of containerized AI services.',
+        title: 'Diploma In Computer Engineering, CSE',
+        institution: 'Daffodil Polytechnic Institute (DPI)',
+        location: 'Dhaka, Bangladesh',
+        period: '2012 - 2016',
+        body: 'Mastering core computer systems, programming logic and hardware engineering. Foundation for advanced engineering.',
         isCurrent: false,
     },
 ];

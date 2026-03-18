@@ -64,7 +64,12 @@ export default function Experience() {
                                             </div>
 
                                             <p className="text-text-dim text-xs leading-relaxed border-l-2 border-border-dim pl-4 group-hover:border-accent-primary/50 transition-colors font-mono">
-                                                {entry.body}
+                                                {entry.body.split('\n').map((line, idx) => (
+                                                    <span key={idx}>
+                                                        {line}
+                                                        {idx !== entry.body.split('\n').length - 1 && <br />}
+                                                    </span>
+                                                ))}
                                             </p>
                                         </TechPanel>
                                     </motion.div>
@@ -139,7 +144,12 @@ export default function Experience() {
                                             </div>
 
                                             <p className="text-text-dim text-xs leading-relaxed border-l-2 border-border-dim pl-4 group-hover:border-accent-secondary/50 transition-colors font-mono">
-                                                {entry.body}
+                                                {entry.body.split('\n').map((line, idx) => (
+                                                    <span key={idx}>
+                                                        {line}
+                                                        {idx !== entry.body.split('\n').length - 1 && <br />}
+                                                    </span>
+                                                ))}
                                             </p>
                                         </TechPanel>
                                     </motion.div>
