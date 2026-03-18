@@ -43,7 +43,7 @@ export default function LoadingScreen() {
                         {/* Shimmering Radar Sweep */}
                         <motion.div
                             animate={{ rotate: 360 }}
-                            transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                             className="absolute inset-[2px]"
                         >
                             {/* Sharp Scan Line */}
@@ -65,12 +65,9 @@ export default function LoadingScreen() {
                     </div>
 
                     {/* MINIMAL STATUS */}
-                    <div className="mt-6 flex flex-col items-center gap-1.5 grayscale opacity-60">
-                        <div className="flex items-center gap-0.5 font-tech text-[10px] tracking-[0.4em] text-accent-primary uppercase">
-                            <span>LOADING</span>
-                            <motion.span animate={{ opacity: [0, 1, 0] }} transition={{ duration: 1.2, repeat: Infinity, delay: 0 }}>.</motion.span>
-                            <motion.span animate={{ opacity: [0, 1, 0] }} transition={{ duration: 1.2, repeat: Infinity, delay: 0.2 }}>.</motion.span>
-                            <motion.span animate={{ opacity: [0, 1, 0] }} transition={{ duration: 1.2, repeat: Infinity, delay: 0.4 }}>.</motion.span>
+                    <div className="mt-3 flex flex-col items-center gap-1 grayscale opacity-60">
+                        <div className="font-tech text-[10px] text-accent-primary uppercase">
+                            LOADING...
                         </div>
                         <div className="w-10 h-[1px] bg-white/5 relative overflow-hidden">
                             <motion.div
