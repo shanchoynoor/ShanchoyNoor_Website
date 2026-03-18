@@ -9,6 +9,11 @@ import TechPanel from '@/components/ui/TechPanel';
 import { VIDEOS_INTRO, LATEST_YOUTUBE_VIDEOS, YOUTUBE_PROFILE_IMAGE } from '@/lib/constants';
 import { fadeUp, staggerContainer } from '@/lib/animations';
 
+/**
+ * RE-INITIALIZED COMPONENT to bypass build cache.
+ * Using NextImage alias for all image components.
+ */
+
 function VideoCard({ video, index }: { video: { id: string; title: string }; index: number }) {
     const [isPlaying, setIsPlaying] = useState(false);
 
