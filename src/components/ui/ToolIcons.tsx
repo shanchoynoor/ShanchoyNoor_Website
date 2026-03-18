@@ -24,14 +24,14 @@ export const ToolIcons = {
             <Image src="/tools_logo/vscode.webp" alt="VS Code" fill className="object-contain" sizes="30px" />
         </div>
     ),
-    Figma: () => (
-        <div className="relative w-[1em] h-[1em]">
-            <Image src="/tools_logo/figma.png" alt="Figma" fill className="object-contain" sizes="30px" />
-        </div>
-    ),
     Git: () => (
         <div className="relative w-[1em] h-[1em]">
             <Image src="/tools_logo/git.webp" alt="Git" fill className="object-contain" sizes="30px" />
+        </div>
+    ),
+    Figma: () => (
+        <div className="relative w-[1em] h-[1em]">
+            <Image src="/tools_logo/figma.png" alt="Figma" fill className="object-contain" sizes="30px" />
         </div>
     ),
     Photoshop: () => (

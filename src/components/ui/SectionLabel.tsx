@@ -6,15 +6,16 @@ interface SectionLabelProps {
     label: string;
     title: string;
     description?: string;
+    className?: string;
 }
 
-export default function SectionLabel({ label, title, description }: SectionLabelProps) {
+export default function SectionLabel({ label, title, description, className }: SectionLabelProps) {
     return (
         <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="mb-16 border-l-2 border-accent-primary pl-6 py-2"
+            className={`mb-16 border-l-2 border-accent-primary pl-6 py-2 ${className || ''}`}
         >
             <div className="flex items-center gap-3 mb-2">
                 <span className="font-tech text-xs text-accent-primary tracking-[0.2em] uppercase">

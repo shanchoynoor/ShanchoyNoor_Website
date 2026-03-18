@@ -122,6 +122,15 @@ body {
   opacity: 0.5;
 }
 
+.tech-panel.no-corners {
+  clip-path: none;
+}
+
+.tech-panel.no-corners::before,
+.tech-panel.no-corners::after {
+  display: none;
+}
+
 .tech-panel:hover::before,
 .tech-panel:hover::after {
   opacity: 1;

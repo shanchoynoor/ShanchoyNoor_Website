@@ -49,21 +49,6 @@ export interface EducationEntry {
     isCurrent?: boolean;
 }
 
-export interface PhilosophyCard {
-    title: string;
-    description: string;
-}
-
-export interface ArchitectureNode {
-    id: string;
-    label: string;
-    tooltip: string;
-    x: number;
-    y: number;
-    isAccent?: boolean;
-    category: 'client' | 'service' | 'data' | 'ai';
-}
-
 export interface ContactLink {
     label: string;
     href: string;

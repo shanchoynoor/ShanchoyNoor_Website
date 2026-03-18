@@ -5,8 +5,6 @@ import type {
     Project,
     ExperienceEntry,
     EducationEntry,
-    PhilosophyCard,
-    ArchitectureNode,
     ContactLink,
     RoleOption,
 } from './types';
@@ -34,7 +32,7 @@ export const NAV_LINKS: NavLink[] = [
     { label: 'Skills', href: '#skills' },
     { label: 'Projects', href: '#projects' },
     { label: 'Experiences', href: '#experience' },
-    { label: 'Architecture', href: '#architecture' },
+    { label: 'Videos', href: '#videos' },
     { label: 'Contact', href: '#contact' },
 ];
 
@@ -48,7 +46,7 @@ export const HERO = {
         'I build fast, accessible, and scalable frontend systems — with the architectural depth to take them all the way to production.',
     subline: 'Dhaka, Bangladesh  ·  Open to Dubai, Remote & Global Roles',
     ctaPrimary: 'View Projects',
-    ctaSecondary: 'See Architecture',
+    ctaSecondary: 'Watch Videos',
 } as const;
 
 export const HERO_MEDIA = {
@@ -103,32 +101,33 @@ export const SKILL_PANELS: SkillPanel[] = [
         title: 'Backend Development',
         iconName: 'Server',
         skills: [
-            'Node.js',
-            'Express.js',
-            'REST API Architecture',
-            'JWT / OAuth Auth',
-            'Role-Based Access Control',
-            'Redis Rate Limiting',
-            'PostgreSQL',
-            'Supabase',
-            'Firebase',
+            'Python (FastAPI)',
+            'Node.js (JS / TS)',
+            'PostgreSQL / MySQL',
+            'Supabase / Firebase',
+            'REST & GraphQL API',
+            'JWT / OAuth',
+            'Redis / Rate Limiting',
             'Schema Design',
             'Query Optimization',
+            'Data Crawlers', 
+            'Data Scrapers',
         ],
     },
     {
         title: 'AI & Automation',
         iconName: 'Brain',
         skills: [
-            'OpenAI API Integration',
+            'LLM API Integration',
+            'RAG & Vector Search',
             'LLM Orchestration',
+            'Agentic Workflows',
+            'Multi-modal Configure',
+            'Function Calling',
+            'Structured Output',
+            'Bot Automation',
             'Prompt Engineering',
-            'Multimodal AI Workflows',
-            'Retrieval-Based AI',
-            'Brave Search API',
-            'Telegram Bot Automation',
-            'Cron Scheduling',
-            'Data Pipeline Design',
+            'Optimization'
         ],
     },
     {
@@ -136,7 +135,7 @@ export const SKILL_PANELS: SkillPanel[] = [
         iconName: 'Cloud',
         skills: [
             'Vercel',
-            'Render',
+            'Render / Railway',
             'Docker',
             'VPS Configuration',
             'AWS Fundamentals',
@@ -285,38 +284,16 @@ export const PERFORMANCE_METRICS = {
     ],
 } as const;
 
-// ─── Architecture ───
-export const ARCHITECTURE_INTRO =
-    'Before writing a single line of code, I map the data flow, define the API contract, and establish the security boundary. Below is the architecture of Choy AI\'s core request pipeline.';
+// ─── Videos ───
+export const VIDEOS_INTRO =
+    'Here are the last 3 published videos from my YouTube channel, chronicling my journey, tech insights, and creative endeavors.';
 
-export const ARCHITECTURE_NODES: ArchitectureNode[] = [
-    { id: 'client', label: 'Client / Browser', tooltip: 'The end-user interface that initiates requests and renders responses.', x: 400, y: 30, category: 'client' },
-    { id: 'frontend', label: 'Next.js Frontend', tooltip: 'Server-rendered React application handling routing, SSR, and UI state.', x: 400, y: 100, category: 'service' },
-    { id: 'gateway', label: 'API Gateway', tooltip: 'Route handler that validates requests, applies rate limiting, and manages auth.', x: 400, y: 170, isAccent: true, category: 'service' },
-    { id: 'orchestrator', label: 'LLM Orchestrator', tooltip: 'Core engine that routes prompts to the appropriate AI provider and manages context.', x: 400, y: 240, isAccent: true, category: 'service' },
-    { id: 'openai', label: 'OpenAI API', tooltip: 'Primary LLM provider for text generation, chat, and embeddings.', x: 250, y: 310, category: 'ai' },
-    { id: 'brave', label: 'Brave Search API', tooltip: 'Real-time web search provider for grounding AI responses with current data.', x: 550, y: 310, category: 'ai' },
-    { id: 'formatter', label: 'Response Formatter', tooltip: 'Normalizes and structures AI outputs into a consistent response format.', x: 400, y: 380, category: 'service' },
-    { id: 'supabase', label: 'Supabase · Logging', tooltip: 'Persistent storage layer for conversation logs, analytics, and user data.', x: 400, y: 450, category: 'data' },
-    { id: 'response', label: 'Client Response', tooltip: 'Formatted response delivered back to the user interface.', x: 400, y: 520, category: 'client' },
-];
+export const YOUTUBE_PROFILE_IMAGE = 'https://yt3.googleusercontent.com/ItogoZ0ZYr_lqdFM63t2u0ZJUTEdQbE8J5qfqC3Ocmtd4hw6zFvol_CjxO4yasb86Ch5WX_a=s176-c-k-c0x00ffffff-no-rj';
 
-export const PHILOSOPHY_CARDS: PhilosophyCard[] = [
-    {
-        title: 'Architecture First',
-        description:
-            'System design before implementation. Every component knows its boundary before it knows its logic.',
-    },
-    {
-        title: 'Scalability by Default',
-        description:
-            'If traffic scales 10×, the architecture should hold without a rewrite. That\'s the standard I build to.',
-    },
-    {
-        title: 'Security at the Boundary',
-        description:
-            'Auth, rate limiting, input validation, and environment separation are not features — they\'re prerequisites.',
-    },
+export const LATEST_YOUTUBE_VIDEOS = [
+    { id: 'CugOXmH-JMY', title: 'Sajek 2024 | Travel V5' },
+    { id: 'YidbonU4HYk', title: 'Sreemangal | Travel V4' },
+    { id: 'IN6H4xq2B7c', title: 'Nepal Tour Glimpse | Outing V9' }
 ];
 
 // ─── Experience ───
