@@ -5,6 +5,7 @@ import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { MapPin, Activity, Power, Zap, Cpu, Shield, ArrowRight, Github, Linkedin, Facebook, Twitter, Youtube, X, Play } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import NextImage from 'next/image';
+import { SITE_METADATA } from '@/lib/constants';
 
 export default function Hero() {
     const [stars, setStars] = useState<{ id: number; x: number; y: number; size: number; duration: number }[]>([]);
@@ -216,8 +217,16 @@ export default function Hero() {
                                         transition={{ delay: 1.7 }}
                                         className="flex gap-6 pt-2"
                                     >
-                                        {[Github, Linkedin, Facebook, Twitter, Youtube].map((Icon, idx) => (
-                                            <Icon key={idx} size={20} className="text-text-dim hover:text-accent-primary cursor-pointer transition-colors" />
+                                        {[
+                                            { Icon: Github, href: SITE_METADATA.social.github },
+                                            { Icon: Linkedin, href: SITE_METADATA.social.linkedin },
+                                            { Icon: Facebook, href: SITE_METADATA.social.facebook },
+                                            { Icon: Twitter, href: SITE_METADATA.social.twitter },
+                                            { Icon: Youtube, href: SITE_METADATA.social.youtube },
+                                        ].map(({ Icon, href }, idx) => (
+                                            <a key={idx} href={href} target="_blank" rel="noopener noreferrer" className="text-text-dim hover:text-accent-primary transition-colors cursor-pointer">
+                                                <Icon size={20} />
+                                            </a>
                                         ))}
                                     </motion.div>
                                 </div>

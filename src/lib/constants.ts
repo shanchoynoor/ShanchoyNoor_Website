@@ -19,10 +19,10 @@ export const SITE_METADATA = {
     url: 'https://shanchoynoor.com',
     social: {
         github: 'https://github.com/shanchoynoor',
-        linkedin: 'https://linkedin.com/in/shanchoynoor',
-        twitter: 'https://twitter.com/shanchoynoor',
-        facebook: 'https://facebook.com/shanchoynoor',
-        youtube: 'https://youtube.com/@shanchoynoor',
+        linkedin: 'https://www.linkedin.com/in/shanchoynoor/',
+        twitter: 'https://x.com/shanchoynoor',
+        facebook: 'https://www.facebook.com/imshanchoynoor',
+        youtube: 'https://www.youtube.com/@shanchoynoor',
     }
 } as const;
 
