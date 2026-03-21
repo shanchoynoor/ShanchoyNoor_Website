@@ -24,7 +24,7 @@ export default function SectionLabel({ label, title, description, className }: S
                 <div className="h-px flex-grow bg-gradient-to-r from-accent-primary/50 to-transparent max-w-[100px]" />
             </div>
 
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-text-bright uppercase tracking-tight">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold text-text-bright uppercase tracking-tight break-words">
                 {title}
             </h2>
 

@@ -104,18 +104,29 @@ export default function Navbar() {
                             <span className="absolute -right-2 opacity-0 group-hover:opacity-100 transition-opacity">]</span>
                         </a>
                     ))}
-                    <a href="#" className="flex items-center gap-2 px-4 py-1 border border-accent-primary text-accent-primary hover:bg-accent-primary hover:text-bg-base transition-colors text-xs tracking-widest">
+                    <a href="/Shanchoy_Noor_Resume_MAR21-2026.pdf" download="Shanchoy_Noor_Resume.pdf" className="flex items-center gap-2 px-4 py-1 border border-accent-primary text-accent-primary hover:bg-accent-primary hover:text-bg-base transition-colors text-xs tracking-widest">
                         <Download size={14} />
                         RESUME
                     </a>
                 </nav>
 
                 {/* Mobile Menu Toggle */}
-                <button className="md:hidden text-accent-primary" onClick={() => setIsOpen(!isOpen)}>
-                    {isOpen ? <X /> : <Menu />}
+                <button className="md:hidden text-accent-primary z-50" onClick={() => setIsOpen(!isOpen)}>
+                    {isOpen ? <X size={28} /> : <Menu />}
                 </button>
                 </div>
             </motion.div>
+
+            {/* Mobile close button — fixed top-right when overlay is open */}
+            {isOpen && (
+                <button
+                    className="fixed top-4 right-5 z-[60] text-accent-primary md:hidden"
+                    onClick={() => setIsOpen(false)}
+                    aria-label="Close menu"
+                >
+                    <X size={28} />
+                </button>
+            )}
 
             {/* Mobile Overlay */}
             {isOpen && (
@@ -135,6 +146,15 @@ export default function Navbar() {
                                 {link.label}
                             </a>
                         ))}
+                        <a
+                            href="/Shanchoy_Noor_Resume_MAR21-2026.pdf"
+                            download="Shanchoy_Noor_Resume.pdf"
+                            onClick={() => setIsOpen(false)}
+                            className="flex items-center justify-center gap-2 px-4 py-2 border border-accent-primary text-accent-primary text-sm tracking-widest"
+                        >
+                            <Download size={14} />
+                            RESUME
+                        </a>
                     </div>
                 </motion.div>
             )}

@@ -133,8 +133,8 @@ export default function Hero() {
                                     initial={{ opacity: 0, scale: 0.9 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ delay: 1 }}
-                                    onClick={() => setIsModalOpen(true)}
-                                    className="relative w-32 md:w-36 min-h-[160px] border border-accent-primary/20 shrink-0 cursor-pointer group/img"
+                                    onClick={() => window.innerWidth >= 768 && setIsModalOpen(true)}
+                                    className="relative w-32 md:w-36 min-h-[160px] border border-accent-primary/20 shrink-0 md:cursor-pointer group/img"
                                 >
                                     <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-accent-primary" />
                                     <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-accent-primary" />
