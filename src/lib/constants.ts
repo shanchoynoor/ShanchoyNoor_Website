@@ -389,11 +389,11 @@ export const CONTACT_INTRO =
     'Currently exploring senior frontend engineering roles and AI product collaborations — particularly within high-growth startups, AI-native companies, and tech hubs in Dubai and beyond.';
 
 export const ROLE_OPTIONS: RoleOption[] = [
-    { value: '', label: 'Select role type' },
-    { value: 'frontend', label: 'Frontend Role' },
-    { value: 'fullstack', label: 'Full-Stack Role' },
-    { value: 'ai', label: 'AI Product' },
-    { value: 'other', label: 'Other' },
+    { value: '', label: 'Select purpose' },
+    { value: 'business-proposal', label: 'Business Proposal' },
+    { value: 'ai-product-development', label: 'AI Product Development' },
+    { value: 'webapp-development', label: 'Webapp Development' },
+    { value: 'mobileapp-development', label: 'Mobileapp Development' },
 ];
 
 

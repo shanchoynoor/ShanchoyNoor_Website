@@ -4,7 +4,6 @@ import "./globals.css";
 import dynamic from "next/dynamic";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import LoadingScreen from '@/components/ui/LoadingScreen';
 import { SITE_METADATA } from "@/lib/constants";
 import StarkHUDDynamic from '@/components/effects/StarkHUDDynamic';
 
@@ -69,7 +68,6 @@ export default function RootLayout({
         <link rel="preconnect" href="https://freeipapi.com" />
       </head>
       <body suppressHydrationWarning>
-        <LoadingScreen />
         <Navbar />
         <main className="min-h-screen relative z-10 selection:bg-accent-primary selection:text-bg-base">
           <StarkHUDDynamic />

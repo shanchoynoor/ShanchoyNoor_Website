@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { Power, Menu, X, Terminal, Download } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import ResumeDialog from './ResumeDialog';
 import { NAV_LINKS } from '@/lib/constants';
 
 // Top "Mission Control" bar
@@ -10,6 +11,15 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [typedText, setTypedText] = useState('');
+
+    const resumeDialog = useRef<HTMLDialogElement>(null);
+    const mobileMenuButton = useRef<HTMLButtonElement>(null);
+
+    function openResume() {
+        if (isOpen) mobileMenuButton.current?.focus();
+        setIsOpen(false);
+        resumeDialog.current?.showModal();
+    }
 
     // Typing Effect
     useEffect(() => {
@@ -104,14 +114,14 @@ export default function Navbar() {
                             <span className="absolute -right-2 opacity-0 group-hover:opacity-100 transition-opacity">]</span>
                         </a>
                     ))}
-                    <a href="/Shanchoy_Noor_Resume_MAR21-2026.pdf" download="Shanchoy_Noor_Resume.pdf" className="flex items-center gap-2 px-4 py-1 border border-accent-primary text-accent-primary hover:bg-accent-primary hover:text-bg-base transition-colors text-xs tracking-widest">
+                    <button type="button" aria-haspopup="dialog" onClick={openResume} className="flex items-center gap-2 px-4 py-1 border border-accent-primary text-accent-primary hover:bg-accent-primary hover:text-bg-base transition-colors text-xs tracking-widest">
                         <Download size={14} />
                         RESUME
-                    </a>
+                    </button>
                 </nav>
 
                 {/* Mobile Menu Toggle */}
-                <button className="md:hidden text-accent-primary z-50" onClick={() => setIsOpen(!isOpen)}>
+                <button ref={mobileMenuButton} className="md:hidden text-accent-primary z-50" onClick={() => setIsOpen(!isOpen)}>
                     {isOpen ? <X size={28} /> : <Menu />}
                 </button>
                 </div>
@@ -146,18 +156,19 @@ export default function Navbar() {
                                 {link.label}
                             </a>
                         ))}
-                        <a
-                            href="/Shanchoy_Noor_Resume_MAR21-2026.pdf"
-                            download="Shanchoy_Noor_Resume.pdf"
-                            onClick={() => setIsOpen(false)}
+                        <button
+                            type="button"
+                            aria-haspopup="dialog"
+                            onClick={openResume}
                             className="flex items-center justify-center gap-2 px-4 py-2 border border-accent-primary text-accent-primary text-sm tracking-widest"
                         >
                             <Download size={14} />
                             RESUME
-                        </a>
+                        </button>
                     </div>
                 </motion.div>
             )}
+            <ResumeDialog dialogRef={resumeDialog} />
         </header>
     );
 }

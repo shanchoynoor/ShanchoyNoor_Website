@@ -157,7 +157,7 @@ export default function Contact() {
                                         className={INPUT_BASE}
                                     >
                                         {ROLE_OPTIONS.map((opt) => (
-                                            <option key={opt.value} value={opt.value} className="bg-bg-surface text-text-bright">
+                                            <option key={opt.value} value={opt.value} disabled={opt.value === ''} className="bg-bg-surface text-text-bright">
                                                 {opt.label.toUpperCase()}
                                             </option>
                                         ))}
