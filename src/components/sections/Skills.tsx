@@ -34,7 +34,7 @@ export default function Skills() {
                             <motion.div key={panel.title} variants={fadeUp}>
                                 <TechPanel
                                     sysId={`MOD.0${i + 1}`}
-                                    title={panel.isPrimary ? "CORE_MODULE" : "SUB_SYSTEM"}
+                                    title="SUB_SYSTEM"
                                     className={`h-full ${panel.isPrimary ? 'border-accent-primary/40' : ''}`}
                                 >
                                     {/* Header */}

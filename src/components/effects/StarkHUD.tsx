@@ -81,13 +81,6 @@ export default function StarkHUD() {
 
             {/* --- BOTTOM LEFT: SCROLL TRACKING HUD --- */}
             <ScrollTrack />
-
-            {/* --- DECORATIVE BARS --- */}
-            <div className="absolute bottom-10 right-10 flex gap-1.5 opacity-20">
-                {[1, 2, 3, 4, 5].map(i => (
-                    <div key={i} className="w-1 h-3 bg-accent-primary" style={{ opacity: 1 - i * 0.15 }} />
-                ))}
-            </div>
         </div>
     );
 }
@@ -130,7 +123,7 @@ function ScrollTrack() {
     const triangleTop = (activeIndex / (SECTIONS.length - 1)) * 100;
 
     return (
-        <div className="absolute left-10 top-64 hidden md:block" style={{ bottom: '160px' }}>
+        <div className="absolute right-8 top-64 hidden min-[1440px]:block" style={{ bottom: '160px' }}>
             {/* Ultra-thin glowing vertical line */}
             <div
                 className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 bg-accent-primary/20"
@@ -145,11 +138,11 @@ function ScrollTrack() {
                 return (
                     <div
                         key={section.id}
-                        className="absolute left-full font-tech text-[8px] tracking-[0.15em] transition-all duration-300 whitespace-nowrap"
+                        className="absolute right-full text-right font-tech text-[8px] tracking-[0.15em] transition-all duration-300 whitespace-nowrap"
                         style={{
                             top: `${topPercent}%`,
                             transform: 'translateY(-50%)',
-                            marginLeft: '12px',
+                            marginRight: '12px',
                             color: isActive ? 'var(--accent-primary)' : 'var(--text-dim)',
                             opacity: isActive ? 1 : 0.3,
                         }}
