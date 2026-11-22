@@ -352,3 +352,28 @@ body {
 @utility animate-grid-move {
   animation: grid-move 20s linear infinite;
 }
+/* ─── Gallery Marquee (two rows, opposite directions) ─── */
+@keyframes gallery-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+.gallery-track {
+  animation-name: gallery-scroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.gallery-track.gallery-reverse {
+  animation-direction: reverse;
+}
+
+.gallery-row:hover .gallery-track {
+  animation-play-state: paused;
+}
+
+

@@ -69,10 +69,10 @@ export const ABOUT_PARAGRAPHS: string[] = [
 ];
 
 export const ABOUT_STATS: Stat[] = [
-    { value: '6+', label: 'Years of Experience' },
-    { value: '32+', label: 'Projects Shipped' },
-    { value: '7+', label: 'Countries Served' },
-    { value: '3', label: 'AI Systems in Production' },
+    { value: '10+', label: 'Years of Experience' },
+    { value: '50+', label: 'Projects Shipped' },
+    { value: '15+', label: 'Countries Served' },
+    { value: '7+', label: 'AI Systems in Production' },
 ];
 
 // ─── Skills ───

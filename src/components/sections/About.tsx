@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import SectionLabel from '@/components/ui/SectionLabel';
 import TechPanel from '@/components/ui/TechPanel';
+import GalleryMarquee from '@/components/sections/GalleryMarquee';
 import { ABOUT_PARAGRAPHS, ABOUT_STATS } from '@/lib/constants';
 import { fadeUp, staggerContainer } from '@/lib/animations';
 import { 
@@ -173,6 +174,8 @@ export default function About() {
                     </motion.div>
                 </div>
             </div>
+
+            <GalleryMarquee />
         </section>
     );
 }

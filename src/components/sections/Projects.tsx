@@ -27,6 +27,8 @@ const STATUS_META = {
     'in-progress': { label: 'IN_PROGRESS', tone: 'text-accent-warning', dot: 'bg-accent-warning animate-pulse' },
 } as const;
 
+const INITIAL_VISIBLE = 4;
+
 type CategoryKey = Project['category'];
 
 const CATEGORIES: { key: CategoryKey; label: string; Icon: typeof Globe }[] = [
@@ -186,6 +188,7 @@ function ProjectCard({ project, index, onImageClick }: { project: Project; index
 
 export default function Projects() {
     const [category, setCategory] = useState<CategoryKey>('web');
+    const [showAll, setShowAll] = useState(false);
     const [gallery, setGallery] = useState<{ images: string[], currentIndex: number } | null>(null);
 
     // Lock body scroll when gallery is open
@@ -220,7 +223,9 @@ export default function Projects() {
         }
     };
 
-    const displayedProjects = PROJECTS.filter((p) => p.category === category);
+    const categoryProjects = PROJECTS.filter((p) => p.category === category);
+    const displayedProjects = showAll ? categoryProjects : categoryProjects.slice(0, INITIAL_VISIBLE);
+    const hiddenCount = categoryProjects.length - INITIAL_VISIBLE;
 
     return (
         <section id="projects" className="py-16 px-6">
@@ -237,7 +242,7 @@ export default function Projects() {
                                 role="tab"
                                 aria-selected={active}
                                 type="button"
-                                onClick={() => setCategory(key)}
+                                onClick={() => { setCategory(key); setShowAll(false); }}
                                 className={`flex items-center gap-2 px-5 py-2.5 font-tech text-xs font-bold tracking-widest uppercase border transition-all duration-300 ${active
                                     ? 'bg-accent-primary/10 text-accent-primary border-accent-primary shadow-[0_0_20px_rgba(0,240,255,0.2)]'
                                     : 'text-text-dim border-border-dim hover:text-text-bright hover:border-text-dim'
@@ -264,6 +269,19 @@ export default function Projects() {
                         </motion.div>
                     ))}
                 </motion.div>
+
+                {hiddenCount > 0 && (
+                    <div className="flex justify-center mb-12 -mt-4">
+                        <button
+                            type="button"
+                            onClick={() => setShowAll((v) => !v)}
+                            aria-expanded={showAll}
+                            className="font-tech text-[11px] tracking-widest text-accent-primary border border-accent-primary/30 px-6 py-2 hover:bg-accent-primary/10 hover:border-accent-primary transition-all duration-300"
+                        >
+                            {showAll ? '[ COLLAPSE ]' : `[ LOAD_MORE · ${hiddenCount} ]`}
+                        </button>
+                    </div>
+                )}
 
                 {/* Lightbox Gallery Modal */}
                 <AnimatePresence>
