@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { MapPin, Activity, Power, Zap, Cpu, Shield, ArrowRight, Github, Linkedin, Facebook, Twitter, Youtube, X, Play } from 'lucide-react';
+import { MapPin, Activity, Power, Zap, Cpu, Shield, ArrowRight, Github, Linkedin, Facebook, Instagram, Youtube, X, Play } from 'lucide-react';
+import { XLogo } from '@/components/icons/XLogo';
 import Button from '@/components/ui/Button';
 import NextImage from 'next/image';
 import { SITE_METADATA } from '@/lib/constants';
@@ -172,7 +173,7 @@ export default function Hero() {
                                             transition={{ delay: 1.4 }}
                                             className="font-tech text-accent-primary tracking-[0.2em] font-medium uppercase text-[13px]"
                                         >
-                                            WEB & AI DEVELOPER · ENTREPRENEUR
+                                            WEB & APP DEVELOPER · AI BUILDER
                                         </motion.p>
                                         <motion.div
                                             initial={{ opacity: 0 }}
@@ -181,19 +182,23 @@ export default function Hero() {
                                             className="font-tech text-text-bright/70 uppercase text-[10px] tracking-wider space-y-1"
                                         >
                                             <p>
-                                                Co-founder & CEO at{' '}
+                                                Founder & CEO at{' '}
                                                 <a href="https://choyzenic.com" target="_blank" rel="noopener noreferrer" className="text-accent-primary hover:underline transition-colors">
                                                     Choyzenic
                                                 </a>
-                                            </p>
-                                            <p>
-                                                Frontend Developer at{' '}
-                                                <a href="https://iqrasys.com" target="_blank" rel="noopener noreferrer" className="text-accent-primary hover:underline transition-colors">
-                                                    Iqrasys Solution Ltd.
+                                                {' '}&{' '}
+                                                <a href="https://oegoo.com" target="_blank" rel="noopener noreferrer" className="text-accent-primary hover:underline transition-colors">
+                                                    Oegoo LLC
                                                 </a>
                                             </p>
                                             <p>
                                                 Post-Production Manager at{' '}
+                                                <a href="https://iqrasys.com" target="_blank" rel="noopener noreferrer" className="text-accent-primary hover:underline transition-colors">
+                                                    Iqrasys Solutions Limited
+                                                </a>
+                                            </p>
+                                            <p>
+                                                Social Media Manager at{' '}
                                                 <a href="https://youtubevillage.com" target="_blank" rel="noopener noreferrer" className="text-accent-primary hover:underline transition-colors">
                                                     YouTube Village
                                                 </a>
@@ -221,7 +226,8 @@ export default function Hero() {
                                             { Icon: Github, href: SITE_METADATA.social.github },
                                             { Icon: Linkedin, href: SITE_METADATA.social.linkedin },
                                             { Icon: Facebook, href: SITE_METADATA.social.facebook },
-                                            { Icon: Twitter, href: SITE_METADATA.social.twitter },
+                                            { Icon: Instagram, href: SITE_METADATA.social.instagram },
+                                            { Icon: XLogo, href: SITE_METADATA.social.twitter },
                                             { Icon: Youtube, href: SITE_METADATA.social.youtube },
                                         ].map(({ Icon, href }, idx) => (
                                             <a key={idx} href={href} target="_blank" rel="noopener noreferrer" className="text-text-dim hover:text-accent-primary transition-colors cursor-pointer">
@@ -240,7 +246,7 @@ export default function Hero() {
                                     transition={{ delay: 1.8 }}
                                     className="font-tech text-lg md:text-xl text-accent-primary leading-snug uppercase tracking-tight max-w-2xl"
                                 >
-                                    &gt; I build fast, accessible, and scalable frontend systems — with the architectural depth to take them all the way to production.
+                                    &gt; I build fast, accessible, and scalable web and app systems — with the architectural depth to take them all the way to production.
                                 </motion.h2>
                                 <motion.p
                                     initial={{ opacity: 0 }}

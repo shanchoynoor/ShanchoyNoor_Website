@@ -2,14 +2,15 @@
 
 import { useState, type FormEvent } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, Send, Facebook, Twitter, Youtube } from 'lucide-react';
+import { Mail, Github, Linkedin, Send, Facebook, Instagram, Youtube } from 'lucide-react';
+import { XLogo } from '@/components/icons/XLogo';
 import SectionLabel from '@/components/ui/SectionLabel';
 import Button from '@/components/ui/Button';
 import TechPanel from '@/components/ui/TechPanel';
 import { CONTACT_INTRO, ROLE_OPTIONS, CONTACT_LINKS } from '@/lib/constants';
 import { fadeUp, staggerContainer } from '@/lib/animations';
 
-const ICON_MAP: Record<string, React.ElementType> = { Mail, Github, Linkedin, Facebook, Twitter, Youtube };
+const ICON_MAP: Record<string, React.ElementType> = { Mail, Github, Linkedin, Facebook, Instagram, Twitter: XLogo, Youtube };
 
 interface FormState {
     name: string;

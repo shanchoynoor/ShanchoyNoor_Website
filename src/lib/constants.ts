@@ -11,17 +11,18 @@ import type {
 
 // ─── Metadata ───
 export const SITE_METADATA = {
-    title: 'Shanchoy Noor — Web & AI Developer',
+    title: 'Shanchoy Noor — Web & App Developer · AI Builder',
     description:
-        'Frontend engineer specializing in React, Next.js, and TypeScript. Building AI-powered systems and production-grade web applications from Dhaka, Bangladesh.',
+        'Web & app developer and AI builder specializing in React, Next.js, React Native, and TypeScript. Building AI-powered systems and production-grade web and mobile applications from Dhaka, Bangladesh.',
     keywords:
-        'frontend engineer, next.js developer, react developer, AI systems, Dhaka, Bangladesh, available for hire',
+        'web developer, app developer, AI builder, next.js developer, react developer, AI systems, Dhaka, Bangladesh, available for hire',
     url: 'https://shanchoynoor.com',
     social: {
         github: 'https://github.com/shanchoynoor',
         linkedin: 'https://www.linkedin.com/in/shanchoynoor/',
         twitter: 'https://x.com/shanchoynoor',
         facebook: 'https://www.facebook.com/imshanchoynoor',
+        instagram: 'https://www.instagram.com/shanchoynoor/',
         youtube: 'https://www.youtube.com/@shanchoynoor',
     }
 } as const;
@@ -39,11 +40,11 @@ export const NAV_LINKS: NavLink[] = [
 // ─── Hero ───
 export const HERO = {
     statusBadge: 'Available for select global opportunities',
-    eyebrow: 'WEB & AI DEVELOPER · ENTREPRENEUR',
+    eyebrow: 'WEB & APP DEVELOPER · AI BUILDER',
     firstName: 'Shanchoy',
     lastName: 'Noor',
     tagline:
-        'I build fast, accessible, and scalable frontend systems — with the architectural depth to take them all the way to production.',
+        'I build fast, accessible, and scalable web and app systems — with the architectural depth to take them all the way to production.',
     subline: 'Dhaka, Bangladesh  ·  Open to Dubai, Remote & Global Roles',
     ctaPrimary: 'View Projects',
     ctaSecondary: 'Watch Videos',
@@ -63,7 +64,7 @@ export const HERO_MEDIA = {
 // ─── About ───
 export const ABOUT_PARAGRAPHS: string[] = [
     "I'm a computer engineer and entrepreneur with over 10 years of experience building at the intersection of design, software, and media — focused on systems that scale, assets that compound, and products that actually move people.",
-    "I work within a joint ecosystem where a software development company and a video production studio operate under one roof. On the tech side, I work as a Frontend Developer — turning complex product requirements into clean, scalable web platforms and digital products. On the media side, I serve as Post Production Manager, running end-to-end content workflows, narrative structure, and editing systems for AroundMeBD, Village Grandpa's Cooking, and Fortunate Guest — high-volume channels reaching millions across social platforms.",
+    "I work within a joint ecosystem where a software development company and a video production studio operate under one roof. On the tech side, I work as a Web & App Developer and AI Builder — turning complex product requirements into clean, scalable web platforms and digital products. On the media side, I serve as Post Production Manager, running end-to-end content workflows, narrative structure, and editing systems for AroundMeBD, Village Grandpa's Cooking, and Fortunate Guest — high-volume channels reaching millions across social platforms.",
     "Beyond my primary roles, I founded Choyzenic — a product-focused software company dedicated to AI-driven tools, automation systems, and scalable digital infrastructure. This shift reflects a deliberate long-term strategy: moving from trading time for services toward building proprietary technology assets. Currently, my deepest focus is Choy AI — an agentic AI, cross-platform personal assistant designed to orchestrate productivity, decision-making, and workflow automation intelligently.",
 ];
 
@@ -77,12 +78,13 @@ export const ABOUT_STATS: Stat[] = [
 // ─── Skills ───
 export const SKILL_PANELS: SkillPanel[] = [
     {
-        title: 'Frontend Engineering',
+        title: 'Frontend Development',
         iconName: 'Monitor',
         isPrimary: true,
         skills: [
             'React.js',
             'Next.js (App Router)',
+            'React Native / Expo',
             'TypeScript',
             'JavaScript (ES6+)',
             'Tailwind CSS',
@@ -276,7 +278,7 @@ export const PROJECTS: Project[] = [
 ];
 
 export const PERFORMANCE_METRICS = {
-    title: 'Frontend Performance Results',
+    title: 'Web Performance Results',
     items: [
         '95+ Lighthouse Score',
         'Clean Core Web Vitals',
@@ -299,27 +301,27 @@ export const LATEST_YOUTUBE_VIDEOS = [
 // ─── Experience ───
 export const EXPERIENCE_ENTRIES: ExperienceEntry[] = [
     {
-        title: 'Frontend Developer',
+        title: 'Post-Production Manager',
         company: 'Iqrasys Solutions Limited',
         location: '',
         period: 'September 1, 2019 - Present',
-        body: 'Architecting premium frontend systems with React and Next.js. Delivering high-performance, accessible interfaces.',
+        body: 'Managing end-to-end post-production workflows, from editing systems and narrative structure to final delivery for high-volume video channels.',
         isCurrent: true,
     },
     {
-        title: 'Post Production Manager',
-        company: 'Youtube Village',
+        title: 'Social Media Manager',
+        company: 'YouTube Village',
         location: 'Dhaka, Bangladesh',
         period: '2020 - Present',
         body: 'Managed social media presence and executed video editing tasks to create engaging content and grow online audience.',
         isCurrent: true,
     },
     {
-        title: 'Co-Founder and CEO',
-        company: 'Choyzenic',
+        title: 'Founder and CEO',
+        company: 'Choyzenic & Oegoo LLC',
         location: 'Dhaka, Bangladesh',
         period: 'October 2025 - Present',
-        body: 'Led overall strategic vision, operations, and business growth as the Co-Founder and Chief Executive Officer.',
+        body: 'Leading the vision, strategy, operations, and growth of Choyzenic (since October 2025) and Oegoo LLC (since 2026) as Founder and Chief Executive Officer.',
         isCurrent: true,
     },
     {
@@ -386,7 +388,7 @@ export const EDUCATION_ENTRIES: EducationEntry[] = [
 
 // ─── Contact ───
 export const CONTACT_INTRO =
-    'Currently exploring senior frontend engineering roles and AI product collaborations — particularly within high-growth startups, AI-native companies, and tech hubs in Dubai and beyond.';
+    'Currently exploring senior web & app development roles and AI product collaborations — particularly within high-growth startups, AI-native companies, and tech hubs in Dubai and beyond.';
 
 export const ROLE_OPTIONS: RoleOption[] = [
     { value: '', label: 'Select purpose' },
@@ -413,6 +415,11 @@ export const CONTACT_LINKS: ContactLink[] = [
         label: '/imshanchoynoor',
         href: SITE_METADATA.social.facebook,
         iconName: 'Facebook',
+    },
+    {
+        label: '/shanchoynoor',
+        href: SITE_METADATA.social.instagram,
+        iconName: 'Instagram',
     },
     {
         label: '/shanchoynoor',

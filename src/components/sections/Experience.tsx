@@ -39,7 +39,7 @@ export default function Experience() {
                             <div className="space-y-12 pl-8">
                                 {visibleEntries.map((entry, i) => (
                                     <motion.div
-                                        key={entry.title}
+                                        key={`${entry.company}-${entry.period}`}
                                         variants={fadeUp}
                                         className="relative"
                                     >

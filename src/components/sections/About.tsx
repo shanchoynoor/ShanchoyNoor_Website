@@ -21,7 +21,7 @@ export default function About() {
     const careerTrajectory = [
         [
             { label: 'Business', icon: Briefcase },
-            { label: 'Frontend/Backend', icon: Code },
+            { label: 'Web & App Development', icon: Code },
             { label: 'Trading', icon: TrendingUp }
         ],
         [
