@@ -37,7 +37,7 @@ export default function About() {
     ];
 
     return (
-        <section id="about" className="py-24 px-6 relative overflow-hidden">
+        <section id="about" className="py-16 px-6 relative overflow-hidden">
             {/* Background Decorative Element: Subtle Sensor Ring Fragment */}
             <div className="absolute -right-24 top-1/2 -translate-y-1/2 w-96 h-96 border border-accent-primary/5 rounded-full pointer-events-none">
                 <div className="absolute inset-0 border-t border-accent-primary/10 rounded-full animate-[spin_20s_linear_infinite]" />

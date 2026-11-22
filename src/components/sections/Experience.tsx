@@ -7,12 +7,48 @@ import TechPanel from '@/components/ui/TechPanel';
 import { EXPERIENCE_ENTRIES, EDUCATION_ENTRIES } from '@/lib/constants';
 import { fadeUp, staggerContainer } from '@/lib/animations';
 
+const MONTHS = ['january','february','march','april','may','june','july','august','september','october','november','december'];
+
+function parsePoint(text: string): { year: number; month: number | null } | null {
+    const year = text.match(/\b(19|20)\d{2}\b/);
+    if (!year) return null;
+    const lower = text.toLowerCase();
+    const m = MONTHS.findIndex((name) => lower.includes(name));
+    return { year: Number(year[0]), month: m >= 0 ? m : null };
+}
+
+function getDuration(period: string): string | null {
+    const [startRaw, endRaw] = period.split(/\s+-\s+/);
+    const start = parsePoint(startRaw ?? '');
+    if (!start) return null;
+    const now = new Date();
+    const isPresent = /present/i.test(endRaw ?? '');
+    const end = isPresent
+        ? { year: now.getFullYear(), month: now.getMonth() }
+        : parsePoint(endRaw ?? '');
+    if (!end) return null;
+
+    const precise = start.month !== null && end.month !== null;
+    let months = precise
+        ? (end.year - start.year) * 12 + (end.month! - start.month!)
+        : (end.year - start.year) * 12;
+    if (months < 12 && !precise) months = 12;
+    if (months < 1) months = 1;
+
+    const years = Math.floor(months / 12);
+    const rem = months % 12;
+    const parts: string[] = [];
+    if (years) parts.push(`${years} ${years === 1 ? 'YR' : 'YRS'}`);
+    if (precise && rem) parts.push(`${rem} ${rem === 1 ? 'MO' : 'MOS'}`);
+    return parts.join(' ');
+}
+
 export default function Experience() {
     const [showAllWork, setShowAllWork] = useState(false);
     const visibleEntries = showAllWork ? EXPERIENCE_ENTRIES : EXPERIENCE_ENTRIES.slice(0, 3);
 
     return (
-        <section id="experience" className="py-24 px-6 relative">
+        <section id="experience" className="py-16 px-6 relative">
             <div className="max-w-6xl mx-auto relative z-10">
                 <SectionLabel label="04" title="Mission Logs" />
 
@@ -58,8 +94,15 @@ export default function Experience() {
                                                         {entry.company}
                                                     </p>
                                                 </div>
-                                                <div className="px-2 py-1 bg-bg-surface border border-border-dim font-mono text-[10px] text-text-code whitespace-nowrap self-start xl:self-auto">
-                                                    {entry.period}
+                                                <div className="flex flex-col items-start xl:items-end gap-1 self-start xl:self-auto">
+                                                    <div className="px-2 py-1 bg-bg-surface border border-border-dim font-mono text-[10px] text-text-code whitespace-nowrap">
+                                                        {entry.period}
+                                                    </div>
+                                                    {getDuration(entry.period) && (
+                                                        <span className="font-tech text-[10px] font-bold tracking-widest text-accent-primary">
+                                                            {getDuration(entry.period)} EXPERIENCE
+                                                        </span>
+                                                    )}
                                                 </div>
                                             </div>
 

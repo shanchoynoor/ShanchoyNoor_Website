@@ -10,17 +10,18 @@ const VARIANT_STYLES = {
 } as const;
 
 export default function TechTag({ label, variant = 'default' }: TechTagProps) {
+    const planned = label.includes('(planned)');
     return (
         <span
             className={`
-        inline-block px-3 py-1 
-        font-tech text-[10px] tracking-wider uppercase
-        border ${VARIANT_STYLES[variant]}
+        inline-block px-2 py-0.5 
+        font-tech text-[8px] tracking-wide uppercase
+        border ${VARIANT_STYLES[variant]} ${planned ? 'opacity-50 border-dashed' : ''}
         transition-colors duration-200
         clip-path-slant
       `}
             style={{
-                clipPath: "polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)"
+                clipPath: "polygon(5px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 5px)"
             }}
         >
             {label}

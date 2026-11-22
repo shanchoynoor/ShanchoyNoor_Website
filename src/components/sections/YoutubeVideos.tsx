@@ -81,7 +81,7 @@ function VideoCard({ video, index }: { video: { id: string; title: string }; ind
 
 export default function YoutubeVideos() {
     return (
-        <section id="videos" className="py-24 px-6 relative">
+        <section id="videos" className="py-16 px-6 relative">
             <div className="max-w-6xl mx-auto relative z-10">
                 <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-8 mb-8">
                     <div className="flex-1 max-w-2xl">

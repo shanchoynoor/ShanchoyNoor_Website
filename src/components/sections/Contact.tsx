@@ -105,7 +105,7 @@ export default function Contact() {
     };
 
     return (
-        <section id="contact" className="py-24 px-6 pb-32">
+        <section id="contact" className="py-16 px-6 pb-24">
             <div className="max-w-6xl mx-auto relative z-10">
                 <SectionLabel label="06" title="Initiate Contact" />
 

@@ -17,7 +17,7 @@ const ICON_MAP: Record<string, React.ElementType> = {
 
 export default function Skills() {
     return (
-        <section id="skills" className="py-24 px-6">
+        <section id="skills" className="py-16 px-6">
             <div className="max-w-6xl mx-auto relative z-10">
                 <SectionLabel label="02" title="Technical Skills" />
 

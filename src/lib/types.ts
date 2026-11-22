@@ -24,11 +24,21 @@ export interface Project {
     description: string;
     architectureNote?: string;
     tech: string[];
+    stack?: {
+        frontend: string[];
+        backend: string[];
+        data: string[];
+        ai?: string[];
+        services?: string[];
+    };
     liveUrl?: string;
     githubUrl?: string;
     images?: string[];
+    imageKind?: 'screenshot' | 'design-preview';
+    category: 'web' | 'mobile';
     isFeatured?: boolean;
-    status?: 'ready' | 'in-progress';
+    status?: 'ready' | 'mvp' | 'in-progress';
+    uiStatus?: 'final' | 'in-progress';
 }
 
 export interface ExperienceEntry {

@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Github, X, ChevronLeft, ChevronRight, ImageIcon } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, ImageIcon, Globe, Smartphone } from 'lucide-react';
 import NextImage from 'next/image';
 import SectionLabel from '@/components/ui/SectionLabel';
 import TechPanel from '@/components/ui/TechPanel';
@@ -13,7 +13,31 @@ import { PROJECTS } from '@/lib/constants';
 import { fadeUp, staggerContainer } from '@/lib/animations';
 import type { Project } from '@/lib/types';
 
-function ProjectCard({ project, index, onImageClick }: { project: Project; index: number; onImageClick: (images: string[]) => void }) {
+const STACK_ROWS = [
+    { key: 'frontend', label: 'FRONTEND', variant: 'default' },
+    { key: 'backend', label: 'BACKEND', variant: 'featured' },
+    { key: 'data', label: 'DATABASE', variant: 'default' },
+    { key: 'ai', label: 'AI_SYSTEM', variant: 'ai' },
+    { key: 'services', label: 'SERVICES', variant: 'default' },
+] as const;
+
+const STATUS_META = {
+    ready: { label: 'READY', tone: 'text-green-400', dot: 'bg-green-400' },
+    mvp: { label: 'MVP_LIVE', tone: 'text-green-400', dot: 'bg-green-400' },
+    'in-progress': { label: 'IN_PROGRESS', tone: 'text-accent-warning', dot: 'bg-accent-warning animate-pulse' },
+} as const;
+
+type CategoryKey = Project['category'];
+
+const CATEGORIES: { key: CategoryKey; label: string; Icon: typeof Globe }[] = [
+    { key: 'web', label: 'WEB_APPS', Icon: Globe },
+    { key: 'mobile', label: 'MOBILE_APPS', Icon: Smartphone },
+];
+
+function ProjectCard({ project, index, onImageClick }: { project: Project; index: number; onImageClick: (images: string[], startIndex: number) => void }) {
+    const status = project.status ? STATUS_META[project.status] : null;
+    const isMobile = project.category === 'mobile';
+    const hasImages = !!project.images && project.images.length > 0;
 
     return (
         <TechPanel sysId={`PROJ.0${index + 1}`} className="group relative overflow-hidden h-full flex flex-col">
@@ -39,30 +63,18 @@ function ProjectCard({ project, index, onImageClick }: { project: Project; index
                     </div>
                     <div className="flex items-center gap-2">
                         {project.liveUrl && (
-                            <div className="flex items-center gap-2">
-                                <Button
-                                    variant="primary"
-                                    href={project.status === 'in-progress' ? undefined : project.liveUrl}
-                                    className={`px-3 py-1 text-[9px] ${project.status === 'in-progress' ? 'opacity-40 pointer-events-none' : ''}`}
-                                >
-                                    LIVE_DEMO
-                                </Button>
-                                {project.status && (
-                                    <span className={`font-tech text-[8px] tracking-widest flex items-center gap-1 ${project.status === 'ready'
-                                        ? 'text-green-400'
-                                        : 'text-accent-warning'
-                                        }`}>
-                                        <span className={`inline-block w-1.5 h-1.5 rounded-full ${project.status === 'ready'
-                                            ? 'bg-green-400'
-                                            : 'bg-accent-warning animate-pulse'
-                                            }`} />
-                                        {project.status === 'ready' ? 'READY' : 'IN_PROGRESS'}
-                                    </span>
-                                )}
-                            </div>
+                            <Button variant="primary" href={project.liveUrl} target="_blank" className="px-3 py-1 text-[9px]">
+                                LIVE_DEMO
+                            </Button>
+                        )}
+                        {status && (
+                            <span className={`font-tech text-[8px] tracking-widest flex items-center gap-1 ${status.tone}`}>
+                                <span className={`inline-block w-1.5 h-1.5 rounded-full ${status.dot}`} />
+                                {status.label}
+                            </span>
                         )}
                         {project.githubUrl && (
-                            <Button variant="ghost" href={project.githubUrl} className="px-3 py-1 text-[9px]">
+                            <Button variant="ghost" href={project.githubUrl} target="_blank" className="px-3 py-1 text-[9px]">
                                 SOURCE_CODE
                             </Button>
                         )}
@@ -78,39 +90,94 @@ function ProjectCard({ project, index, onImageClick }: { project: Project; index
                     </span>
                 </div>
 
-                {/* Project Thumbnail */}
-                {project.images && project.images.length > 0 ? (
+                <p className="font-mono text-[11px] leading-relaxed text-text-dim mb-4">
+                    {project.description}
+                </p>
+
+                {/* Project Preview */}
+                {hasImages && isMobile ? (
+                    <div className="relative mb-4 shrink-0">
+                        <div className="flex gap-3 overflow-x-auto pb-2 snap-x scrollbar-thin scrollbar-thumb-accent-primary/30">
+                            {project.images!.map((img, i) => (
+                                <button
+                                    key={img}
+                                    type="button"
+                                    onClick={() => onImageClick(project.images!, i)}
+                                    aria-label={`${project.title} screen ${i + 1}`}
+                                    className="relative h-72 sm:h-80 aspect-[9/19] shrink-0 snap-start rounded-lg overflow-hidden border border-accent-primary/20 hover:border-accent-primary/60 transition-colors cursor-pointer"
+                                >
+                                    <NextImage
+                                        src={img}
+                                        alt={`${project.title} screen ${i + 1}`}
+                                        fill
+                                        sizes="160px"
+                                        loading="lazy"
+                                        className="object-cover object-top"
+                                    />
+                                </button>
+                            ))}
+                        </div>
+                        {project.imageKind === 'design-preview' && (
+                            <span className="absolute top-2 left-2 font-tech text-[8px] tracking-widest text-accent-warning bg-bg-base/80 border border-accent-warning/30 px-2 py-0.5 rounded-sm">
+                                DESIGN_PREVIEW
+                            </span>
+                        )}
+                    </div>
+                ) : hasImages ? (
                     <div
-                        className="relative w-full h-64 sm:h-72 mb-4 rounded-sm overflow-hidden cursor-pointer group/image border border-accent-primary/20 hover:border-accent-primary/50 transition-colors shrink-0"
-                        onClick={() => onImageClick(project.images!)}
+                        className="relative w-full aspect-[2/1] mb-4 rounded-sm overflow-hidden cursor-pointer group/image border border-accent-primary/20 hover:border-accent-primary/50 transition-colors shrink-0"
+                        onClick={() => onImageClick(project.images!, 0)}
                     >
                         <div className="absolute inset-0 bg-accent-primary/10 group-hover/image:bg-transparent transition-colors z-10" />
                         <NextImage
-                            src={project.images[0]}
-                            alt={`${project.title} thumbnail`}
+                            src={project.images![0]}
+                            alt={`${project.title} screenshot`}
                             fill
-                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            sizes="(max-width: 768px) 100vw, 560px"
                             priority={index < 2}
                             loading={index < 2 ? 'eager' : 'lazy'}
-                            className="object-cover group-hover/image:scale-105 transition-transform duration-500"
+                            className="object-cover object-top group-hover/image:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute top-2 right-2 bg-bg-base/80 backdrop-blur-sm border border-accent-primary/30 p-1.5 rounded-sm z-20 flex items-center gap-1.5">
                             <ImageIcon className="w-3 h-3 text-accent-primary" />
-                            <span className="font-tech text-[8px] text-accent-primary">{project.images.length}</span>
+                            <span className="font-tech text-[8px] text-accent-primary">{project.images!.length}</span>
                         </div>
                     </div>
                 ) : (
-                    <div className="w-full h-48 mb-4 rounded-sm border border-accent-primary/10 bg-accent-primary/5 flex items-center justify-center flex-col gap-2">
+                    <div className="w-full h-48 mb-4 rounded-sm border border-dashed border-accent-primary/20 bg-accent-primary/5 flex items-center justify-center flex-col gap-2 shrink-0">
                         <ImageIcon className="w-6 h-6 text-text-dim opacity-50" />
-                        <span className="font-tech text-[10px] tracking-widest text-text-dim opacity-50">NO_IMAGE_DATA</span>
+                        <span className="font-tech text-[10px] tracking-widest text-text-dim opacity-70">FINAL_UI_IN_PROGRESS</span>
                     </div>
                 )}
 
+                {project.uiStatus === 'in-progress' && hasImages && (
+                    <div className="font-tech text-[9px] tracking-widest text-accent-warning mb-3 flex items-center gap-2">
+                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent-warning animate-pulse" />
+                        FINAL_UI_IN_PROGRESS
+                    </div>
+                )}
 
-                <div className="flex flex-wrap gap-2 mb-2 mt-auto">
-                    {project.tech.map((t) => (
-                        <TechTag key={t} label={t} variant={project.isFeatured ? 'featured' : 'default'} />
-                    ))}
+                <div className="mt-auto space-y-1.5 mb-2">
+                    {project.stack ? (
+                        STACK_ROWS.filter((row) => project.stack![row.key]?.length).map((row) => (
+                            <div key={row.key} className="flex items-start gap-2">
+                                <span className="font-tech text-[7px] tracking-widest text-text-dim w-14 shrink-0 pt-1">
+                                    {row.label}
+                                </span>
+                                <div className="flex flex-wrap gap-1">
+                                    {project.stack![row.key]!.map((t) => (
+                                        <TechTag key={t} label={t} variant={row.variant} />
+                                    ))}
+                                </div>
+                            </div>
+                        ))
+                    ) : (
+                        <div className="flex flex-wrap gap-1">
+                            {project.tech.map((t) => (
+                                <TechTag key={t} label={t} variant={project.isFeatured ? 'featured' : 'default'} />
+                            ))}
+                        </div>
+                    )}
                 </div>
             </div>
         </TechPanel>
@@ -118,7 +185,7 @@ function ProjectCard({ project, index, onImageClick }: { project: Project; index
 }
 
 export default function Projects() {
-    const [showAll, setShowAll] = useState(false);
+    const [category, setCategory] = useState<CategoryKey>('web');
     const [gallery, setGallery] = useState<{ images: string[], currentIndex: number } | null>(null);
 
     // Lock body scroll when gallery is open
@@ -131,8 +198,8 @@ export default function Projects() {
         return () => { document.body.style.overflow = 'unset'; };
     }, [gallery]);
 
-    const handleImageClick = (images: string[]) => {
-        setGallery({ images, currentIndex: 0 });
+    const handleImageClick = (images: string[], startIndex: number) => {
+        setGallery({ images, currentIndex: startIndex });
     };
 
     const nextImage = () => {
@@ -153,68 +220,50 @@ export default function Projects() {
         }
     };
 
-    // Determine how many projects to display
-    const displayedProjects = showAll ? PROJECTS : PROJECTS.slice(0, 4);
+    const displayedProjects = PROJECTS.filter((p) => p.category === category);
 
     return (
-        <section id="projects" className="py-24 px-6">
+        <section id="projects" className="py-16 px-6">
             <div className="max-w-6xl mx-auto relative z-10">
                 <SectionLabel label="03" title="Recent Projects" />
 
+                <div role="tablist" aria-label="Project categories" className="flex flex-wrap gap-3 mb-10">
+                    {CATEGORIES.map(({ key, label, Icon }) => {
+                        const count = PROJECTS.filter((p) => p.category === key).length;
+                        const active = category === key;
+                        return (
+                            <button
+                                key={key}
+                                role="tab"
+                                aria-selected={active}
+                                type="button"
+                                onClick={() => setCategory(key)}
+                                className={`flex items-center gap-2 px-5 py-2.5 font-tech text-xs font-bold tracking-widest uppercase border transition-all duration-300 ${active
+                                    ? 'bg-accent-primary/10 text-accent-primary border-accent-primary shadow-[0_0_20px_rgba(0,240,255,0.2)]'
+                                    : 'text-text-dim border-border-dim hover:text-text-bright hover:border-text-dim'
+                                    }`}
+                            >
+                                <Icon size={14} />
+                                {label}
+                                <span className="text-[10px] opacity-70">[{count}]</span>
+                            </button>
+                        );
+                    })}
+                </div>
+
                 <motion.div
+                    key={category}
                     className="grid md:grid-cols-2 gap-8 mb-12"
                     initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true }}
+                    animate="show"
                     variants={staggerContainer}
                 >
-                    <AnimatePresence mode="popLayout">
-                        {displayedProjects.map((project, index) => (
-                            <motion.div
-                                key={project.title}
-                                variants={fadeUp}
-                                layout
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, scale: 0.95 }}
-                                transition={{ duration: 0.3 }}
-                            >
-                                <ProjectCard project={project} index={index} onImageClick={handleImageClick} />
-                            </motion.div>
-                        ))}
-                    </AnimatePresence>
+                    {displayedProjects.map((project, index) => (
+                        <motion.div key={project.title} variants={fadeUp}>
+                            <ProjectCard project={project} index={index} onImageClick={handleImageClick} />
+                        </motion.div>
+                    ))}
                 </motion.div>
-
-                {PROJECTS.length > 4 && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        className="flex justify-center"
-                    >
-                        <Button
-                            variant="primary"
-                            onClick={() => {
-                                if (showAll) {
-                                    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-                                }
-                                setShowAll(!showAll);
-                            }}
-                            className="px-8 py-3 group"
-                        >
-                            <span className="flex items-center gap-2">
-                                {showAll ? 'SHOW LESS' : 'LOAD MORE_'}
-                                <motion.span
-                                    animate={{ y: showAll ? -2 : 2 }}
-                                    transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
-                                    className="inline-block"
-                                >
-                                    {showAll ? '↑' : '↓'}
-                                </motion.span>
-                            </span>
-                        </Button>
-                    </motion.div>
-                )}
 
                 {/* Lightbox Gallery Modal */}
                 <AnimatePresence>

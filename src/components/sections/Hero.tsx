@@ -8,6 +8,45 @@ import Button from '@/components/ui/Button';
 import NextImage from 'next/image';
 import { SITE_METADATA } from '@/lib/constants';
 
+const WORKING_ON = [
+    {
+        name: 'ChoyAI_Personal AI Assistant',
+        detail: 'Agentic AI // Specialist Chat Personas // Long-term Memory // Web + Mobile',
+        role: 'Choyzenic // Founder',
+        status: 'IN_PROGRESS',
+    },
+    {
+        name: 'ChoyArc_Life & Work Productivity',
+        detail: 'Tasks // Projects // Goals // Finance // AI Copilot // Offline-first',
+        role: 'Choyzenic // Founder',
+        status: 'IN_PROGRESS',
+    },
+    {
+        name: 'ChoyCraft_AI Content Studio',
+        detail: 'Text // Image // Video // Audio // 50+ Models // Single Subscription',
+        role: 'Choyzenic // Founder',
+        status: 'MVP_READY',
+    },
+    {
+        name: 'ChoyNet_Professional Network',
+        detail: 'Map-based Profiles // Skills & Availability // Location-first Connections',
+        role: 'Choyzenic // Founder',
+        status: 'IN_PROGRESS',
+    },
+    {
+        name: 'Lookergo_Local Marketplace',
+        detail: 'To-Let // Books // Services // Used Items // Ranked by Distance',
+        role: 'Oegoo LLC // Founder',
+        status: 'IN_PROGRESS',
+    },
+    {
+        name: 'CallingIP_Calling & Utility App',
+        detail: 'IP Calls // Chat // Stories // Wallet // Prayer Times // For Global Migrants',
+        role: 'Co-founder',
+        status: 'IN_PROGRESS',
+    },
+];
+
 export default function Hero() {
     const [stars, setStars] = useState<{ id: number; x: number; y: number; size: number; duration: number }[]>([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -246,7 +285,7 @@ export default function Hero() {
                                     transition={{ delay: 1.8 }}
                                     className="font-tech text-lg md:text-xl text-accent-primary leading-snug uppercase tracking-tight max-w-2xl"
                                 >
-                                    &gt; I build fast, accessible, and scalable web and app systems — with the architectural depth to take them all the way to production.
+                                    &gt; I build solid solutions for web apps, mobile apps, and AI-integrated apps and systems, with the architectural depth to take them all the way to production.
                                 </motion.h2>
                                 <motion.p
                                     initial={{ opacity: 0 }}
@@ -282,7 +321,7 @@ export default function Hero() {
                         >
                             <div className="flex justify-between items-center border-b border-white/5 pb-2">
                                 <span className="font-tech text-[10px] text-accent-secondary">WORKING_ON</span>
-                                <span className="font-tech text-[9px] text-text-bright/40">ACTIVE_SPRINT: 2026.03</span>
+                                <span className="font-tech text-[9px] text-text-bright/40">ACTIVE_SPRINT: 2026.11</span>
                             </div>
 
                             <div
@@ -291,50 +330,17 @@ export default function Hero() {
                             >
                                 {/* Project Metadata */}
                                 <div className="space-y-6">
-                                    <div className="space-y-1">
-                                        <div className="flex justify-between items-center text-[9px] uppercase tracking-widest text-text-dim">
-                                            <span className="text-accent-primary">[PROJECT.01]</span>
-                                            <span className="text-accent-primary/60">MVP_READY</span>
+                                    {WORKING_ON.map((project, i) => (
+                                        <div key={project.name} className="space-y-1">
+                                            <div className="flex justify-between items-center text-[9px] uppercase tracking-widest text-text-dim">
+                                                <span className="text-accent-primary">[PROJECT.0{i + 1}]</span>
+                                                <span className="text-accent-primary/60">{project.status}</span>
+                                            </div>
+                                            <p className="font-display text-sm text-text-bright leading-tight">{project.name}</p>
+                                            <p className="font-tech text-[8px] text-text-bright/50 tracking-wide uppercase">{project.detail}</p>
+                                            <p className="font-tech text-[8px] text-accent-secondary/80 tracking-wide uppercase">{project.role}</p>
                                         </div>
-                                        <p className="font-display text-sm text-text-bright leading-tight">ChoyCraft_AI Content Generation</p>
-                                        <p className="font-tech text-[8px] text-text-bright/50 tracking-wide uppercase">Multi-modal AI Generation Suite // Single Subscription</p>
-                                    </div>
-
-                                    <div className="space-y-1">
-                                        <div className="flex justify-between items-center text-[9px] uppercase tracking-widest text-text-dim">
-                                            <span className="text-accent-primary">[PROJECT.02]</span>
-                                            <span className="text-accent-primary/60">MVP_READY</span>
-                                        </div>
-                                        <p className="font-display text-sm text-text-bright leading-tight">ChoyBlog_Automation</p>
-                                        <p className="font-tech text-[8px] text-text-bright/50 tracking-wide uppercase">WP-Plugin // AI Writing // Scheduling // Cover Images</p>
-                                    </div>
-
-                                    <div className="space-y-1">
-                                        <div className="flex justify-between items-center text-[9px] uppercase tracking-widest text-text-dim">
-                                            <span className="text-accent-primary">[PROJECT.03]</span>
-                                            <span className="text-accent-primary/40">IN_PROGRESS</span>
-                                        </div>
-                                        <p className="font-display text-sm text-text-bright leading-tight">ChoyAI_Personal AI Assistant</p>
-                                        <p className="font-tech text-[8px] text-text-bright/50 tracking-wide uppercase">Personal Agentic AI // Task Automation // Companion AI </p>
-                                    </div>
-
-                                    <div className="space-y-1">
-                                        <div className="flex justify-between items-center text-[9px] uppercase tracking-widest text-text-dim">
-                                            <span className="text-accent-primary">[PROJECT.04]</span>
-                                            <span className="text-accent-primary/40">STARTED</span>
-                                        </div>
-                                        <p className="font-display text-sm text-text-bright leading-tight">ChoyNet_Social Media</p>
-                                        <p className="font-tech text-[8px] text-text-bright/50 tracking-wide uppercase">Social for Professionals // Productivity Focused</p>
-                                    </div>
-
-                                    <div className="space-y-1">
-                                        <div className="flex justify-between items-center text-[9px] uppercase tracking-widest text-text-dim">
-                                            <span className="text-accent-primary">[PROJECT.05]</span>
-                                            <span className="text-accent-primary/40">PLANNING</span>
-                                        </div>
-                                        <p className="font-display text-sm text-text-bright leading-tight">ChoyFlow_Business Automation</p>
-                                        <p className="font-tech text-[8px] text-text-bright/50 tracking-wide uppercase">CRM/ERP // Lead Gen // Marketing & Sales</p>
-                                    </div>
+                                    ))}
                                 </div>
 
                                 {/* Console Box */}
