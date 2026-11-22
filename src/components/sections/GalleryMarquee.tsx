@@ -5,7 +5,7 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const p = (n: string) => `/images/${n}`;
 const ROW_ONE = ['gallery-01.webp', 'gallery-04.webp', 'gallery-02.webp', 'gallery-03.webp', 'gallery-05.webp', 'gallery-12.webp', 'gallery-07.webp', 'gallery-08.webp', 'gallery-09.webp', 'gallery-14.webp', 'gallery-10.webp', 'gallery-11.webp', 'gallery-16.webp', 'gallery-18.webp', 'gallery-17.webp', 'gallery-30.webp', 'gallery-31.webp', 'gallery-32.webp', 'gallery-33.webp', 'gallery-34.webp', 'gallery-35.webp', 'gallery-36.webp', 'gallery-37.webp'].map(p);
-const ROW_TWO = ['gallery-20.webp', 'gallery-06.webp', 'gallery-21.webp', 'gallery-22.webp', 'gallery-23.webp', 'gallery-13.webp', 'gallery-24.webp', 'gallery-25.webp', 'gallery-15.webp', 'gallery-26.webp', 'gallery-27.webp', 'gallery-28.webp', 'gallery-19.webp', 'gallery-29.webp', 'gallery-38.webp', 'gallery-39.webp', 'gallery-40.webp', 'gallery-41.webp', 'gallery-42.webp', 'gallery-43.webp', 'gallery-44.webp', 'gallery-45.webp'].map(p);
+const ROW_TWO = ['gallery-20.webp', 'gallery-06.webp', 'gallery-21.webp', 'gallery-22.webp', 'gallery-23.webp', 'gallery-13.webp', 'gallery-24.webp', 'gallery-25.webp', 'gallery-15.webp', 'gallery-26.webp', 'gallery-27.webp', 'gallery-28.webp', 'gallery-19.webp', 'gallery-29.webp', 'gallery-38.webp', 'gallery-39.webp', 'gallery-40.webp', 'gallery-41.webp', 'gallery-42.webp', 'gallery-43.webp'].map(p);
 const VERTICAL = new Set(['gallery-04.webp', 'gallery-06.webp', 'gallery-12.webp', 'gallery-13.webp', 'gallery-14.webp', 'gallery-15.webp', 'gallery-18.webp', 'gallery-19.webp', 'gallery-31.webp', 'gallery-35.webp'].map(p));
 const IMAGES = [...ROW_ONE, ...ROW_TWO];
 const COUNT = IMAGES.length;
