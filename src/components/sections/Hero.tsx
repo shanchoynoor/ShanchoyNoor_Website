@@ -212,7 +212,7 @@ export default function Hero() {
                                             transition={{ delay: 1.4 }}
                                             className="font-tech text-accent-primary tracking-[0.2em] font-medium uppercase text-[13px]"
                                         >
-                                            WEB & APP DEVELOPER · AI BUILDER
+                                            WEB & APP DEVELOPER · ENTREPRENEUR
                                         </motion.p>
                                         <motion.div
                                             initial={{ opacity: 0 }}
